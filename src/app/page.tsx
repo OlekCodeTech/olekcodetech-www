@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 };
 
 const featuredTitles = [
+  "IJK Transport – Krzysztof Maślanka",
+  "DS Paliwa",
+  "SZYJA Hair Academy",
   "RAV - Sklep elektryczny",
   "Marsol Developer",
-  "WTA Perfekt",
   "CRM E-Numerika Biuro Księgowe",
-  "Syguła Meble | Meble tapicerowane",
-  "Restauracja Incognito",
 ];
 
 export default function HomePage() {
