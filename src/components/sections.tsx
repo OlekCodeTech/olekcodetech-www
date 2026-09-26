@@ -126,7 +126,7 @@ export function AboutTeaser() {
             ]}
           />
           <Button href="/o-nas/" variant="outline" className="mt-8">
-            Poznaj nas bliżej
+            Poznaj mnie bliżej
             <ArrowRight className="h-4 w-4" />
           </Button>
         </Reveal>
@@ -134,13 +134,17 @@ export function AboutTeaser() {
           <div className="relative">
             <div aria-hidden className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-cyan/10 blur-2xl" />
             <Image
-              src="/images/hero/OlekCodeTech-serwerowania.webp"
-              alt="Infrastruktura serwerowa – opieka IT OlekCodeTech"
-              width={738}
-              height={810}
-              sizes="(min-width: 1024px) 560px, 90vw"
-              className="h-auto w-full rounded-[2rem] border border-line/70 object-cover"
+              src="/images/piotr-olek.webp"
+              alt="Piotr Olek – założyciel OlekCodeTech"
+              width={385}
+              height={500}
+              sizes="(min-width: 1024px) 480px, 90vw"
+              className="mx-auto h-auto w-full max-w-md rounded-[2rem] border border-line/70 object-cover"
             />
+            <div className="absolute bottom-5 left-1/2 w-[calc(100%-2.5rem)] max-w-[22rem] -translate-x-1/2 rounded-2xl border border-line bg-ink/85 px-5 py-4 backdrop-blur">
+              <p className="font-display font-semibold text-snow">Piotr Olek</p>
+              <p className="text-sm text-muted">Założyciel OlekCodeTech · inżynier web i integracji</p>
+            </div>
           </div>
         </Reveal>
       </Container>

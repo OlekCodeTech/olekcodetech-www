@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import Founder from "@/components/Founder";
 import PageHero from "@/components/PageHero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import Reveal from "@/components/Reveal";
@@ -70,6 +71,8 @@ export default function AboutPage() {
           </Reveal>
         </Container>
       </section>
+
+      <Founder />
 
       <KeywordMarquee />
 
