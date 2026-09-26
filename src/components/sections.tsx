@@ -9,6 +9,7 @@ import CountUp from "./CountUp";
 import ServiceIcon from "./ServiceIcon";
 import PostCard from "./PostCard";
 import type { Post } from "@/lib/posts";
+import VideoPlayer from "./VideoPlayer";
 
 /* ---------- Pasek słów kluczowych ---------- */
 const words = ["strategie", "automatyzacje", "systemy", "integracje", "seo", "opieka it", "rozwój", "wsparcie"];
@@ -202,13 +203,17 @@ export function BlogTeaser({ posts, title = "Wiedza, technologia i praktyka IT",
 }
 
 /* ---------- CTA ---------- */
-export function CtaBand({ title, text, cta = "Skontaktuj się z nami" }: { title?: React.ReactNode; text?: string; cta?: string }) {
+export function CtaBand({ title, text, cta = "Skontaktuj się z nami", video = true }: { title?: React.ReactNode; text?: string; cta?: string; video?: boolean }) {
   return (
     <section className="py-16 lg:py-24">
       <Container>
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan/30 bg-ink-2 px-6 py-14 text-center sm:px-12 lg:py-20">
-            <div aria-hidden className="absolute -top-40 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-cyan/15 blur-[120px]" />
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-cyan/30 bg-ink-2 px-6 py-14 text-center sm:px-12 lg:py-24">
+            {video ? (
+              <VideoPlayer mp4="/video/cta-720.mp4" poster="/video/cta-poster.webp" controls={false} overlay className="absolute inset-0" label="Animacja tła" />
+            ) : (
+              <div aria-hidden className="absolute -top-40 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-cyan/15 blur-[120px]" />
+            )}
             <div className="relative mx-auto max-w-3xl">
               <Eyebrow className="mb-5 justify-center">Umów bezpłatną konsultację</Eyebrow>
               <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">

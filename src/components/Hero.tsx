@@ -1,88 +1,68 @@
-import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { Button, Container } from "./ui";
-import Reveal from "./Reveal";
+import Link from "next/link";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { Container } from "./ui";
+import VideoPlayer from "./VideoPlayer";
 
-const chips = ["Strony WWW", "Sklepy internetowe", "Aplikacje web", "Automatyzacje", "SEO", "Opieka IT"];
+const proof = [
+  { value: "50+", label: "zrealizowanych projektów" },
+  { value: "7+", label: "lat doświadczenia" },
+  { value: "98%", label: "zadowolonych klientów" },
+];
 
+/** Hero w stylu Apple: duży, wyśrodkowany nagłówek + showreel w „ramce ekranu”. */
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
-      <div aria-hidden className="absolute -top-48 left-1/2 -z-10 h-[640px] w-[960px] -translate-x-1/2 rounded-full bg-cyan/10 blur-[150px]" />
-      <div aria-hidden className="absolute right-[-10%] top-1/3 -z-10 h-[420px] w-[420px] rounded-full bg-cyan/5 blur-[120px]" />
+      <div aria-hidden className="absolute left-1/2 top-[-20%] -z-10 h-[70vh] w-[120vw] -translate-x-1/2 rounded-[100%] bg-cyan/10 blur-[160px]" />
 
-      <Container className="grid items-center gap-14 py-14 lg:grid-cols-12 lg:py-24">
-        <div className="lg:col-span-6">
-          <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-pill border border-line bg-ink-2/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan">
-              <Sparkles className="h-3.5 w-3.5" />
-              Partner technologiczny dla firm
-            </p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="mt-6 text-balance text-4xl leading-[1.05] sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
-              Strony internetowe, automatyzacje i&nbsp;obsługa IT <span className="text-cyan">dla firm</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-body">
-              Projektujemy strony i sklepy, które sprzedają, automatyzujemy powtarzalną pracę i dbamy o systemy IT na co dzień.
-              Jeden zespół od analizy po stałą opiekę – dla firm z całej Polski.
-            </p>
-          </Reveal>
-          <Reveal delay={240}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/oferta/" size="lg">
-                Sprawdź naszą ofertę
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button href="/kontakt/" variant="outline" size="lg">
-                Bezpłatna konsultacja
-              </Button>
-            </div>
-          </Reveal>
-          <Reveal delay={320}>
-            <ul className="mt-10 flex flex-wrap gap-2">
-              {chips.map((c) => (
-                <li key={c} className="rounded-pill border border-line/80 px-3.5 py-1.5 text-sm text-body">
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+      <Container className="flex flex-col items-center pt-16 text-center sm:pt-24 lg:pt-28">
+        <p className="hero-in inline-flex items-center gap-2 rounded-pill border border-line/80 bg-ink-2/60 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan sm:text-xs">
+          Strony · Sklepy · Automatyzacje · IT
+        </p>
+
+        <h1 className="hero-in mt-7 max-w-5xl text-balance text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]" style={{ animationDelay: "80ms" }}>
+          Technologia, która
+          <br />
+          <span className="bg-gradient-to-r from-cyan via-[#9ff] to-snow bg-clip-text text-transparent">pracuje na Twój wynik.</span>
+        </h1>
+
+        <p className="hero-in mt-7 max-w-2xl text-lg leading-relaxed text-body sm:text-xl" style={{ animationDelay: "160ms" }}>
+          Strony internetowe, sklepy i aplikacje, automatyzacje procesów oraz stała opieka IT. Jeden zespół, od analizy po wdrożenie – dla firm z całej Polski.
+        </p>
+
+        <div className="hero-in mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-4" style={{ animationDelay: "240ms" }}>
+          <Link
+            href="/kontakt/"
+            className="inline-flex items-center gap-2 rounded-pill bg-cyan px-7 py-3.5 font-display text-base font-semibold text-ink transition hover:bg-cyan-2 hover:shadow-glow"
+          >
+            Bezpłatna konsultacja
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link href="/oferta/" className="inline-flex items-center gap-1 font-display text-base font-semibold text-cyan transition hover:text-cyan-2">
+            Zobacz ofertę
+            <ChevronRight className="h-4 w-4" />
+          </Link>
         </div>
 
-        <div className="relative lg:col-span-6">
-          <Reveal delay={120} className="relative mx-auto max-w-[560px]">
-            <div aria-hidden className="absolute inset-0 -z-10 rounded-[2.5rem] bg-cyan/15 blur-3xl" />
-            <div className="float-slow overflow-hidden rounded-[2rem] border border-line/70 shadow-2xl">
-              <Image
-                src="/images/hero/OlekCodeTech-Mockup-.webp"
-                alt="Realizacje OlekCodeTech na ekranach telefonów"
-                width={873}
-                height={1065}
-                priority
-                sizes="(min-width: 1024px) 560px, 90vw"
-                className="h-auto w-full"
-              />
-            </div>
-            <div className="float-slower absolute -bottom-8 -left-6 hidden w-[46%] overflow-hidden rounded-3xl border border-line/70 shadow-2xl sm:block lg:-left-12">
-              <Image
-                src="/images/hero/OlekCodeTech-Dasch.webp"
-                alt="Panel analityczny zaprojektowany przez OlekCodeTech"
-                width={738}
-                height={810}
-                sizes="260px"
-                className="h-auto w-full"
-              />
-            </div>
-            <div className="absolute -right-4 top-8 hidden rounded-2xl border border-line bg-ink-2/90 px-4 py-3 shadow-xl backdrop-blur sm:block lg:-right-8">
-              <p className="font-display text-2xl font-semibold text-snow">50+</p>
-              <p className="text-xs text-muted">zrealizowanych projektów</p>
-            </div>
-          </Reveal>
+        <div className="hero-in relative mt-16 w-full max-w-6xl sm:mt-20" style={{ animationDelay: "360ms" }}>
+          <div aria-hidden className="absolute -inset-6 -z-10 rounded-[3rem] bg-cyan/15 blur-3xl sm:-inset-10" />
+          <VideoPlayer
+            mp4="/video/hero-720.mp4"
+            poster="/video/hero-poster.webp"
+            className="aspect-video rounded-2xl border border-line/80 shadow-[0_40px_120px_-40px_rgba(8,251,250,0.35)] sm:rounded-[2rem]"
+            label="Showreel realizacji OlekCodeTech"
+          />
         </div>
+
+        <ul className="hero-in mt-12 flex flex-wrap justify-center gap-x-12 gap-y-6 sm:mt-16" style={{ animationDelay: "480ms" }}>
+          {proof.map((p) => (
+            <li key={p.label} className="text-center">
+              <p className="font-display text-3xl font-semibold text-snow sm:text-4xl">{p.value}</p>
+              <p className="mt-1 text-sm text-muted">{p.label}</p>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

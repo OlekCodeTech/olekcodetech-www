@@ -22,6 +22,7 @@ Zmienne środowiskowe: patrz `.env.example` (skopiuj do `.env.local`).
 content/posts/*.md        wpisy bloga (frontmatter: title, date, updated, categories, excerpt, image)
 content/pages/*.md        polityka prywatności
 public/images/            grafiki (WebP), logo
+public/video/             showreel hero (hero-720.mp4, 2 MB) i animacja tła CTA (cta-720.mp4, 1 MB) + postery WebP
 public/.htaccess          przekierowania + cache dla hostingu Apache/LiteSpeed
 src/app/                  strony (App Router)
 src/components/           Header, Footer, Hero, sekcje, formularz, baner cookies
@@ -51,6 +52,12 @@ scripts/                  import wpisów z WP REST, optymalizacja obrazów (shar
 3. `npm run build` i wgraj `out/`.
 
 Kategorie i ich slugi są w `src/lib/posts.ts` (stała `categories`).
+
+## Wideo
+
+Oba filmy pochodzą ze starej strony (`final-comp.mp4` 41 MB i animacja obwodów) i zostały przekodowane ffmpeg-iem do lekkich wersji bez dźwięku
+(H.264, 720p, CRF 27–28; hero od 3. sekundy, 26 s pętli; w animacji CTA wycięty znak wodny). Odtwarzają się automatycznie bez dźwięku,
+pauzują poza ekranem i nie startują przy `prefers-reduced-motion`. Komponent: `src/components/VideoPlayer.tsx`.
 
 ## Formularz kontaktowy i newsletter
 

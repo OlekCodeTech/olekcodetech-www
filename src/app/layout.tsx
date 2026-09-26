@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Manrope, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pl_PL",
     siteName: site.name,
-    images: [{ url: "/images/hero/OlekCodeTech-Mockup-.webp", width: 873, height: 1065, alt: "Realizacje OlekCodeTech" }],
+    images: [{ url: "/video/hero-poster.webp", width: 1600, height: 900, alt: "Realizacje OlekCodeTech" }],
   },
   twitter: { card: "summary_large_image" },
   robots: noindex ? { index: false, follow: false } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
@@ -35,7 +36,7 @@ const orgJsonLd = {
   legalName: site.legalName,
   url: siteUrl,
   logo: `${siteUrl}/images/logo.webp`,
-  image: `${siteUrl}/images/hero/OlekCodeTech-Mockup-.webp`,
+  image: `${siteUrl}/video/hero-poster.webp`,
   description: site.description,
   telephone: site.phone,
   email: site.email,
@@ -57,7 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="pl" className={`${manrope.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-ink text-body">
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <Script id="js-class" strategy="beforeInteractive">{`document.documentElement.classList.add('js')`}</Script>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-pill focus:bg-cyan focus:px-4 focus:py-2 focus:text-ink"

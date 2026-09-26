@@ -84,6 +84,14 @@ html.js .reveal.is-visible {
   animation-play-state: paused;
 }
 
+/* Wejście elementów hero przy załadowaniu */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-in { animation: heroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) { .hero-in { animation: none; } }
+
 /* Pływające mockupy w hero */
 @keyframes floatY {
   0%, 100% { transform: translateY(0); }

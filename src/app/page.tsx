@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { AboutTeaser, BlogTeaser, CtaBand, KeywordMarquee, Process, ServicesGrid, StatsBand } from "@/components/sections";
+import { FeatureTiles, ShowcaseTile, Statement } from "@/components/home";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { portfolio } from "@/data/portfolio";
 import { site } from "@/data/site";
@@ -30,20 +31,24 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <KeywordMarquee />
+      <Statement />
+      <ShowcaseTile />
+      <FeatureTiles />
 
-      <section className="py-16 lg:py-24">
+      <section className="py-24 sm:py-32">
         <Container>
           <SectionHeading
             eyebrow="Kompleksowe podejście do IT"
             title="Kompleksowe usługi IT dla firm"
             lead="Od strony internetowej, przez automatyzacje i integracje, po stałą opiekę IT. Wybierz obszar, który chcesz uporządkować – albo oddaj nam całość."
-            className="mb-12"
+            align="center"
+            className="mb-14"
           />
           <ServicesGrid />
         </Container>
       </section>
 
+      <KeywordMarquee />
       <StatsBand />
 
       <section className="py-16 lg:py-24">

@@ -57,8 +57,8 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-[15px] font-medium text-body transition hover:text-snow",
-                      isActive(item.href) && "text-snow",
+                      "inline-flex items-center gap-1 rounded-pill px-4 py-2 font-display text-[15px] font-medium transition hover:text-snow",
+                      isActive(item.href) ? "text-snow" : "text-body",
                     )}
                   >
                     {item.label}
@@ -91,8 +91,8 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "inline-flex rounded-pill px-4 py-2 font-display text-[15px] font-medium text-body transition hover:text-snow",
-                      isActive(item.href) && "text-snow",
+                      "inline-flex rounded-pill px-4 py-2 font-display text-[15px] font-medium transition hover:text-snow",
+                      isActive(item.href) ? "text-snow" : "text-body",
                     )}
                   >
                     {item.label}
@@ -133,7 +133,7 @@ export default function Header() {
       <div
         id="mobile-menu"
         className={cn(
-          "fixed inset-x-0 bottom-0 top-[76px] z-40 overflow-y-auto bg-ink transition-all duration-300 lg:hidden",
+          "fixed inset-x-0 top-[76px] z-40 h-[calc(100dvh-76px)] overflow-y-auto bg-ink transition-all duration-300 lg:hidden",
           open ? "visible opacity-100" : "invisible opacity-0",
         )}
       >
@@ -145,7 +145,7 @@ export default function Header() {
                   <div className="flex items-center">
                     <Link
                       href={item.href}
-                      className={cn("flex-1 py-3 font-display text-2xl font-semibold text-snow", isActive(item.href) && "text-cyan")}
+                      className={cn("flex-1 py-3 font-display text-2xl font-semibold", isActive(item.href) ? "text-cyan" : "text-snow")}
                     >
                       {item.label}
                     </Link>
@@ -162,7 +162,7 @@ export default function Header() {
                   <ul className={cn("space-y-1 overflow-hidden pl-4 transition-all", subOpen ? "max-h-[600px] py-2" : "max-h-0")}>
                     {item.children.map((c) => (
                       <li key={c.href}>
-                        <Link href={c.href} className={cn("block py-2 font-display text-lg text-body", isActive(c.href) && "text-cyan")}>
+                        <Link href={c.href} className={cn("block py-2 font-display text-lg", isActive(c.href) ? "text-cyan" : "text-body")}>
                           {c.label}
                         </Link>
                       </li>
@@ -171,7 +171,7 @@ export default function Header() {
                 </li>
               ) : (
                 <li key={item.href}>
-                  <Link href={item.href} className={cn("block py-3 font-display text-2xl font-semibold text-snow", isActive(item.href) && "text-cyan")}>
+                  <Link href={item.href} className={cn("block py-3 font-display text-2xl font-semibold", isActive(item.href) ? "text-cyan" : "text-snow")}>
                     {item.label}
                   </Link>
                 </li>
