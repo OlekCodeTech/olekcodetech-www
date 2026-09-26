@@ -15,7 +15,7 @@ export const portfolioTypes: Record<PortfolioType, string> = {
 };
 
 export const portfolio: PortfolioItem[] = [
-  { title: "IJK Transport – Krzysztof Maślanka", type: "sklep", tags: "Landing page + sklep z merchem (koszulki, kubki) · WooCommerce", url: "https://msnadruki.pl/ijk/", image: "/images/portfolio/IJK-Transport.webp" },
+  { title: "IJK Transport – Krzysztof Maślanka", type: "sklep", tags: "Landing page + sklep z merchem (koszulki, kubki) · WooCommerce", url: "https://ijkmaslanka.pl/", image: "/images/portfolio/IJK-Transport.webp" },
   { title: "DS Paliwa", type: "strona", tags: "Strona Internetowa · aktualne ceny paliw · oferta hurtowa", url: "https://www.dspaliwa.wielun.pl/", image: "/images/portfolio/DS-Paliwa.webp" },
   { title: "SZYJA Hair Academy", type: "sklep", tags: "Sklep Internetowy · salon fryzjerski i akademia koloryzacji, Wrocław", url: "https://szyjahairacademy.pl/", image: "/images/portfolio/Szyja-Hair-Academy.webp" },
   { title: "RAV - Sklep elektryczny", type: "sklep", tags: "Sklep internetowy · API magazynu zewnętrznego zintegrowane ze stroną · Custom wtyczki WP", url: "https://sklep.ravsystems.pl", image: "/images/portfolio/Projekt-bez-nazwy-2026-07-02T121552.927.webp" },
