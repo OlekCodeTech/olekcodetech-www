@@ -184,7 +184,7 @@ function smtp_send(array $smtp, string $from, string $to, string $subject, array
 try {
     if ($config['dry_run']) {
         // tryb testowy – nic nie wysyłamy
-    } elseif (is_array($config['smtp']) && !empty($config['smtp']['host'])) {
+    } elseif (is_array($config['smtp']) && !empty($config['smtp']['host']) && !empty($config['smtp']['pass'])) {
         smtp_send($config['smtp'], $config['from'], $config['to'], $encSubject, $headers, $encodedBody);
     } else {
         $ok = mail($config['to'], $encSubject, $encodedBody, implode("\r\n", $headers), '-f' . $config['from']);

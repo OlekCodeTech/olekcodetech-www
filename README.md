@@ -121,19 +121,26 @@ Newsletter (`NEXT_PUBLIC_NEWSLETTER_ENDPOINT`) jest ukryty, dopóki nie podasz e
 
 Google tag (`NEXT_PUBLIC_GTAG_ID`, domyślnie `GT-57SWRFDN`, ten sam co w WP) ładuje się dopiero po kliknięciu „Akceptuję wszystkie” w banerze cookies. Zgoda jest zapisywana w `localStorage` pod kluczem `oct-consent`.
 
-## Wdrożenie produkcyjne (Hostinger, w miejsce WordPressa)
+## Wdrożenie produkcyjne (Hostinger)
 
-Workflow `.github/workflows/deploy-pages.yml` przy każdym pushu buduje podgląd na GitHub Pages, a – gdy włączysz – także wersję produkcyjną i wysyła ją przez FTPS.
+**Strona jest na produkcji od 07.10.2026** (konto Hostinger `u911698365`, katalog `~/domains/olekcodetech.pl/public_html`).
+Każdy push na `main` (także zapis w panelu /admin/) automatycznie: buduje stronę, robi audyt SEO, wysyła ją na serwer i sprawdza, czy odpowiada.
 
-**Przełączenie z WordPressa (jednorazowo):**
-1. Hostinger → Kopie zapasowe: pełny backup plików i bazy WP (zostaw na kilka tygodni).
-2. Hostinger → Pliki → FTP: utwórz konto FTP z katalogiem `public_html` domeny olekcodetech.pl.
-3. W `public_html` usuń pliki WordPressa **poza** `wp-content/uploads/` (stare obrazki z Google Grafiki i linków zewnętrznych dalej działają).
-4. GitHub → repozytorium → Settings → Secrets and variables → Actions:
-   - Secrets: `FTP_SERVER` (np. `ftp.olekcodetech.pl`), `FTP_USERNAME`, `FTP_PASSWORD`,
-   - Variables: `DEPLOY_HOSTINGER` = `true` (opcjonalnie `FTP_SERVER_DIR`, jeśli konto FTP nie startuje w public_html).
-5. Actions → „Build & deploy” → Run workflow. Po ~3 min strona jest na olekcodetech.pl (razem z `.htaccess`: HTTPS, przekierowania starych adresów, cache).
-6. Wgraj `contact-config.php` (sekcja „Formularz”) i wyślij testową wiadomość.
-7. Google Search Console: zgłoś `https://olekcodetech.pl/sitemap.xml`, sprawdź „Strony” po kilku dniach.
+- **Jak:** job `production` w `.github/workflows/deploy-pages.yml` pakuje `out/` i wysyła przez SSH. Klucz CI (`SSH_DEPLOY_KEY`) ma na serwerze
+  wymuszoną komendę `tar xzf - -C …/olekcodetech.pl/public_html` – nie da się nim zalogować ani dotknąć innych stron na koncie.
+- **Włączanie/wyłączanie:** zmienna repozytorium `DEPLOY_HOSTINGER` (`true` = wdrażaj). Sekrety: `SSH_DEPLOY_KEY`, `SSH_KNOWN_HOSTS`, `SSH_HOST`, `SSH_PORT`, `SSH_USER`.
+- **Pliki usunięte z projektu** nie są kasowane z serwera (rozpakowanie nadpisuje i dodaje). Przy większych porządkach usuń je ręcznie przez SSH.
+- **CDN Hostingera** (hcdn) może przez jakiś czas serwować starą wersję strony głównej – hPanel → Wydajność → CDN → Wyczyść pamięć podręczną.
+- **Formularz:** `~/domains/olekcodetech.pl/contact-config.php` (poza public_html) – wpisz hasło aplikacji Google w `pass`.
 
-Ręcznie (bez CI): `npm run build` (bez `NEXT_PUBLIC_BASE_PATH` i `NEXT_PUBLIC_NOINDEX`) i wgranie zawartości `out/` do `public_html`.
+**Kopia WordPressa (sprzed przełączenia):**
+- `~/domains/olekcodetech.pl/_wp_public_html_20261007/` – cała stara instalacja (nieaktywna, poza public_html),
+- `~/domains/olekcodetech.pl/_backup_wp_20261007/` – `db.sql.gz` (baza) + `files.tar.gz` (pliki).
+
+**Powrót do WordPressa (awaryjnie, ~2 min):** przez SSH:
+```bash
+cd ~/domains/olekcodetech.pl && mv public_html _next_public_html && mv _wp_public_html_20261007 public_html
+```
+i ustaw `DEPLOY_HOSTINGER=false`, żeby CI nie nadpisało plików.
+
+Ręcznie (bez CI): `npm run build` i `tar czf - -C out . | ssh -p 65002 u911698365@195.200.10.47 "tar xzf - -C domains/olekcodetech.pl/public_html"`.
