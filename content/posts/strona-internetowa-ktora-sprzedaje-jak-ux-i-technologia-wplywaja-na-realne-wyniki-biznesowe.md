@@ -5,6 +5,8 @@ updated: "2026-01-30"
 categories: ["Strony internetowe i UX"]
 excerpt: "Dlaczego dziś nie wystarczy „ładna strona”…"
 image: "/images/blog/LAPTOP-MOCKUP-scaled.webp"
+seoTitle: "Strona internetowa, która sprzedaje – UX i technologia"
+seoDescription: "Dlaczego „ładna strona” nie wystarcza? Jak UX, szybkość ładowania i dobrze dobrana technologia przekładają się na zapytania i sprzedaż w firmie."
 ---
 Dlaczego dziś nie wystarczy „ładna strona”
 
@@ -89,7 +91,7 @@ Dlatego projektowanie UX zawsze łączymy z:
 -   realnymi celami biznesowymi klienta.
     
 
-![](/images/blog/OVATOWANA-3.webp)
+![Strona internetowa biura rachunkowego oVATowana na laptopie i telefonie](/images/blog/OVATOWANA-3.webp)
 
 ##### Technologia jako fundament UX
 

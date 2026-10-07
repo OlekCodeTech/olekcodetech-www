@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { Container } from "@/components/ui";
 import { basePath } from "@/lib/utils";
 
 /** Stary adres bloga z WordPressa – przekierowanie na /aktualnosci/ (na serwerze dodatkowo 301 w .htaccess). */
-export const metadata: Metadata = {
-  title: "Aktualności – OlekCodeTech",
-  robots: { index: false, follow: true },
-  alternates: { canonical: "/aktualnosci/" },
-};
+export const metadata: Metadata = pageMeta({
+  path: "/aktualnosci/",
+  title: "Aktualności – przeniesione | OlekCodeTech",
+  description: "Blog OlekCodeTech przeniósł się pod adres /aktualnosci/.",
+  noindex: true,
+});
 
 export default function BlogStandardRedirect() {
   return (

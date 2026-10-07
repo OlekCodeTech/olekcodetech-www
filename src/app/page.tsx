@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
 import ClientsMarquee from "@/components/ClientsMarquee";
@@ -11,11 +12,11 @@ import { portfolio } from "@/data/portfolio";
 import { site } from "@/data/site";
 import { getAllPosts } from "@/lib/posts";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
+  path: "/",
   title: "OlekCodeTech – Strony WWW, Automatyzacje i Obsługa IT",
-  description: site.description,
-  alternates: { canonical: "/" },
-};
+  description: "Strony internetowe, sklepy WooCommerce, aplikacje, automatyzacje n8n i Make oraz opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
+});
 
 const featuredTitles = [
   "IJK Transport – Krzysztof Maślanka",

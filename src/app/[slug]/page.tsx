@@ -14,6 +14,7 @@ import { getLanding, landings } from "@/data/landings";
 import { services } from "@/data/services";
 import { categorySlug, formatDate, getAllPosts, getPost } from "@/lib/posts";
 import { siteUrl } from "@/lib/utils";
+import { pageMeta } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -28,29 +29,18 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const landing = getLanding(slug);
   if (landing) {
-    return {
-      title: landing.metaTitle,
-      description: landing.metaDescription,
-      keywords: landing.keywords,
-      alternates: { canonical: `/${landing.slug}/` },
-      openGraph: { type: "website", title: landing.metaTitle, description: landing.metaDescription },
-    };
+    return pageMeta({ path: `/${landing.slug}/`, title: landing.metaTitle, description: landing.metaDescription, keywords: landing.keywords });
   }
   const post = getPost(slug);
   if (!post) return {};
-  return {
-    title: `${post.title} | OlekCodeTech`,
-    description: post.excerpt,
-    alternates: { canonical: `/${post.slug}/` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.excerpt,
-      publishedTime: post.date,
-      modifiedTime: post.updated,
-      images: post.image ? [{ url: post.image }] : undefined,
-    },
-  };
+  return pageMeta({
+    path: `/${post.slug}/`,
+    title: post.seoTitle.length > 48 ? post.seoTitle : `${post.seoTitle} | OlekCodeTech`,
+    description: post.seoDescription,
+    type: "article",
+    publishedTime: post.date,
+    modifiedTime: post.updated,
+  });
 }
 
 /** Dobiera usługę do wpisu na podstawie kategorii – do boksu „powiązana usługa”. */

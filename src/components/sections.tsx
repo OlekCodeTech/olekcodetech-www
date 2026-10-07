@@ -280,7 +280,7 @@ export function ContactInfo() {
         <div className="text-sm text-body">
           <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-muted">Dane firmy</span>
           <p className="mt-1 font-display font-semibold text-snow">{site.legalName}</p>
-          <p className="mt-1">Siedziba: ul. Chorwacka 11/2, 98-300 Dąbrowa (k. Wielunia)</p>
+          <p className="mt-1">Siedziba: {site.address.street}, {site.address.postal} {site.address.city}</p>
           <p>
             KRS: {site.krs} · NIP: {site.nip} · REGON: {site.regon}
           </p>

@@ -16,7 +16,7 @@ export default function Hero() {
       <div aria-hidden className="bg-grid absolute inset-0 -z-10" />
       <div aria-hidden className="absolute left-1/2 top-[-20%] -z-10 h-[70vh] w-[120vw] -translate-x-1/2 rounded-[100%] bg-cyan/10 blur-[160px]" />
 
-      <Container className="flex flex-col items-center pt-16 text-center sm:pt-24 lg:pt-28">
+      <Container className="flex flex-col items-center pb-16 pt-16 text-center sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
         <p className="hero-in inline-flex items-center gap-2 rounded-pill border border-line/80 bg-ink-2/60 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan sm:text-xs">
           Strony · Sklepy · Automatyzacje · IT
         </p>

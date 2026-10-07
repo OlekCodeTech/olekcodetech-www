@@ -44,7 +44,7 @@ export const portfolio: PortfolioItem[] = [
   { title: "Esel Logistik", type: "strona", tags: "Strona Internetowa", url: "https://esel-logistik.pl/", image: "/images/portfolio/EselLogistik-2.webp" },
   { title: "Syguła Meble | Meble tapicerowane", type: "sklep", tags: "Sklep Internetowy", url: "https://sygula-meble.pl/", image: "/images/portfolio/SygulaMeble.webp" },
   { title: "Ekosanitarka.pl", type: "strona", tags: "Strona Internetowa", url: "https://ekosanitarka.pl/", image: "/images/portfolio/Ekosanitarka-3.webp" },
-  { title: "Sweepio | Roboty sprzątające", type: "strona", tags: "Strona Internetowa", url: "https://sweepio.pl/", image: "/images/portfolio/Sweppio.webp" },
+  { title: "Sweepio | Roboty sprzątające", type: "strona", tags: "Strona Internetowa", image: "/images/portfolio/Sweppio.webp" },
   { title: "SKP Błonie | Stacja Kontroli Pojazdów", type: "strona", tags: "Strona Internetowa", url: "https://kontrola-pojazdow.pl/", image: "/images/portfolio/SKP-BLONIE-1.webp" },
   { title: "SilverClean | Profesjonalne środki czystości i maszyny sprzątające", type: "sklep", tags: "Sklep Internetowy", url: "https://www.silverclean.pl/", image: "/images/portfolio/SilverClean-1.webp" },
   { title: "MSPM - BIOGAZ", type: "strona", tags: "Strona Internetowa", url: "https://mspm-biogaz.pl/", image: "/images/portfolio/MSPM-7.webp" },

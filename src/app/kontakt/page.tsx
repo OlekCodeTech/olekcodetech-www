@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import ContactForm from "@/components/ContactForm";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import { ContactInfo } from "@/components/sections";
 import { Card, Container } from "@/components/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
+  path: "/kontakt/",
   title: "Kontakt – OlekCodeTech | Usługi IT dla firm",
   description:
-    "Skontaktuj się z OlekCodeTech. Porozmawiajmy o stronach WWW, automatyzacjach, integracjach systemów i stałej obsłudze IT dla Twojej firmy.",
-  alternates: { canonical: "/kontakt/" },
-};
+    "Skontaktuj się z OlekCodeTech z Wielunia: strony WWW, sklepy, automatyzacje, integracje i opieka IT. Zadzwoń, napisz lub umów bezpłatną konsultację.",
+});
 
 export default function ContactPage() {
   return (

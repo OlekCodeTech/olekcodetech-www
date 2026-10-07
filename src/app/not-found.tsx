@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import { Button, Container } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "Nie znaleziono strony (404) – OlekCodeTech",
+  description: "Ta strona nie istnieje lub została przeniesiona. Przejdź do oferty, portfolio lub skontaktuj się z OlekCodeTech.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

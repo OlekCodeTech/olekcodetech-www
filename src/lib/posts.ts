@@ -10,6 +10,10 @@ export type Post = {
   updated: string;
   categories: string[];
   excerpt: string;
+  /** <title> (bez sufiksu marki, max ~50 znaków) – gdy brak, używany jest title */
+  seoTitle: string;
+  /** meta description 140–160 znaków – gdy brak, używany jest excerpt */
+  seoDescription: string;
   image: string;
   html: string;
   readingMinutes: number;
@@ -50,7 +54,10 @@ function loadPost(file: string): Post {
     date: data.date ?? "",
     updated: data.updated ?? data.date ?? "",
     categories: data.categories ?? [],
-    excerpt: data.excerpt ?? "",
+    // Ucięte excerpty z WP („…”) zastępujemy opisem SEO, żeby karty wpisów były czytelne.
+    excerpt: data.excerpt && data.excerpt.length > 80 ? data.excerpt : data.seoDescription ?? data.excerpt ?? "",
+    seoTitle: data.seoTitle ?? data.title ?? slug,
+    seoDescription: data.seoDescription ?? data.excerpt ?? "",
     image: data.image ?? "",
     html,
     readingMinutes: Math.max(1, Math.round(words / 200)),

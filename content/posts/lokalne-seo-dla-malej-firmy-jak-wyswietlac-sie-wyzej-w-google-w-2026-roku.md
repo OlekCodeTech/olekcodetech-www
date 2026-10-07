@@ -5,6 +5,8 @@ updated: "2026-06-09"
 categories: ["SEO i widoczność w Google"]
 excerpt: "Praktyczny przewodnik po lokalnym SEO dla małych firm: wizytówka Google, słowa kluczowe z nazwą miasta, opinie i optymalizacja strony. Konkretne kroki, które realnie poprawiają widoczność w wynikach lokalnych."
 image: "/images/blog/Gemini_Generated_Image_i4zmhti4zmhti4zm.webp"
+seoTitle: "Lokalne SEO dla małej firmy – poradnik 2026"
+seoDescription: "Lokalne SEO krok po kroku: wizytówka Google, frazy z nazwą miasta, opinie klientów i optymalizacja strony. Konkretne działania dla małych firm usługowych."
 ---
 Jeśli prowadzisz lokalny biznes – warsztat, gabinet, sklep czy firmę usługową – to większość Twoich klientów szuka Cię w Google, wpisując frazy w stylu „usługa + miasto”. **Lokalne SEO** decyduje o tym, czy pojawisz się w tych wynikach, czy zrobi to konkurencja. W tym wpisie pokazujemy konkretne kroki, które możesz wdrożyć już dziś.
 

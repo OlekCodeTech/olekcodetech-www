@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CaseView from "@/components/CaseView";
 import { cases } from "@/data/cases";
-import { portfolio } from "@/data/portfolio";
+import { pageMeta } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -16,13 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const item = cases.find((c) => c.slug === slug);
   if (!item) return {};
-  const image = item.image ?? portfolio.find((p) => p.title === item.portfolioTitle)?.image;
-  return {
-    title: item.metaTitle,
-    description: item.metaDescription,
-    alternates: { canonical: `/portfolio/${item.slug}/` },
-    openGraph: { type: "article", title: item.metaTitle, description: item.metaDescription, images: image ? [{ url: image }] : undefined },
-  };
+  return pageMeta({ path: `/portfolio/${item.slug}/`, title: item.metaTitle, description: item.metaDescription, type: "article" });
 }
 
 export default async function CasePage({ params }: { params: Promise<Params> }) {

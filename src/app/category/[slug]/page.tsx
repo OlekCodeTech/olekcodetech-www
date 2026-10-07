@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import { CtaBand } from "@/components/sections";
 import { Container } from "@/components/ui";
 import { categories, categorySlug, getAllPosts, getPostsByCategory } from "@/lib/posts";
+import { pageMeta } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -20,11 +21,14 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const { slug } = await params;
   const cat = categories.find((c) => c.slug === slug);
   if (!cat) return {};
-  return {
-    title: `${cat.name} – Aktualności | OlekCodeTech`,
-    description: `${cat.description} Wpisy z kategorii „${cat.name}” na blogu OlekCodeTech.`,
-    alternates: { canonical: `/category/${cat.slug}/` },
-  };
+  // Kategorie mają po 1–3 wpisy – noindex,follow do czasu rozbudowy bloga (unikamy „thin content”).
+  return pageMeta({
+    path: `/category/${cat.slug}/`,
+    title: `${cat.name} – blog OlekCodeTech`,
+    description: `${cat.description} Poradniki i artykuły z kategorii „${cat.name}” na blogu OlekCodeTech – praktyka z realnych wdrożeń dla firm.`,
+    noindex: true,
+    image: "/og/aktualnosci.jpg",
+  });
 }
 
 export default async function CategoryPage({ params }: { params: Promise<Params> }) {

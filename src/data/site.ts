@@ -9,12 +9,12 @@ export const site = {
   phoneHref: "tel:+48882715667",
   email: "biuro@olekcodetech.pl",
   address: {
-    street: "ul. Chorwacka 11/2",
+    street: "ul. Liliowa 3",
     postal: "98-300",
     city: "Wieluń",
     region: "łódzkie",
     country: "PL",
-    mapsUrl: "https://maps.app.goo.gl/AhEZhKA74oSjK6xx7",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=ul.+Liliowa+3,+98-300+Wielu%C5%84",
   },
   nip: "8322102213",
   krs: "0001210254",
@@ -69,11 +69,3 @@ export const values = [
   },
 ];
 
-export const clients = [
-  { name: "GOKO", logo: "/images/clients/goko_logo_white-768x273-1.webp" },
-  { name: "Złomobet", logo: "/images/clients/ZlomobetWhite-1.webp" },
-  { name: "Marsol Developer", logo: "/images/clients/Marsol-white-1-1024x1024-1.webp" },
-  { name: "Klient", logo: "/images/clients/White.svg" },
-  { name: "Restauracja Incognito", logo: "/images/clients/Projekt-bez-nazwy-69-1.webp" },
-  { name: "Klient", logo: "/images/clients/logo-340x156-kolor.webp" },
-];

@@ -13,7 +13,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Strony internetowe dla firm – projektowanie i wdrożenie",
     metaTitle: "Strony internetowe dla firm – OlekCodeTech",
     metaDescription:
-      "Projektujemy strony internetowe dla firm: szybkie, responsywne, gotowe pod SEO i dalszą rozbudowę. 7+ lat doświadczenia, 50+ projektów. Umów bezpłatną konsultację.",
+      "Projektujemy strony internetowe dla firm: szybkie, responsywne, gotowe pod SEO i rozbudowę. 7+ lat doświadczenia, 50+ projektów. Umów bezpłatną konsultację.",
     eyebrow: "Strony firmowe",
     lead: [
       "Projektujemy i wdrażamy strony internetowe dla firm, które mają pozyskiwać zapytania, a nie tylko „być w internecie”. Pracujemy z firmami usługowymi, produkcyjnymi i handlowymi z Wielunia, Sieradza, Łodzi, Wrocławia i całej Polski.",
@@ -119,7 +119,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Sklep internetowy WooCommerce – wdrożenie od A do Z",
     metaTitle: "Sklep internetowy WooCommerce – OlekCodeTech",
     metaDescription:
-      "Wdrażamy sklepy internetowe WooCommerce: płatności, kurierzy, import produktów, integracje z magazynem i SEO. Sklepy z 1000+ produktów. Umów bezpłatną konsultację.",
+      "Wdrażamy sklepy internetowe WooCommerce: płatności, kurierzy, integracje z magazynem i SEO. Sklepy z 1000+ produktów. Umów bezpłatną konsultację.",
     eyebrow: "E-commerce",
     lead: [
       "Budujemy sklepy internetowe na WooCommerce dla firm, które chcą sprzedawać online bez abonamentu za platformę SaaS i z pełną kontrolą nad danymi. Pracujemy zarówno z małymi sklepami, jak i z katalogami liczącymi ponad 1000 produktów.",
@@ -226,7 +226,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Aplikacje webowe React / Next.js i systemy dedykowane",
     metaTitle: "Aplikacje webowe React / Next.js – OlekCodeTech",
     metaDescription:
-      "Tworzymy aplikacje webowe w React i Next.js oraz systemy dedykowane: CRM, panele, systemy rezerwacji. Od analizy po wdrożenie i rozwój. Umów bezpłatną konsultację.",
+      "Tworzymy aplikacje webowe w React i Next.js oraz systemy dedykowane: CRM, panele, systemy rezerwacji. Od analizy po wdrożenie. Umów bezpłatną konsultację.",
     eyebrow: "Systemy dedykowane",
     lead: [
       "Projektujemy i budujemy aplikacje webowe w React i Next.js dla firm, którym gotowe narzędzia przestały wystarczać. Zamiast dopasowywać proces do oprogramowania, tworzymy oprogramowanie dopasowane do procesu: CRM dla biura księgowego, silnik rezerwacji, panel do zarządzania zleceniami.",
@@ -333,7 +333,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Landing page pod kampanie reklamowe i sprzedaż",
     metaTitle: "Landing page pod kampanie – OlekCodeTech",
     metaDescription:
-      "Projektujemy landing page pod Google Ads, Meta Ads i kampanie sprzedażowe: jeden cel, szybkie ładowanie, mierzalna konwersja. Umów bezpłatną 30-minutową konsultację.",
+      "Projektujemy landing page pod Google Ads, Meta Ads i kampanie sprzedażowe: jeden cel, szybkie ładowanie, mierzalna konwersja. Umów bezpłatną konsultację.",
     eyebrow: "Strony pod konwersję",
     lead: [
       "Budujemy landing page, czyli jednostronicowe strony z jednym celem: zapytanie, zapis, zakup lub telefon. Robimy je pod kampanie Google Ads i Meta Ads, premiery produktów, rekrutacje i oferty sezonowe dla firm z całej Polski.",
@@ -440,7 +440,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Strona WordPress na autorskim motywie, bez page buildera",
     metaTitle: "Strona WordPress na autorskim motywie – OlekCodeTech",
     metaDescription:
-      "Budujemy strony WordPress na autorskich motywach, bez Elementora i ciężkich wtyczek: lekki kod, wysokie Core Web Vitals, łatwa edycja treści. Umów bezpłatną konsultację.",
+      "Budujemy strony WordPress na autorskich motywach, bez Elementora: lekki kod, wysokie Core Web Vitals, łatwa edycja treści. Umów bezpłatną konsultację.",
     eyebrow: "WordPress bez builderów",
     lead: [
       "Tworzymy strony WordPress na autorskich motywach pisanych od zera pod konkretny projekt. Bez Elementora, bez WPBakery i bez kilkudziesięciu wtyczek, które spowalniają stronę i co miesiąc wymagają aktualizacji. Klient nadal edytuje treści w znanym panelu WordPressa.",
@@ -547,7 +547,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Automatyzacje n8n i Make dla firm",
     metaTitle: "Automatyzacje n8n i Make dla firm – OlekCodeTech",
     metaDescription:
-      "Projektujemy i wdrażamy automatyzacje w n8n i Make: formularze, CRM, e-mail, arkusze, API. Mniej ręcznej pracy, mniej błędów. Umów bezpłatną 30-minutową konsultację.",
+      "Projektujemy i wdrażamy automatyzacje w n8n i Make: formularze, CRM, e-mail, arkusze, API. Mniej ręcznej pracy, mniej błędów. Umów bezpłatną konsultację.",
     eyebrow: "Automatyzacja procesów",
     lead: [
       "Wdrażamy automatyzacje w n8n i Make (dawniej Integromat), które łączą narzędzia używane w firmie i wykonują powtarzalne zadania bez udziału człowieka. Pracujemy z firmami usługowymi, biurami rachunkowymi, sklepami i zespołami sprzedaży z całej Polski.",
@@ -655,7 +655,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Automatyzacja obsługi leadów, formularzy i CRM",
     metaTitle: "Automatyzacja leadów, formularzy i CRM – OlekCodeTech",
     metaDescription:
-      "Automatyzujemy obsługę leadów: formularz, CRM, powiadomienia, follow-up i raporty w jednym przepływie. Żadne zapytanie nie ginie w skrzynce. Umów bezpłatną konsultację.",
+      "Automatyzujemy obsługę leadów: formularz, CRM, powiadomienia, follow-up i raporty. Żadne zapytanie nie ginie w skrzynce. Umów bezpłatną konsultację.",
     eyebrow: "Leady i CRM",
     lead: [
       "Projektujemy automatyzację obsługi leadów, która łączy formularze na stronie, pocztę, telefon i reklamy z systemem CRM. Każde zapytanie trafia w jedno miejsce, dostaje właściciela i termin, a klient otrzymuje odpowiedź w ciągu minut, nie dni.",
@@ -762,7 +762,7 @@ export const serviceLandings: LandingPage[] = [
     title: "SEO techniczne i Core Web Vitals – optymalizacja strony",
     metaTitle: "SEO techniczne i Core Web Vitals – OlekCodeTech",
     metaDescription:
-      "SEO techniczne: Core Web Vitals, indeksacja, struktura, dane strukturalne, szybkość WordPress i WooCommerce. Naprawiamy fundamenty widoczności. Umów bezpłatną konsultację.",
+      "SEO techniczne: Core Web Vitals, indeksacja, dane strukturalne, szybkość WordPress. Naprawiamy fundamenty widoczności. Umów bezpłatną konsultację.",
     eyebrow: "Fundamenty SEO",
     lead: [
       "Zajmujemy się SEO technicznym, czyli wszystkim, co decyduje o tym, czy Google w ogóle poprawnie odczyta i oceni stronę: szybkość, Core Web Vitals, indeksacja, struktura adresów, dane strukturalne, błędy serwera. Pracujemy głównie ze stronami na WordPressie, WooCommerce i Next.js.",
@@ -870,7 +870,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Audyt SEO strony internetowej – co blokuje Twoją widoczność",
     metaTitle: "Audyt SEO strony internetowej – OlekCodeTech",
     metaDescription:
-      "Audyt SEO strony: technika, treści, struktura, linkowanie, konkurencja. Konkretna lista poprawek z priorytetami, bez lania wody. Zamów audyt lub bezpłatną konsultację.",
+      "Audyt SEO strony: technika, treści, struktura, linkowanie, konkurencja. Konkretna lista poprawek z priorytetami. Zamów audyt lub bezpłatną konsultację.",
     eyebrow: "Diagnoza widoczności",
     lead: [
       "Wykonujemy audyty SEO stron firmowych i sklepów internetowych, które pokazują, dlaczego strona nie zdobywa ruchu z Google i co konkretnie trzeba zmienić. Sprawdzamy technikę, treści, strukturę i otoczenie konkurencyjne, a wynik dostarczamy jako listę zadań z priorytetami.",
@@ -978,7 +978,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Content marketing B2B i blog ekspercki dla firm",
     metaTitle: "Content marketing B2B i blog ekspercki – OlekCodeTech",
     metaDescription:
-      "Prowadzimy blogi eksperckie i content marketing B2B: artykuły pod frazy, które wpisują Twoi klienci, z FAQ, schema i grafiką. Regularnie, mierzalnie. Umów konsultację.",
+      "Prowadzimy blogi eksperckie i content marketing B2B: artykuły pod frazy, które wpisują Twoi klienci, z FAQ i schema. Regularnie, mierzalnie. Umów konsultację.",
     eyebrow: "Treści, które sprzedają",
     lead: [
       "Prowadzimy content marketing B2B dla firm, które chcą zdobywać klientów z Google poradnikami i artykułami eksperckimi, a nie tylko reklamą. Piszemy dla branż technicznych i usługowych: budownictwo, BHP, motoryzacja, systemy zabezpieczeń, chemia profesjonalna, energetyka, rolnictwo.",
@@ -1084,7 +1084,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Opieka nad stroną WordPress i sklepem WooCommerce",
     metaTitle: "Opieka nad stroną WordPress / WooCommerce – OlekCodeTech",
     metaDescription:
-      "Stała opieka nad stroną WordPress i WooCommerce: aktualizacje, kopie zapasowe, bezpieczeństwo, monitoring, poprawki i rozwój w jednym abonamencie. Umów bezpłatną konsultację.",
+      "Stała opieka nad stroną WordPress i WooCommerce: aktualizacje, kopie zapasowe, bezpieczeństwo, monitoring, poprawki i rozwój. Umów bezpłatną konsultację.",
     eyebrow: "Utrzymanie WordPress",
     lead: [
       "Zapewniamy stałą opiekę techniczną nad stronami WordPress i sklepami WooCommerce: aktualizujemy, zabezpieczamy, robimy kopie zapasowe, monitorujemy dostępność i naprawiamy to, co się zepsuje. Opiekujemy się zarówno stronami, które sami zbudowaliśmy, jak i przejętymi po innych wykonawcach.",
@@ -1190,7 +1190,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Helpdesk IT i stała obsługa informatyczna firm",
     metaTitle: "Helpdesk IT i obsługa informatyczna firm – OlekCodeTech",
     metaDescription:
-      "Helpdesk IT i stała obsługa informatyczna dla małych i średnich firm: wsparcie użytkowników, Microsoft 365, Google Workspace, dostępy, bezpieczeństwo. Umów konsultację.",
+      "Helpdesk IT i obsługa informatyczna dla małych i średnich firm: wsparcie użytkowników, Microsoft 365, Google Workspace, bezpieczeństwo. Umów konsultację.",
     eyebrow: "Wsparcie IT",
     lead: [
       "Prowadzimy helpdesk IT i stałą obsługę informatyczną dla małych i średnich firm, które nie mają własnego działu IT. Zespół zgłasza problem, my go rozwiązujemy: poczta, która nie działa, dostęp do pliku, konfiguracja nowego laptopa, zablokowane konto, dziwny e-mail, który wygląda na phishing.",
@@ -1297,7 +1297,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Integracje Microsoft 365, SharePoint i Power Automate",
     metaTitle: "Integracje Microsoft 365 i SharePoint – OlekCodeTech",
     metaDescription:
-      "Wdrażamy i integrujemy Microsoft 365: SharePoint, Power Automate, Teams, Outlook. Obiegi dokumentów, listy, formularze, automatyzacje bez ręcznej pracy. Umów konsultację.",
+      "Wdrażamy i integrujemy Microsoft 365: SharePoint, Power Automate. Obiegi dokumentów, listy, formularze, automatyzacje bez ręcznej pracy. Umów konsultację.",
     eyebrow: "Microsoft 365",
     lead: [
       "Projektujemy integracje i automatyzacje w środowisku Microsoft 365: porządkujemy SharePoint, budujemy obiegi w Power Automate, łączymy Outlook, Teams i Excel z systemami spoza Microsoftu. Pracujemy z firmami, które mają licencje Microsoft 365, ale używają z nich głównie poczty.",
@@ -1404,7 +1404,7 @@ export const serviceLandings: LandingPage[] = [
     title: "Integracje API, CRM i ERP – synchronizacja danych między systemami",
     metaTitle: "Integracje API, CRM i ERP – OlekCodeTech",
     metaDescription:
-      "Integrujemy systemy przez API: CRM, ERP, sklep, magazyn, fakturowanie, kurierzy. Synchronizacja danych bez ręcznego przepisywania. Umów bezpłatną 30-minutową konsultację.",
+      "Integrujemy systemy przez API: CRM, ERP, sklep, magazyn, fakturowanie. Synchronizacja danych bez ręcznego przepisywania. Umów bezpłatną konsultację.",
     eyebrow: "Integracje API",
     lead: [
       "Budujemy integracje API, które łączą systemy używane w firmie: CRM z fakturowaniem, sklep z magazynem i ERP, formularze z bazą klientów, systemy branżowe ze stroną WWW. Dane są przesyłane automatycznie, według ustalonych reguł, z kontrolą błędów i logiem każdej operacji.",

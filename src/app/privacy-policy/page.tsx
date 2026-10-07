@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import { Container } from "@/components/ui";
 import { getPage } from "@/lib/posts";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
+  path: "/privacy-policy/",
   title: "Polityka prywatności – OlekCodeTech",
   description: "Informacje o zasadach przetwarzania danych osobowych oraz plików cookies na stronie OlekCodeTech zgodnie z RODO.",
-  alternates: { canonical: "/privacy-policy/" },
-  robots: { index: false, follow: true },
-};
+  noindex: true,
+  image: "/og/home.jpg",
+});
 
 export default function PrivacyPage() {
   const page = getPage("polityka-prywatnosci");

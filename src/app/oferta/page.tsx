@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
-import { CtaBand, ValuesGrid } from "@/components/sections";
+import { CtaBand, Process, ValuesGrid } from "@/components/sections";
+import { CooperationModels, Industries, OfferCatalogJsonLd, TechStack, offerFaq } from "@/components/offer";
+import Faq from "@/components/Faq";
 import { Button, CheckList, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import { services } from "@/data/services";
 import { landingsByParent, cityLandings } from "@/data/landings";
@@ -12,12 +15,12 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Oferta IT dla firm – OlekCodeTech",
+export const metadata: Metadata = pageMeta({
+  path: "/oferta/",
+  title: "Oferta IT dla firm – strony, automatyzacje, SEO | OlekCodeTech",
   description:
-    "Kompleksowa oferta IT dla firm: strony WWW, automatyzacja procesów, integracje systemów, SEO oraz stała obsługa IT. Sprawdź, jak możemy pomóc.",
-  alternates: { canonical: "/oferta/" },
-};
+    "Kompleksowa oferta IT dla firm: strony WWW i sklepy, automatyzacja procesów, integracje systemów, SEO oraz stała obsługa IT. Sprawdź, jak możemy pomóc.",
+});
 
 export default function OfferPage() {
   return (
@@ -83,6 +86,12 @@ export default function OfferPage() {
         </Container>
       </section>
 
+      <CooperationModels />
+      <Industries />
+      <Process />
+      <TechStack />
+      <Faq items={offerFaq} title="Pytania o współpracę" eyebrow="FAQ" lead="Formalności, prawa do projektu, terminy – odpowiedzi na to, o co pytają nas klienci przed startem." />
+
       <section className="border-t border-line/60 py-16 lg:py-24">
         <Container>
           <SectionHeading eyebrow="Lokalnie" title="Strony internetowe w Twoim mieście" lead="Pracujemy zdalnie z firmami z całej Polski, a w regionie także na miejscu." className="mb-8" />
@@ -110,6 +119,7 @@ export default function OfferPage() {
         </Container>
       </section>
       <CtaBand title="Masz pytania dotyczące IT?" />
+      <OfferCatalogJsonLd />
     </>
   );
 }

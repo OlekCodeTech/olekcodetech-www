@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Founder from "@/components/Founder";
@@ -12,12 +13,12 @@ import { portfolio } from "@/data/portfolio";
 import { cases } from "@/data/cases";
 import { getAllPosts } from "@/lib/posts";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
+  path: "/o-nas/",
   title: "O nas – OlekCodeTech | Usługi IT dla firm",
   description:
-    "OlekCodeTech to firma IT specjalizująca się w stronach WWW, automatyzacjach, integracjach systemów i stałej obsłudze IT dla firm w całej Polsce.",
-  alternates: { canonical: "/o-nas/" },
-};
+    "OlekCodeTech to firma IT z Wielunia: strony WWW, sklepy, automatyzacje, integracje i stała obsługa IT. Poznaj założyciela i sposób, w jaki pracujemy.",
+});
 
 const pillars = [
   { icon: "web", title: "Strony i aplikacje webowe", text: "Projektujemy nowoczesne strony internetowe, sklepy online i aplikacje webowe zoptymalizowane pod wydajność, SEO i konwersję użytkowników." },

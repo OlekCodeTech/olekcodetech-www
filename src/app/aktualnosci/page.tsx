@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import PostCard from "@/components/PostCard";
@@ -7,12 +8,12 @@ import { CtaBand } from "@/components/sections";
 import { Container } from "@/components/ui";
 import { categories, categorySlug, getAllPosts } from "@/lib/posts";
 
-export const metadata: Metadata = {
-  title: "Aktualności IT i Blog – OlekCodeTech",
+export const metadata: Metadata = pageMeta({
+  path: "/aktualnosci/",
+  title: "Aktualności IT i blog – OlekCodeTech",
   description:
-    "Aktualności ze świata IT, porady techniczne, SEO, automatyzacje oraz nowości z OlekCodeTech. Praktyczna wiedza dla firm.",
-  alternates: { canonical: "/aktualnosci/" },
-};
+    "Blog OlekCodeTech: praktyczne poradniki o stronach internetowych, SEO, automatyzacjach i IT w firmie, pisane na podstawie realnych wdrożeń.",
+});
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();

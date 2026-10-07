@@ -16,12 +16,12 @@ export const cityLandings: LandingPage[] = [
     title: "Strony internetowe Wieluń – projektowanie stron i sklepów dla firm z Wielunia",
     metaTitle: "Strony internetowe Wieluń – OlekCodeTech",
     metaDescription:
-      "Strony WWW, sklepy WooCommerce i automatyzacje dla firm z Wielunia. Siedziba przy ul. Chorwackiej 11/2, spotkania na miejscu. Umów bezpłatną 30-min konsultację.",
+      "Strony WWW, sklepy WooCommerce i automatyzacje dla firm z Wielunia. Siedziba przy ul. Liliowej 3, spotkania na miejscu. Umów bezpłatną 30-min konsultację.",
     eyebrow: "Lokalnie · Wieluń i okolice",
     city: "Wieluń",
     cityLocative: "w Wieluniu",
     lead: [
-      "OlekCodeTech to firma z Wielunia – siedzibę mamy przy ul. Chorwackiej 11/2 i od 2019 roku robimy strony internetowe, sklepy i systemy dla firm z miasta i powiatu wieluńskiego. Większość lokalnych projektów zaczyna się od spotkania na miejscu: przychodzimy do klienta albo zapraszamy do biura, oglądamy, jak firma działa na co dzień, i dopiero wtedy proponujemy rozwiązanie.",
+      "OlekCodeTech to firma z Wielunia – siedzibę mamy przy ul. Liliowej 3 i od 2019 roku robimy strony internetowe, sklepy i systemy dla firm z miasta i powiatu wieluńskiego. Większość lokalnych projektów zaczyna się od spotkania na miejscu: przychodzimy do klienta albo zapraszamy do biura, oglądamy, jak firma działa na co dzień, i dopiero wtedy proponujemy rozwiązanie.",
       "Wieluń to przede wszystkim mniejsze i średnie firmy: zakłady produkcyjne, hurtownie, sklepy, usługi, gastronomia, gospodarstwa i firmy obsługujące rolnictwo. Nie potrzebują one korporacyjnych wdrożeń, tylko strony, które przynoszą telefony i zapytania, i kogoś, kto odbierze, gdy coś przestanie działać. Dokładnie tak pracujemy.",
     ],
     sections: [
@@ -72,7 +72,7 @@ export const cityLandings: LandingPage[] = [
       },
       {
         title: "Jak wygląda współpraca z firmą z Wielunia",
-        text: "Zaczynamy od bezpłatnej, 30-minutowej konsultacji – w biurze przy Chorwackiej 11/2, u klienta albo telefonicznie. Na tej podstawie przygotowujemy wycenę z zakresem i terminem. Realizację prowadzimy etapami: najpierw projekt i struktura, potem wdrożenie, testy i uruchomienie. Po starcie zostajemy: pokazujemy, jak samodzielnie dodawać treści, i w razie potrzeby przejmujemy stałą opiekę nad stroną.",
+        text: "Zaczynamy od bezpłatnej, 30-minutowej konsultacji – w biurze przy Liliowej 3, u klienta albo telefonicznie. Na tej podstawie przygotowujemy wycenę z zakresem i terminem. Realizację prowadzimy etapami: najpierw projekt i struktura, potem wdrożenie, testy i uruchomienie. Po starcie zostajemy: pokazujemy, jak samodzielnie dodawać treści, i w razie potrzeby przejmujemy stałą opiekę nad stroną.",
         bullets: [
           "Konsultacja (30 min, bezpłatna) – na miejscu lub telefonicznie",
           "Wycena z zakresem, terminem i stałą ceną",
@@ -85,7 +85,7 @@ export const cityLandings: LandingPage[] = [
     faq: [
       {
         q: "Czy robicie strony dla firm z Wielunia i okolic?",
-        a: "Tak – to nasz rynek bazowy. Siedzibę mamy przy ul. Chorwackiej 11/2 w Wieluniu i obsługujemy firmy z miasta oraz powiatu wieluńskiego, m.in. z Osjakowa, Białej, Mokrska, Pątnowa czy Skomlina. Wśród realizacji są lokalne firmy handlowe, usługowe, apteki, cukiernie i jednostki komunalne.",
+        a: "Tak – to nasz rynek bazowy. Siedzibę mamy przy ul. Liliowej 3 w Wieluniu i obsługujemy firmy z miasta oraz powiatu wieluńskiego, m.in. z Osjakowa, Białej, Mokrska, Pątnowa czy Skomlina. Wśród realizacji są lokalne firmy handlowe, usługowe, apteki, cukiernie i jednostki komunalne.",
       },
       {
         q: "Czy spotkanie musi być na miejscu?",

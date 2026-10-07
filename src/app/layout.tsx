@@ -17,12 +17,12 @@ const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "OlekCodeTech – Strony WWW, Automatyzacje i Obsługa IT",
-  description: site.description,
+  description: "Strony internetowe, sklepy WooCommerce, aplikacje, automatyzacje n8n i Make oraz opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
   openGraph: {
     type: "website",
     locale: "pl_PL",
     siteName: site.name,
-    images: [{ url: "/video/hero-poster.webp", width: 1600, height: 900, alt: "Realizacje OlekCodeTech" }],
+    images: [{ url: "/og/home.jpg", width: 1200, height: 630, alt: "OlekCodeTech – strony WWW, automatyzacje i obsługa IT" }],
   },
   twitter: { card: "summary_large_image" },
   robots: noindex ? { index: false, follow: false } : { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
@@ -49,9 +49,26 @@ const orgJsonLd = {
     addressRegion: site.address.region,
     addressCountry: site.address.country,
   },
-  areaServed: "PL",
   sameAs: [site.social.facebook, site.social.instagram],
   priceRange: "$$",
+  founder: { "@type": "Person", "@id": `${siteUrl}/o-nas/#piotr-olek`, name: "Piotr Olek", sameAs: ["https://www.linkedin.com/in/piotrolek/"] },
+  foundingDate: "2019",
+  areaServed: [
+    { "@type": "Country", name: "Polska" },
+    ...["Wieluń", "Sieradz", "Wieruszów", "Zduńska Wola", "Łódź", "Wrocław", "Częstochowa"].map((name) => ({ "@type": "City", name })),
+  ],
+  knowsAbout: ["Tworzenie stron internetowych", "Sklepy internetowe WooCommerce", "Aplikacje webowe React i Next.js", "Automatyzacja procesów n8n i Make", "Integracje Microsoft 365 i SharePoint", "SEO techniczne", "Opieka IT dla firm"],
+  hasMap: site.address.mapsUrl,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: site.name,
+  inLanguage: "pl-PL",
+  publisher: { "@id": `${siteUrl}/#organization` },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -71,7 +88,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <Footer />
         <CookieBanner />
-        <JsonLd data={orgJsonLd} />
+        <JsonLd data={[orgJsonLd, websiteJsonLd]} />
       </body>
     </html>
   );

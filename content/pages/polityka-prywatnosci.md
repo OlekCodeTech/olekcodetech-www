@@ -10,8 +10,8 @@ Niniejsza Polityka prywatności określa zasady przetwarzania i ochrony danych o
 Administratorem danych osobowych jest:
 
 **OlekCodeTech Sp. z o.o.**  
-ul. Chorwacka 11 lok. 2  
-98-300 Dąbrowa, woj. łódzkie  
+ul. Liliowa 3  
+98-300 Wieluń, woj. łódzkie  
 NIP: 8322102213
 
 📧 e-mail: **biuro@olekcodetech.pl**  

@@ -41,6 +41,10 @@ scripts/                  import wpisów z WP REST, optymalizacja obrazów (shar
 - `sitemap.xml`, `robots.txt`, `llms.txt` generowane przy buildzie z danych.
 - Obrazy przez własny loader (`src/lib/image-loader.ts`), który dokleja `NEXT_PUBLIC_BASE_PATH` – wymagane dla podglądu na GitHub Pages.
 
+- Karty Open Graph 1200×630 dla każdej strony w `public/og/` – generowane `npx tsx scripts/gen-og.mts` (uruchom po dodaniu/zmianie strony i zacommituj wynik). Metadane stron tworzy `pageMeta()` z `src/lib/seo.ts`.
+- Audyt SEO eksportu: `npm run build && python scripts/seo-audit.py out` (title/description, H1, canonical, og:image, alt, martwe linki, duplikaty, sieroty).
+- Kategorie bloga mają `noindex,follow`, dopóki mają po kilka wpisów.
+
 Nową podstronę SEO dodajesz jako obiekt w `landings-services.ts` / `landings-cities.ts` (typ `LandingPage` w `types.ts`); case study – w `cases.ts` (pole `portfolioTitle` musi odpowiadać tytułowi w `portfolio.ts`).
 
 ## Dodawanie wpisu na blog
@@ -64,6 +68,13 @@ Nową podstronę SEO dodajesz jako obiekt w `landings-services.ts` / `landings-c
 3. `npm run build` i wgraj `out/`.
 
 Kategorie i ich slugi są w `src/lib/posts.ts` (stała `categories`).
+
+## Logotypy klientów
+
+Pasek „Zaufały nam” na stronie głównej (`ClientsMarquee.tsx`) używa białych wersji logotypów z `public/images/clients/`.
+Źródła (pobrane ze stron klientów) leżą w `scripts/logo-sources/`. Nowe logo: wrzuć plik jako `<domena>.png|svg|webp`,
+uruchom `node scripts/process-logos.mjs scripts/logo-sources public/images/clients`, dopisz mapowanie w `scripts/gen-clients.mjs`
+i uruchom `node scripts/gen-clients.mjs`. Gdy automatyczny tryb źle zamieni kolory, utwórz `<slug>.mode` z `knockout|light|silhouette|hard`.
 
 ## Wideo
 
