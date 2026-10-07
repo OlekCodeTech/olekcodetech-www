@@ -29,6 +29,8 @@ $config = [
     'smtp' => null, // ['host' => 'smtp.gmail.com', 'port' => 465, 'user' => '...', 'pass' => '...']
     'rate_limit' => 5,          // maks. wiadomości z jednego IP na godzinę
     'dry_run' => false,         // true = nie wysyłaj (testy)
+    'recaptcha_secret' => '',   // Google reCAPTCHA v3 – klucz tajny; puste = weryfikacja wyłączona
+    'recaptcha_min_score' => 0.5, // 0.0 (bot) – 1.0 (człowiek); poniżej progu wiadomość jest odrzucana
 ];
 foreach ([__DIR__ . '/contact-config.php', dirname(__DIR__, 2) . '/contact-config.php'] as $file) {
     if (is_file($file)) {
@@ -100,6 +102,49 @@ foreach ([$name, $email, $subject] as $v) {
     if (preg_match('/[\r\n]/', $v)) respond(422, ['ok' => false, 'error' => 'Niepoprawne dane.']);
 }
 
+/* ---------- Google reCAPTCHA v3 ---------- */
+function recaptcha_verify(string $secret, string $token, string $ip): array
+{
+    $post = http_build_query(['secret' => $secret, 'response' => $token, 'remoteip' => $ip]);
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $raw = false;
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_POSTFIELDS => $post, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 8]);
+        $raw = curl_exec($ch);
+        curl_close($ch);
+    } else {
+        $ctx = stream_context_create(['http' => ['method' => 'POST', 'header' => "Content-Type: application/x-www-form-urlencoded\r\n", 'content' => $post, 'timeout' => 8]]);
+        $raw = @file_get_contents($url, false, $ctx);
+    }
+    if ($raw === false) {
+        return ['network_error' => true];
+    }
+    return json_decode((string) $raw, true) ?: ['network_error' => true];
+}
+
+if (trim((string) $config['recaptcha_secret']) !== '') {
+    $token = trim((string) ($data['recaptchaToken'] ?? ''));
+    if ($token === '') {
+        respond(400, ['ok' => false, 'error' => 'Weryfikacja antyspamowa nie powiodła się. Odśwież stronę i spróbuj ponownie.']);
+    }
+    $rc = recaptcha_verify((string) $config['recaptcha_secret'], $token, $ip);
+    if (!empty($rc['network_error'])) {
+        // Google chwilowo niedostępny – nie blokujemy klienta (zostają honeypot i limit), zapisujemy w logu.
+        error_log('[contact.php] reCAPTCHA: brak odpowiedzi Google – przepuszczono');
+    } else {
+        $hostOk = in_array($rc['hostname'] ?? '', array_merge($config['allowed_hosts'], [$_SERVER['HTTP_HOST'] ?? '']), true);
+        $score = (float) ($rc['score'] ?? 0);
+        $pass = !empty($rc['success']) && ($rc['action'] ?? '') === 'contact' && $hostOk && $score >= (float) $config['recaptcha_min_score'];
+        if (!$pass) {
+            error_log(sprintf('[contact.php] reCAPTCHA odrzucona: success=%s action=%s host=%s score=%.1f errors=%s',
+                json_encode($rc['success'] ?? null), $rc['action'] ?? '-', $rc['hostname'] ?? '-', $score, implode(',', $rc['error-codes'] ?? [])));
+            respond(403, ['ok' => false, 'error' => 'Wiadomość została zablokowana przez filtr antyspamowy. Jeśli to pomyłka – zadzwoń: +48 882 715 667 lub napisz na biuro@olekcodetech.pl.']);
+        }
+        $data['_recaptcha_score'] = $score;
+    }
+}
+
 /* ---------- treść ---------- */
 $mailSubject = 'Zapytanie ze strony: ' . ($subject !== '' ? $subject : $name);
 $body = "Nowe zapytanie z formularza na olekcodetech.pl\n"
@@ -112,6 +157,7 @@ $body = "Nowe zapytanie z formularza na olekcodetech.pl\n"
     . $message . "\n\n"
     . str_repeat('-', 48) . "\n"
     . "Zgoda RODO: tak\n"
+    . (isset($data['_recaptcha_score']) ? 'reCAPTCHA: ' . number_format((float) $data['_recaptcha_score'], 1) . " / 1.0\n" : '')
     . 'Strona: ' . ($source !== '' ? $source : '—') . "\n"
     . 'Wysłano: ' . date('Y-m-d H:i:s') . "\n"
     . "IP: {$ip}\n";

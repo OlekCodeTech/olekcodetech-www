@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
+import { RECAPTCHA_SITE_KEY, getRecaptchaToken, loadRecaptcha } from "@/lib/recaptcha";
 
 const ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "";
 
@@ -15,6 +16,24 @@ const inputCls =
 export default function ContactForm({ subject }: { subject?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // reCAPTCHA ładujemy dopiero, gdy formularz jest widoczny (nie spowalnia reszty strony).
+  useEffect(() => {
+    const el = formRef.current;
+    if (!RECAPTCHA_SITE_KEY || !el || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          loadRecaptcha().catch(() => {});
+          io.disconnect();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,10 +62,16 @@ export default function ContactForm({ subject }: { subject?: string }) {
     setStatus("sending");
     setError("");
     try {
+      let recaptchaToken = "";
+      try {
+        recaptchaToken = await getRecaptchaToken("contact");
+      } catch {
+        throw new Error("Nie udało się uruchomić ochrony antyspamowej (reCAPTCHA). Wyłącz blokowanie skryptów lub napisz na " + site.email + ".");
+      }
       const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, recaptchaToken }),
       });
       const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
       if (!res.ok || json?.ok === false) throw new Error(json?.error || `Błąd serwera (${res.status})`);
@@ -75,7 +100,7 @@ export default function ContactForm({ subject }: { subject?: string }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate={false}>
+    <form ref={formRef} onSubmit={onSubmit} onFocusCapture={() => loadRecaptcha().catch(() => {})} className="space-y-4" noValidate={false}>
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-snow">Imię i nazwisko *</span>
@@ -126,6 +151,19 @@ export default function ContactForm({ subject }: { subject?: string }) {
         {status === "sending" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
         Wyślij wiadomość
       </button>
+      {RECAPTCHA_SITE_KEY && (
+        <p className="text-xs text-muted">
+          Formularz chroni Google reCAPTCHA. Obowiązują{" "}
+          <a href="https://policies.google.com/privacy?hl=pl" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-cyan">
+            Polityka prywatności
+          </a>{" "}
+          i{" "}
+          <a href="https://policies.google.com/terms?hl=pl" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-cyan">
+            Warunki korzystania z usługi
+          </a>{" "}
+          Google.
+        </p>
+      )}
     </form>
   );
 }

@@ -21,4 +21,7 @@ return [
     ],
     'rate_limit' => 5,
     'dry_run' => false,
+    // Google reCAPTCHA v3: klucz TAJNY (Secret key). Klucz witryny (Site key) idzie do .env.production jako NEXT_PUBLIC_RECAPTCHA_SITE_KEY.
+    'recaptcha_secret' => '',
+    'recaptcha_min_score' => 0.5,
 ];
