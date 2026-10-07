@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/data/services";
+import { landings } from "@/data/landings";
+import { cases } from "@/data/cases";
 import { categories, categorySlug, getAllPosts } from "@/lib/posts";
 import { siteUrl } from "@/lib/utils";
 
@@ -22,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...statics,
     ...services.map((s) => ({ url: `${siteUrl}/${s.slug}/`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 })),
+    ...landings.map((l) => ({ url: `${siteUrl}/${l.slug}/`, lastModified: now, changeFrequency: "monthly" as const, priority: l.kind === "city" ? 0.7 : 0.8 })),
+    ...cases.map((c) => ({ url: `${siteUrl}/portfolio/${c.slug}/`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.6 })),
     ...posts.map((p) => ({ url: `${siteUrl}/${p.slug}/`, lastModified: new Date(p.updated || p.date), changeFrequency: "monthly" as const, priority: 0.7 })),
     ...categories.filter((c) => used.has(c.slug)).map((c) => ({ url: `${siteUrl}/category/${c.slug}/`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.4 })),
   ];

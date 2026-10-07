@@ -2,6 +2,12 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import type { Service } from "@/data/services";
 import { portfolio } from "@/data/portfolio";
+import { cases } from "@/data/cases";
+import { landingsByParent } from "@/data/landings";
+import { servicesFaq } from "@/data/services-faq";
+import Faq from "./Faq";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import PageHero from "./PageHero";
 import PortfolioGrid from "./PortfolioGrid";
 import Reveal from "./Reveal";
@@ -19,6 +25,8 @@ const featuredFor: Record<Service["icon"], string[]> = {
 };
 
 export default function ServicePage({ service }: { service: Service }) {
+  const subpages = landingsByParent(service.slug);
+  const caseSlugs = Object.fromEntries(cases.map((c) => [c.portfolioTitle, c.slug]));
   const featured = featuredFor[service.icon].map((t) => portfolio.find((p) => p.title === t)).filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   return (
@@ -61,6 +69,26 @@ export default function ServicePage({ service }: { service: Service }) {
         </Container>
       </section>
 
+      {subpages.length > 0 && (
+        <section className="pb-16 lg:pb-24">
+          <Container>
+            <SectionHeading eyebrow="Zakres w szczegółach" title="Co dokładnie możemy dla Ciebie zrobić" lead="Każdy obszar opisaliśmy osobno – z zakresem, procesem i odpowiedziami na najczęstsze pytania." className="mb-10" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {subpages.map((l) => (
+                <Link key={l.slug} href={`/${l.slug}/`} className="group flex items-start justify-between gap-3 rounded-3xl border border-line bg-ink-2/60 p-6 transition hover:-translate-y-0.5 hover:border-cyan/50">
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-cyan">{l.eyebrow}</span>
+                    <span className="mt-2 block font-display text-lg font-semibold leading-snug text-snow">{l.title}</span>
+                    <span className="mt-2 block text-sm text-muted">{l.lead[0]?.slice(0, 120)}…</span>
+                  </span>
+                  <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted transition group-hover:text-cyan" />
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
       <section className="border-y border-line/60 bg-ink-2/30 py-16 lg:py-24">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
@@ -92,10 +120,12 @@ export default function ServicePage({ service }: { service: Service }) {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
-            <PortfolioGrid items={featured} />
+            <PortfolioGrid items={featured} caseSlugs={caseSlugs} />
           </Container>
         </section>
       )}
+
+      <Faq items={servicesFaq[service.slug] ?? []} lead="Konkretne odpowiedzi na pytania, które słyszymy najczęściej przed rozpoczęciem współpracy." />
 
       <section className="pb-8">
         <Container>

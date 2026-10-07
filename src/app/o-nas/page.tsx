@@ -9,6 +9,7 @@ import ServiceIcon from "@/components/ServiceIcon";
 import { BlogTeaser, CtaBand, KeywordMarquee, Process, StatsBand } from "@/components/sections";
 import { Button, Card, Container, SectionHeading } from "@/components/ui";
 import { portfolio } from "@/data/portfolio";
+import { cases } from "@/data/cases";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -106,7 +107,7 @@ export default function AboutPage() {
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
-          <PortfolioGrid items={featured} />
+          <PortfolioGrid items={featured} caseSlugs={Object.fromEntries(cases.map((c) => [c.portfolioTitle, c.slug]))} />
         </Container>
       </section>
 

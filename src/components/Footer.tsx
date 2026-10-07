@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon } from "./SocialIcons";
 import { nav, site } from "@/data/site";
 import { services } from "@/data/services";
+import { cityLandings } from "@/data/landings";
 import { Container } from "./ui";
 import Newsletter from "./Newsletter";
 
@@ -14,8 +15,8 @@ export default function Footer() {
       <Container className="py-16">
         <Newsletter />
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="sm:col-span-2 lg:col-span-3">
             <Image src="/images/logo.webp" alt="OlekCodeTech" width={511} height={111} className="h-10 w-auto" />
             <p className="mt-5 max-w-sm text-body">{site.description}</p>
             <div className="mt-6 flex gap-3">
@@ -78,7 +79,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
+            <h3 className="text-lg">Lokalnie</h3>
+            <ul className="mt-5 space-y-2.5">
+              {cityLandings.map((l) => (
+                <li key={l.slug}>
+                  <Link href={`/${l.slug}/`} className="text-body transition hover:text-cyan">
+                    Strony internetowe {l.city}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
             <h3 className="text-lg">Oferta</h3>
             <ul className="mt-5 space-y-2.5">
               {services.map((s) => (

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
+import ClientsMarquee from "@/components/ClientsMarquee";
+import { cases } from "@/data/cases";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import { AboutTeaser, BlogTeaser, CtaBand, KeywordMarquee, Process, ServicesGrid, StatsBand } from "@/components/sections";
 import { FeatureTiles, ShowcaseTile, Statement } from "@/components/home";
@@ -26,11 +28,13 @@ const featuredTitles = [
 
 export default function HomePage() {
   const posts = getAllPosts().slice(0, 3);
+  const caseSlugs = Object.fromEntries(cases.map((c) => [c.portfolioTitle, c.slug]));
   const featured = featuredTitles.map((t) => portfolio.find((p) => p.title === t)).filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   return (
     <>
       <Hero />
+      <ClientsMarquee />
       <Statement />
       <ShowcaseTile />
       <FeatureTiles />
@@ -60,7 +64,7 @@ export default function HomePage() {
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
-          <PortfolioGrid items={featured} />
+          <PortfolioGrid items={featured} caseSlugs={caseSlugs} />
         </Container>
       </section>
 

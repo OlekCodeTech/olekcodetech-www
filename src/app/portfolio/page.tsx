@@ -4,6 +4,7 @@ import PortfolioGrid from "@/components/PortfolioGrid";
 import { CtaBand } from "@/components/sections";
 import { Container } from "@/components/ui";
 import { portfolio } from "@/data/portfolio";
+import { cases } from "@/data/cases";
 
 export const metadata: Metadata = {
   title: "Portfolio – Realizacje IT i Strony WWW | OlekCodeTech",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
+  const caseSlugs = Object.fromEntries(cases.map((c) => [c.portfolioTitle, c.slug]));
   return (
     <>
       <PageHero
@@ -23,7 +25,7 @@ export default function PortfolioPage() {
       />
       <section className="pb-16 lg:pb-24">
         <Container>
-          <PortfolioGrid items={portfolio} filters />
+          <PortfolioGrid items={portfolio} filters caseSlugs={caseSlugs} />
         </Container>
       </section>
       <CtaBand title="Chcesz, żeby Twój projekt trafił na tę listę?" text="Opowiedz nam o swojej firmie – zaproponujemy rozwiązanie i wycenę bez zobowiązań." />

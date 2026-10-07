@@ -4,11 +4,14 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, CalendarDays, RefreshCw } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
+import LandingView from "@/components/LandingView";
 import PostCard from "@/components/PostCard";
 import Reveal from "@/components/Reveal";
 import { CtaBand } from "@/components/sections";
 import { Button, Container } from "@/components/ui";
 import { site } from "@/data/site";
+import { getLanding, landings } from "@/data/landings";
+import { services } from "@/data/services";
 import { categorySlug, formatDate, getAllPosts, getPost } from "@/lib/posts";
 import { siteUrl } from "@/lib/utils";
 
@@ -16,12 +19,23 @@ type Params = { slug: string };
 
 export const dynamicParams = false;
 
+/** Jeden segment obsługuje wpisy bloga (adresy jak w WP) oraz podstrony SEO (usługi szczegółowe, miasta). */
 export function generateStaticParams(): Params[] {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return [...getAllPosts().map((p) => ({ slug: p.slug })), ...landings.map((l) => ({ slug: l.slug }))];
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
+  const landing = getLanding(slug);
+  if (landing) {
+    return {
+      title: landing.metaTitle,
+      description: landing.metaDescription,
+      keywords: landing.keywords,
+      alternates: { canonical: `/${landing.slug}/` },
+      openGraph: { type: "website", title: landing.metaTitle, description: landing.metaDescription },
+    };
+  }
   const post = getPost(slug);
   if (!post) return {};
   return {
@@ -39,8 +53,25 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
-export default async function PostPage({ params }: { params: Promise<Params> }) {
+/** Dobiera usługę do wpisu na podstawie kategorii – do boksu „powiązana usługa”. */
+function serviceForPost(categories: string[]) {
+  const map: Record<string, string> = {
+    "SEO i widoczność w Google": "seo-content-marketing",
+    "Automatyzacje i integracje": "automatyzacja-procesow-biznesowych",
+    "Strony internetowe i UX": "stronywww-aplikacje",
+    "WordPress i Elementor": "stronywww-aplikacje",
+    "AI w biznesie": "automatyzacja-procesow-biznesowych",
+    "Trendy i nowości IT": "opieka-it-dla-firm",
+  };
+  const slug = categories.map((c) => map[c]).find(Boolean);
+  return services.find((s) => s.slug === slug);
+}
+
+export default async function SlugPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
+  const landing = getLanding(slug);
+  if (landing) return <LandingView page={landing} />;
+
   const post = getPost(slug);
   if (!post) notFound();
 
@@ -48,6 +79,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
     .filter((p) => p.slug !== post.slug)
     .sort((a, b) => Number(b.categories.some((c) => post.categories.includes(c))) - Number(a.categories.some((c) => post.categories.includes(c))))
     .slice(0, 3);
+  const service = serviceForPost(post.categories);
 
   return (
     <>
@@ -83,7 +115,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
                 <Clock className="h-4 w-4" />
                 {post.readingMinutes} min czytania
               </span>
-              <span>Autor: {site.name}</span>
+              <span>Autor: Piotr Olek, {site.name}</span>
             </div>
           </Container>
         </header>
@@ -101,11 +133,16 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
 
           <div className="mt-14 rounded-3xl border border-cyan/30 bg-ink-2 p-7 sm:p-9">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Potrzebujesz wsparcia?</p>
-            <h2 className="mt-3 text-2xl">Porozmawiajmy o Twoim projekcie</h2>
-            <p className="mt-3 text-body">Strona, sklep, automatyzacja albo opieka IT – powiedz, na czym Ci zależy, a zaproponujemy konkretny plan.</p>
-            <Button href="/kontakt/" className="mt-6">
-              Bezpłatna konsultacja
-            </Button>
+            <h2 className="mt-3 text-2xl">{service ? service.name : "Porozmawiajmy o Twoim projekcie"}</h2>
+            <p className="mt-3 text-body">{service ? service.short : "Strona, sklep, automatyzacja albo opieka IT – powiedz, na czym Ci zależy, a zaproponujemy konkretny plan."}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button href="/kontakt/">Bezpłatna konsultacja</Button>
+              {service && (
+                <Button href={`/${service.slug}/`} variant="outline">
+                  Zobacz usługę
+                </Button>
+              )}
+            </div>
           </div>
         </Container>
       </article>
@@ -137,7 +174,7 @@ export default async function PostPage({ params }: { params: Promise<Params> }) 
             image: post.image ? `${siteUrl}${post.image}` : undefined,
             datePublished: post.date,
             dateModified: post.updated || post.date,
-            author: { "@type": "Organization", name: site.name, url: siteUrl },
+            author: { "@type": "Person", name: "Piotr Olek", url: `${siteUrl}/o-nas/` },
             publisher: { "@id": `${siteUrl}/#organization` },
             mainEntityOfPage: `${siteUrl}/${post.slug}/`,
             inLanguage: "pl-PL",

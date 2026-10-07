@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
   basePath,
-  images: { unoptimized: true },
+  images: { loader: "custom", loaderFile: "./src/lib/image-loader.ts" },
   reactStrictMode: true,
 };
 

@@ -15,6 +15,10 @@ export const portfolioTypes: Record<PortfolioType, string> = {
 };
 
 export const portfolio: PortfolioItem[] = [
+  { title: "Plonio.pl", type: "strona", tags: "Strona Internetowa · własny motyw WordPress · katalog sprzedawców · 3 formularze", url: "https://plonio.pl/", image: "/images/portfolio/Plonio.webp" },
+  { title: "Wypożycz Sukienkę", type: "sklep", tags: "Sklep Internetowy · własny silnik rezerwacji terminowej · WooCommerce · Przelewy24 + Furgonetka", url: "https://wypozyczsukienke.com/", image: "/images/portfolio/Wypozyczsukienke.webp" },
+  { title: "UNI-System – systemy dozorowania", type: "strona", tags: "Strona Internetowa · autorski motyw WordPress · landingi lokalne · blog", url: "https://systemydozorowania.pl/", image: "/images/portfolio/Uni-System.webp" },
+  { title: "PowerLAB – chiptuning i serwis AdBlue", type: "strona", tags: "Strona Internetowa · autorski motyw WordPress · realizacje przez API · blog", url: "https://power-lab.pl/", image: "/images/portfolio/PowerLAB.webp" },
   { title: "IJK Transport – Krzysztof Maślanka", type: "sklep", tags: "Landing page + sklep z merchem (koszulki, kubki) · WooCommerce", url: "https://ijkmaslanka.pl/", image: "/images/portfolio/IJK-Transport.webp" },
   { title: "DS Paliwa", type: "strona", tags: "Strona Internetowa · aktualne ceny paliw · oferta hurtowa", url: "https://www.dspaliwa.wielun.pl/", image: "/images/portfolio/DS-Paliwa.webp" },
   { title: "SZYJA Hair Academy", type: "sklep", tags: "Sklep Internetowy · salon fryzjerski i akademia koloryzacji, Wrocław", url: "https://szyjahairacademy.pl/", image: "/images/portfolio/Szyja-Hair-Academy.webp" },
