@@ -1,5 +1,6 @@
 // Generuje karty Open Graph 1200×630 (JPG) dla wszystkich stron do public/og/.
-// Użycie: npx tsx scripts/gen-og.mts   (uruchamiać po zmianie tytułów/stron; wynik commitujemy)
+// Użycie: npx tsx scripts/gen-og.mts          – tylko brakujące karty (tak działa CI dla nowych wpisów z panelu)
+//         npx tsx scripts/gen-og.mts --force  – przegeneruj wszystkie (po zmianie tytułów/szablonu; wynik commitujemy)
 import fs from "node:fs";
 import path from "node:path";
 import sharp, { type OverlayOptions } from "sharp";
@@ -97,10 +98,12 @@ for (const f of fs.readdirSync("content/posts").filter((f) => f.endsWith(".md"))
   cards.push({ path: `/${f.replace(/\.md$/, "")}/`, eyebrow: (data.categories?.[0] as string) ?? "Blog", title: data.title, image: data.image });
 }
 
+const force = process.argv.includes("--force");
 let n = 0;
 for (const c of cards) {
+  if (!force && fs.existsSync(path.join(OUT, path.basename(ogPath(c.path))))) continue;
   await render(c);
   n++;
 }
 const kb = fs.readdirSync(OUT).reduce((s, f) => s + fs.statSync(path.join(OUT, f)).size, 0) / 1024;
-console.log(`OG: ${n} kart, ${Math.round(kb)} KB → public/og/`);
+console.log(`OG: wygenerowano ${n} z ${cards.length} kart (${force ? "wszystkie" : "brakujące"}), razem ${Math.round(kb)} KB → public/og/`);

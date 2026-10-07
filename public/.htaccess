@@ -12,6 +12,12 @@ RedirectMatch 301 ^/services/?$ /oferta/
 RedirectMatch 301 ^/typography/?$ /
 RedirectMatch 301 ^/404-page/?$ /
 RedirectMatch 301 ^/feed/?$ /aktualnosci/
+# Stare mapy strony Rank Math -> nowa mapa
+RedirectMatch 301 ^/sitemap_index\.xml$ /sitemap.xml
+RedirectMatch 301 ^/(post|page|category|cpt_layouts|metform-form)-sitemap\.xml$ /sitemap.xml
+# Stare adresy autora/stron archiwum bloga
+RedirectMatch 301 ^/author/.*$ /o-nas/
+RedirectMatch 301 ^/blog-standard/page/.*$ /aktualnosci/
 
 # Adresy bez końcowego slasha -> ze slashem (spójność z eksportem)
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -36,6 +42,13 @@ ErrorDocument 404 /404.html
 # Kompresja
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Panel treści – bez indeksowania
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/admin/#">
+    Header set X-Robots-Tag "noindex, nofollow"
+  </If>
 </IfModule>
 
 # Nagłówki bezpieczeństwa

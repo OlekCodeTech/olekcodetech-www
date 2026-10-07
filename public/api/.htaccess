@@ -1,0 +1,5 @@
+# Blokada dostępu do plików konfiguracyjnych formularza
+<FilesMatch "^contact-config(\.example)?\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

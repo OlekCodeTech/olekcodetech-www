@@ -73,9 +73,13 @@ for url, h in sorted(pages.items()):
         if target != url:
             inlinks[target] += 1
 
+    noindex = "noindex" in robots
+    if noindex:
+        # strony techniczne (404, panel, stare przekierowania) – liczymy tylko martwe linki
+        rows.append((url, len(title), len(desc), len(h1s), words, "", "noindex"))
+        continue
     titles[title] += 1
     descs[desc] += 1
-    noindex = "noindex" in robots
     if not title: issues[url].append("brak <title>")
     elif len(title) > 62: issues[url].append(f"title za długi ({len(title)}): {title}")
     elif len(title) < 25: issues[url].append(f"title za krótki ({len(title)}): {title}")
@@ -95,7 +99,9 @@ for t, n in titles.items():
     if n > 1: issues["(globalne)"].append(f"zduplikowany title x{n}: {t}")
 for d, n in descs.items():
     if n > 1 and d: issues["(globalne)"].append(f"zduplikowany description x{n}: {d[:80]}")
-for url in pages:
+for url, h in pages.items():
+    if "noindex" in ((re.search(r'<meta name="robots" content="([^"]*)"', h) or [None, ""])[1]):
+        continue
     if url != "/" and inlinks[url] == 0:
         issues[url].append("sierota: brak linków wewnętrznych do tej strony")
 

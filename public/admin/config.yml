@@ -1,0 +1,151 @@
+# Panel treści olekcodetech.pl (Sveltia CMS) – https://olekcodetech.pl/admin/
+# Każdy zapis w panelu to commit w repozytorium GitHub -> GitHub Actions przebudowuje stronę.
+backend:
+  name: github
+  repo: OlekCodeTech/olekcodetech-www
+  branch: main
+  commit_messages:
+    create: "Panel: nowy wpis {{slug}}"
+    update: "Panel: aktualizacja {{collection}} {{slug}}"
+    delete: "Panel: usunięcie {{collection}} {{slug}}"
+    uploadMedia: "Panel: grafika {{path}}"
+    deleteMedia: "Panel: usunięcie grafiki {{path}}"
+
+site_url: https://olekcodetech.pl
+display_url: https://olekcodetech.pl
+logo_url: /images/logo.webp
+
+# Adresy URL generowane z tytułu: małe litery, bez polskich znaków.
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+# Wgrywane zdjęcia: konwersja do WebP, max 1600 px – lekkie i szybkie strony.
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+
+collections:
+  # ---------------- AKTUALNOŚCI ----------------
+  - name: posts
+    label: Aktualności
+    label_singular: Wpis
+    description: "Wpisy bloga. Adres wpisu: olekcodetech.pl/<adres-url>/. Po zapisaniu strona przebuduje się w ok. 2–3 minuty."
+    folder: content/posts
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} – {{date}}"
+    sortable_fields: [date, title]
+    media_folder: /public/images/blog
+    public_folder: /images/blog
+    fields:
+      - name: title
+        label: Tytuł (H1)
+        widget: string
+        hint: "Pełny tytuł artykułu. Z niego powstaje adres URL wpisu (tylko przy tworzeniu – później się nie zmienia)."
+      - name: date
+        label: Data publikacji
+        widget: datetime
+        format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+      - name: updated
+        label: Data aktualizacji
+        widget: datetime
+        format: YYYY-MM-DD
+        time_format: false
+        picker_utc: true
+        required: false
+      - name: categories
+        label: Kategorie
+        widget: select
+        multiple: true
+        min: 1
+        options:
+          - Strony internetowe i UX
+          - SEO i widoczność w Google
+          - Automatyzacje i integracje
+          - AI w biznesie
+          - Trendy i nowości IT
+          - WordPress i Elementor
+      - name: image
+        label: Zdjęcie główne
+        widget: image
+        hint: "Najlepiej poziome 16:9, min. 1200 px szerokości."
+      - name: excerpt
+        label: Zajawka
+        widget: text
+        hint: "1–2 zdania na karcie wpisu."
+      - name: seoTitle
+        label: Tytuł SEO (meta title)
+        widget: string
+        required: false
+        hint: "Do 50 znaków – reszta (| OlekCodeTech) doda się sama. Puste = tytuł H1."
+      - name: seoDescription
+        label: Opis SEO (meta description)
+        widget: text
+        required: false
+        hint: "140–160 znaków, zachęta do kliknięcia. Puste = zajawka."
+      - name: body
+        label: Treść
+        widget: markdown
+        hint: "Używaj nagłówków H2/H3, list i pogrubień. Pierwszego nagłówka H1 nie dodawaj – to tytuł wpisu."
+
+  # ---------------- REALIZACJE ----------------
+  - name: portfolio
+    label: Realizacje
+    description: "Lista realizacji w portfolio i na stronie głównej. Kolejność = kolejność na stronie (najnowsze na górze)."
+    files:
+      - name: portfolio
+        label: Lista realizacji
+        file: content/portfolio.json
+        media_folder: /public/images/portfolio
+        public_folder: /images/portfolio
+        fields:
+          - name: items
+            label: Realizacje
+            label_singular: Realizacja
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}} ({{fields.type}})"
+            fields:
+              - name: title
+                label: Nazwa klienta / projektu
+                widget: string
+                hint: "Np. „Plonio.pl” albo „DS Paliwa”."
+              - name: type
+                label: Typ
+                widget: select
+                default: strona
+                options:
+                  - { label: "Strona internetowa", value: strona }
+                  - { label: "Sklep internetowy", value: sklep }
+                  - { label: "System / aplikacja", value: system }
+              - name: tags
+                label: Krótki opis
+                widget: string
+                required: false
+                hint: "Np. „Sklep Internetowy · WooCommerce · integracja z magazynem”."
+              - name: url
+                label: Link do strony klienta
+                widget: string
+                required: false
+                pattern: ["^(https?://.+)?$", "Pełny adres z https://"]
+              - name: image
+                label: Zdjęcie (mockup)
+                widget: image
+                hint: "Najlepiej mockup 4:3 lub pionowy, min. 1000 px szerokości."

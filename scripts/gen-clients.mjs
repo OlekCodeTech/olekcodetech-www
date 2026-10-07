@@ -1,4 +1,4 @@
-// Generuje src/data/clients.ts z plików w public/images/clients (wymiary) i portfolio.ts (nazwy, linki).
+// Generuje src/data/clients.ts z plików w public/images/clients (wymiary) i content/portfolio.json (nazwy).
 import fs from "node:fs";
 import sharp from "sharp";
 
@@ -46,12 +46,12 @@ const map = {
   "komunalne-wielun-pl": "Komunalne Wieluń",
   "ravsystems-pl": "RAV - Usługi Elektryczne",
 };
-const src = fs.readFileSync("src/data/portfolio.ts", "utf8");
+const titles = new Set(JSON.parse(fs.readFileSync("content/portfolio.json", "utf8")).items.map((i) => i.title));
 const lines = [];
 for (const [slug, title] of Object.entries(map)) {
   const file = `public/images/clients/${slug}.webp`;
   if (!fs.existsSync(file)) { console.warn("brak", file); continue; }
-  if (!src.includes(`title: ${JSON.stringify(title)}`)) { console.warn("brak w portfolio:", title); continue; }
+  if (!titles.has(title)) { console.warn("brak w portfolio:", title); continue; }
   const { width, height } = await sharp(file).metadata();
   const name = title.split(/\s[|–-]\s/)[0].trim();
   lines.push(`  { name: ${JSON.stringify(name)}, portfolioTitle: ${JSON.stringify(title)}, logo: "/images/clients/${slug}.webp", width: ${width}, height: ${height} },`);

@@ -42,6 +42,9 @@ function prefixInternalUrls(html: string) {
   return html.replace(/(src|href)="\/(?!\/)/g, `$1="${basePath}/`);
 }
 
+/** Panel CMS zapisuje daty jako daty YAML – gray-matter zwraca wtedy Date; sprowadzamy do "YYYY-MM-DD". */
+const toDay = (v: unknown): string => (v instanceof Date ? v.toISOString().slice(0, 10) : v ? String(v).slice(0, 10) : "");
+
 function loadPost(file: string): Post {
   const slug = file.replace(/\.md$/, "");
   const raw = fs.readFileSync(path.join(POSTS_DIR, file), "utf8");
@@ -51,8 +54,8 @@ function loadPost(file: string): Post {
   return {
     slug,
     title: data.title ?? slug,
-    date: data.date ?? "",
-    updated: data.updated ?? data.date ?? "",
+    date: toDay(data.date),
+    updated: toDay(data.updated) || toDay(data.date),
     categories: data.categories ?? [],
     // Ucięte excerpty z WP („…”) zastępujemy opisem SEO, żeby karty wpisów były czytelne.
     excerpt: data.excerpt && data.excerpt.length > 80 ? data.excerpt : data.seoDescription ?? data.excerpt ?? "",
@@ -87,7 +90,7 @@ export function getPage(slug: string): { title: string; updated?: string; html: 
   const file = path.join(process.cwd(), "content", "pages", `${slug}.md`);
   if (!fs.existsSync(file)) return undefined;
   const { data, content } = matter(fs.readFileSync(file, "utf8"));
-  return { title: data.title ?? slug, updated: data.updated, html: prefixInternalUrls(marked.parse(content) as string) };
+  return { title: data.title ?? slug, updated: toDay(data.updated) || undefined, html: prefixInternalUrls(marked.parse(content) as string) };
 }
 
 export const formatDate = (iso: string) =>

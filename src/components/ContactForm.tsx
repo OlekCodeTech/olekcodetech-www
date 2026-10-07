@@ -20,8 +20,9 @@ export default function ContactForm({ subject }: { subject?: string }) {
     e.preventDefault();
     const form = e.currentTarget;
     const fd = new FormData(form);
-    if (fd.get("website")) return; // honeypot
+    if (fd.get("website")) return; // honeypot (serwer też odrzuca)
     const payload = {
+      website: String(fd.get("website") || ""),
       name: String(fd.get("name") || "").trim(),
       email: String(fd.get("email") || "").trim(),
       phone: String(fd.get("phone") || "").trim(),
@@ -47,7 +48,8 @@ export default function ContactForm({ subject }: { subject?: string }) {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!res.ok || json?.ok === false) throw new Error(json?.error || `Błąd serwera (${res.status})`);
       setStatus("ok");
       form.reset();
     } catch (err) {
@@ -112,7 +114,7 @@ export default function ContactForm({ subject }: { subject?: string }) {
       {status === "error" && (
         <p className="flex items-center gap-2 rounded-2xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
           <AlertCircle className="h-4 w-4 shrink-0" />
-          Nie udało się wysłać wiadomości ({error}). Napisz do nas bezpośrednio: {site.email}
+          {error}
         </p>
       )}
 

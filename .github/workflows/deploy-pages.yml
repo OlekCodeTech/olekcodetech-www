@@ -1,6 +1,8 @@
-# Podgląd testowy na GitHub Pages: https://olekcodetech.github.io/olekcodetech-www/
-# (noindex, prefiks ścieżki). Produkcja = build bez tych zmiennych i wgranie katalogu out/ na hosting.
-name: Deploy preview to GitHub Pages
+# Każdy push na main (także zapis w panelu /admin/) uruchamia:
+#  1) podgląd na GitHub Pages: https://olekcodetech.github.io/olekcodetech-www/ (noindex, prefiks ścieżki)
+#  2) wdrożenie produkcyjne na Hostinger przez FTP – TYLKO gdy w repozytorium ustawisz zmienną DEPLOY_HOSTINGER=true
+#     (Settings → Secrets and variables → Actions). Instrukcja w README, sekcja „Wdrożenie produkcyjne”.
+name: Build & deploy
 
 on:
   push:
@@ -13,7 +15,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: deploy
   cancel-in-progress: true
 
 jobs:
@@ -26,15 +28,19 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Karty Open Graph dla nowych stron
+        run: npx tsx scripts/gen-og.mts
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /olekcodetech-www
           NEXT_PUBLIC_SITE_URL: https://olekcodetech.github.io/olekcodetech-www
           NEXT_PUBLIC_NOINDEX: "1"
           NEXT_PUBLIC_GTAG_ID: ""
+          NEXT_PUBLIC_FORM_ENDPOINT: ""
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -44,3 +50,37 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  production:
+    if: vars.DEPLOY_HOSTINGER == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Karty Open Graph dla nowych stron
+        run: npx tsx scripts/gen-og.mts
+      - name: Build produkcyjny (olekcodetech.pl)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://olekcodetech.pl
+          NEXT_PUBLIC_FORM_ENDPOINT: /api/contact.php
+      - name: Kontrola SEO (title, description, canonical, martwe linki)
+        run: python3 scripts/seo-audit.py out
+      - name: Wysyłka na Hostinger (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./out/
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+          # Pliki na serwerze, których nie ma w out/ (np. api/contact-config.php, wp-content/uploads) zostają nietknięte.
+          exclude: |
+            **/.git*
+            **/.git*/**

@@ -44,3 +44,7 @@ next-env.d.ts
 .env
 .env.local
 out/
+
+# formularz – prawdziwe hasła tylko na serwerze
+public/api/contact-config.php
+contact-config.php

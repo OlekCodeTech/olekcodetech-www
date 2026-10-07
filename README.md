@@ -26,7 +26,7 @@ public/video/             showreel hero (hero-720.mp4, 2 MB) i animacja tła CTA
 public/.htaccess          przekierowania + cache dla hostingu Apache/LiteSpeed
 src/app/                  strony (App Router)
 src/components/           Header, Footer, Hero, sekcje, formularz, baner cookies
-src/data/                 site.ts (dane firmy, menu, liczby), services.ts (6 usług) + services-faq.ts, portfolio.ts (45 realizacji),
+src/data/                 site.ts (dane firmy, menu, liczby), services.ts (6 usług) + services-faq.ts, portfolio.ts (czyta content/portfolio.json – 45 realizacji),
                           landings-apps.ts (6 podstron aplikacji dedykowanych), landings-services.ts (13 podstron usług), landings-cities.ts (7 stron lokalnych), cases.ts (12 case studies), types.ts
 src/lib/posts.ts          wczytywanie Markdown (gray-matter + marked)
 scripts/                  import wpisów z WP REST, optymalizacja obrazów (sharp), generowanie ikon
@@ -47,7 +47,27 @@ scripts/                  import wpisów z WP REST, optymalizacja obrazów (shar
 
 Nową podstronę SEO dodajesz jako obiekt w `landings-services.ts` / `landings-cities.ts` (typ `LandingPage` w `types.ts`); case study – w `cases.ts` (pole `portfolioTitle` musi odpowiadać tytułowi w `portfolio.ts`).
 
-## Dodawanie wpisu na blog
+## Panel treści /admin/ – nowe realizacje i wpisy
+
+Adres: **https://olekcodetech.pl/admin/** (na podglądzie: https://olekcodetech.github.io/olekcodetech-www/admin/).
+Panel (Sveltia CMS) zapisuje zmiany jako commity w tym repozytorium, a GitHub Actions przebudowuje stronę w ok. 2–3 minuty.
+
+**Pierwsze logowanie (raz):**
+1. GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token.
+2. Repository access: *Only select repositories* → `OlekCodeTech/olekcodetech-www`. Permissions → Repository → **Contents: Read and write**. Ważność np. 1 rok.
+3. Na `/admin/` kliknij **„Zaloguj się za pomocą tokenu dostępu”** i wklej token (zapamięta go przeglądarka).
+
+**Nowa realizacja:** Realizacje → Lista realizacji → „Dodaj” (pojawi się na górze) → nazwa, typ, krótki opis, link, zdjęcie → Zapisz.
+Zdjęcie jest automatycznie konwertowane do WebP i zmniejszane do 1600 px. Pojawi się w portfolio, a jeśli ma być wyróżnione na stronie głównej
+albo dostać case study / logo w pasku klientów – to zmiana w kodzie (`src/app/page.tsx`, `src/data/cases.ts`, `scripts/gen-clients.mjs`).
+
+**Nowy wpis w Aktualnościach:** Aktualności → „Nowy wpis” → tytuł (z niego powstaje adres URL), data, kategorie, zdjęcie, zajawka,
+tytuł i opis SEO, treść (nagłówki H2/H3, listy) → Zapisz. Karta do udostępniania (OG) generuje się sama przy buildzie, wpis trafia do
+mapy strony, listy aktualności i pliku llms.txt.
+
+Pliki pod spodem: `content/posts/*.md` (wpisy) i `content/portfolio.json` (realizacje) – można je też edytować ręcznie.
+
+## Dodawanie wpisu ręcznie (bez panelu)
 
 1. Utwórz `content/posts/moj-slug.md`:
 
@@ -82,25 +102,38 @@ Oba filmy pochodzą ze starej strony (`final-comp.mp4` 41 MB i animacja obwodów
 (H.264, 720p, CRF 27–28; hero od 3. sekundy, 26 s pętli; w animacji CTA wycięty znak wodny). Odtwarzają się automatycznie bez dźwięku,
 pauzują poza ekranem i nie startują przy `prefers-reduced-motion`. Komponent: `src/components/VideoPlayer.tsx`.
 
-## Formularz kontaktowy i newsletter
+## Formularz kontaktowy
 
-Strona jest statyczna, więc formularz wysyła `POST` JSON na `NEXT_PUBLIC_FORM_ENDPOINT`
-(np. webhook n8n / Make, Web3Forms, Formspree). Pola: `name, email, phone, subject, message, consent, source, sentAt`.
-Bez ustawionego endpointu formularz otwiera klienta poczty z gotową wiadomością.
+Produkcja: formularz wysyła `POST` JSON na **`/api/contact.php`** (PHP na Hostingerze, `public/api/contact.php`), który wysyła wiadomość
+na **biuro@olekcodetech.pl** z polem „Odpowiedz do” ustawionym na adres klienta. Zabezpieczenia: pułapka na boty, walidacja,
+limit 5 wiadomości/h z jednego IP, kontrola źródła, blokada wstrzykiwania nagłówków. Log błędów nie zawiera haseł ani treści.
+
+**Konfiguracja na serwerze (raz):** poczta domeny jest w Google Workspace (SPF dopuszcza tylko Google), więc wysyłamy przez SMTP Google:
+1. Konto biuro@olekcodetech.pl → Zarządzaj kontem Google → Bezpieczeństwo → włącz weryfikację dwuetapową → **Hasła aplikacji** → utwórz.
+2. Skopiuj `public/api/contact-config.example.php` jako `contact-config.php` **katalog wyżej niż public_html** (lub do `public_html/api/` – .htaccess blokuje do niego dostęp) i wpisz hasło aplikacji.
+3. Wyślij testową wiadomość z /kontakt/.
+
+Bez pliku konfiguracyjnego skrypt użyje PHP `mail()` – zadziała, ale wiadomości mogą trafiać do spamu (SPF).
+Podgląd na GitHub Pages nie ma PHP, więc tam formularz otwiera klienta poczty.
 Newsletter (`NEXT_PUBLIC_NEWSLETTER_ENDPOINT`) jest ukryty, dopóki nie podasz endpointu.
 
 ## Analityka i cookies
 
 Google tag (`NEXT_PUBLIC_GTAG_ID`, domyślnie `GT-57SWRFDN`, ten sam co w WP) ładuje się dopiero po kliknięciu „Akceptuję wszystkie” w banerze cookies. Zgoda jest zapisywana w `localStorage` pod kluczem `oct-consent`.
 
-## Wdrożenie
+## Wdrożenie produkcyjne (Hostinger, w miejsce WordPressa)
 
-**Podgląd (GitHub Pages):** push na `main` uruchamia `.github/workflows/deploy-pages.yml`. Adres: https://olekcodetech.github.io/olekcodetech-www/ (noindex).
+Workflow `.github/workflows/deploy-pages.yml` przy każdym pushu buduje podgląd na GitHub Pages, a – gdy włączysz – także wersję produkcyjną i wysyła ją przez FTPS.
 
-**Produkcja (Hostinger, w miejsce WordPressa):**
+**Przełączenie z WordPressa (jednorazowo):**
+1. Hostinger → Kopie zapasowe: pełny backup plików i bazy WP (zostaw na kilka tygodni).
+2. Hostinger → Pliki → FTP: utwórz konto FTP z katalogiem `public_html` domeny olekcodetech.pl.
+3. W `public_html` usuń pliki WordPressa **poza** `wp-content/uploads/` (stare obrazki z Google Grafiki i linków zewnętrznych dalej działają).
+4. GitHub → repozytorium → Settings → Secrets and variables → Actions:
+   - Secrets: `FTP_SERVER` (np. `ftp.olekcodetech.pl`), `FTP_USERNAME`, `FTP_PASSWORD`,
+   - Variables: `DEPLOY_HOSTINGER` = `true` (opcjonalnie `FTP_SERVER_DIR`, jeśli konto FTP nie startuje w public_html).
+5. Actions → „Build & deploy” → Run workflow. Po ~3 min strona jest na olekcodetech.pl (razem z `.htaccess`: HTTPS, przekierowania starych adresów, cache).
+6. Wgraj `contact-config.php` (sekcja „Formularz”) i wyślij testową wiadomość.
+7. Google Search Console: zgłoś `https://olekcodetech.pl/sitemap.xml`, sprawdź „Strony” po kilku dniach.
 
-1. `npm run build` (bez `NEXT_PUBLIC_BASE_PATH` i bez `NEXT_PUBLIC_NOINDEX`).
-2. Zrób backup WP, wyczyść `public_html`, wgraj zawartość `out/` (w tym `.htaccess`).
-3. Sprawdź `https://olekcodetech.pl/sitemap.xml` i zgłoś go w Search Console.
-
-Alternatywa: Vercel / Netlify / Cloudflare Pages: podłącz repo, komenda `npm run build`, katalog `out`.
+Ręcznie (bez CI): `npm run build` (bez `NEXT_PUBLIC_BASE_PATH` i `NEXT_PUBLIC_NOINDEX`) i wgranie zawartości `out/` do `public_html`.
