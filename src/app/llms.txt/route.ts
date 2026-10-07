@@ -16,7 +16,7 @@ export function GET() {
     `> ${site.description}`,
     "",
     `Firma: ${site.legalName}, ${site.address.street}, ${site.address.postal} ${site.address.city}, Polska. Kontakt: ${site.email}, ${site.phone}. Właściciel: Piotr Olek.`,
-    "Obszary: strony internetowe i sklepy (WordPress, WooCommerce, autorskie motywy, React/Next.js), automatyzacje (n8n, Make), integracje (API, Microsoft 365, SharePoint, Google Workspace), SEO techniczne i content, opieka IT i helpdesk.",
+    "Obszary: aplikacje dedykowane i oprogramowanie na zamówienie (CRM, panele klienta, systemy rezerwacji, aplikacje mobilne, TMS – React, Next.js, React Native), strony internetowe i sklepy (WordPress, WooCommerce, autorskie motywy), automatyzacje (n8n, Make), integracje (API, Microsoft 365, SharePoint, Google Workspace), SEO techniczne i content, opieka IT i helpdesk.",
     "",
     "## Usługi",
     ...services.map((s) => `- [${s.name}](${siteUrl}/${s.slug}/): ${s.seo.description}`),

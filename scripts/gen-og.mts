@@ -81,7 +81,7 @@ async function render(card: Card) {
 const pfImage = (title?: string) => portfolio.find((p) => p.title === title)?.image;
 
 const cards: Card[] = [
-  { path: "/", eyebrow: "Strony · Sklepy · Automatyzacje · IT", title: "Technologia, która pracuje na Twój wynik", image: "/images/hero/OlekCodeTech-Mockup-.webp" },
+  { path: "/", eyebrow: "Strony · Sklepy · Aplikacje · IT", title: "Technologia, która pracuje na Twój wynik", image: "/images/hero/OlekCodeTech-Mockup-.webp" },
   { path: "/o-nas/", eyebrow: "O nas", title: "Technologia dopasowana do potrzeb firm – poznaj OlekCodeTech", image: "/images/piotr-olek.webp" },
   { path: "/oferta/", eyebrow: "Oferta", title: "Kompleksowe usługi IT dla firm – od strony WWW po stałą opiekę", image: "/images/services/Ulsugi-IT-WWW.webp" },
   { path: "/portfolio/", eyebrow: "Portfolio", title: "50+ realizacji: strony, sklepy, systemy i automatyzacje", image: "/images/hero/OlekCodeTech-Mockup-.webp" },

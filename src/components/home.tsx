@@ -12,11 +12,11 @@ export function Statement() {
         <Reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Jedno miejsce. Cała technologia firmy.</p>
           <h2 className="mt-6 text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-6xl lg:text-7xl">
-            Projektujemy. <span className="text-cyan">Automatyzujemy.</span>
+            Projektujemy. <span className="text-cyan">Programujemy.</span>
             <br className="hidden sm:block" /> Utrzymujemy.
           </h2>
           <p className="mx-auto mt-7 max-w-2xl text-lg text-body sm:text-xl">
-            Nie sprzedajemy „strony” ani „wtyczki”. Porządkujemy technologię tak, żeby sprzedaż, obsługa klienta i codzienna praca zespołu działały bez tarcia.
+            Nie sprzedajemy „strony” ani „wtyczki”. Budujemy strony, sklepy i aplikacje dedykowane, które porządkują sprzedaż, obsługę klienta i codzienną pracę zespołu.
           </p>
         </Reveal>
       </Container>
@@ -40,7 +40,7 @@ export function ShowcaseTile() {
                   Responsywne, szybkie i gotowe pod Google. Projektujemy pod konwersję, a nie pod „ładnie wygląda”.
                 </p>
                 <Link href="/stronywww-aplikacje/" className="mt-7 inline-flex items-center gap-1 font-display font-semibold text-cyan hover:text-cyan-2">
-                  Strony, sklepy i aplikacje
+                  Strony i sklepy internetowe
                   <ChevronRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -66,12 +66,12 @@ export function ShowcaseTile() {
 export function FeatureTiles() {
   const tiles = [
     {
-      eyebrow: "Automatyzacje i integracje",
-      title: "Dane płyną same.",
-      text: "Formularze, CRM, arkusze, Microsoft 365 i Google Workspace połączone w jeden proces. Zero przepisywania.",
-      href: "/automatyzacja-procesow-biznesowych/",
-      image: "/images/services/Automatyzacje.webp",
-      alt: "Schemat automatyzacji procesów w n8n",
+      eyebrow: "Aplikacje dedykowane",
+      title: "Software szyty na miarę.",
+      text: "CRM, panele klienta, systemy rezerwacji i aplikacje mobilne zbudowane pod Twoje procesy. Kod i prawa należą do Ciebie.",
+      href: "/aplikacje-dedykowane/",
+      image: "/images/services/OlekCodeTech-Dasch-1.webp",
+      alt: "Panel aplikacji dedykowanej zaprojektowanej przez OlekCodeTech",
     },
     {
       eyebrow: "Opieka IT",

@@ -35,11 +35,16 @@ export function ServicesGrid({ compact }: { compact?: boolean }) {
   return (
     <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
       {services.map((s, i) => (
-        <Reveal key={s.slug} delay={i * 60} className={i === 0 && !compact ? "lg:col-span-2" : undefined}>
-          <Card glow className="flex h-full flex-col">
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-dim text-cyan">
-              <ServiceIcon icon={s.icon} className="h-6 w-6" />
-            </span>
+        <Reveal key={s.slug} delay={i * 60}>
+          <Card glow className={s.slug === "aplikacje-dedykowane" ? "flex h-full flex-col border-cyan/50 shadow-glow" : "flex h-full flex-col"}>
+            <div className="flex items-start justify-between gap-3">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-dim text-cyan">
+                <ServiceIcon icon={s.icon} className="h-6 w-6" />
+              </span>
+              {s.slug === "aplikacje-dedykowane" && (
+                <span className="rounded-pill bg-cyan px-3 py-1 text-xs font-semibold text-ink">Najczęściej realizujemy</span>
+              )}
+            </div>
             <h3 className="mt-5 text-xl sm:text-2xl">{s.homeTitle}</h3>
             <p className="mt-3 text-body">{s.homeIntro}</p>
             {!compact && (

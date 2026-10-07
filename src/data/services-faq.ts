@@ -24,6 +24,28 @@ export const servicesFaq: Record<string, Faq[]> = {
       a: "Tak. Oferujemy opiekę nad stroną: aktualizacje, kopie zapasowe, monitoring, poprawki i rozwój. Możesz też zlecić nam tylko wdrożenie i prowadzić stronę samodzielnie – dostaniesz instrukcję i krótkie szkolenie.",
     },
   ],
+  "aplikacje-dedykowane": [
+    {
+      q: "Ile kosztuje aplikacja dedykowana?",
+      a: "Koszt zależy od liczby modułów, ról użytkowników, integracji i tego, czy potrzebna jest wersja mobilna. Dlatego zaczynamy od warsztatu i specyfikacji, a budżet dzielimy na etapy: najpierw MVP z najważniejszymi funkcjami, potem rozwój. Wycenę każdego etapu znasz przed jego rozpoczęciem.",
+    },
+    {
+      q: "Lepiej kupić gotowy system czy zamówić własny?",
+      a: "Jeśli gotowe narzędzie pokrywa proces bez obejść – kup gotowe. Aplikacja dedykowana opłaca się, gdy proces jest nietypowy, licencje per użytkownik rosną, a zespół traci czas na arkusze i ręczne przepisywanie danych. Na konsultacji pomagamy to uczciwie ocenić.",
+    },
+    {
+      q: "Ile trwa stworzenie aplikacji na zamówienie?",
+      a: "Pierwsze MVP zwykle powstaje w 6–12 tygodni, zależnie od zakresu. Kolejne moduły dostarczamy iteracyjnie, więc z systemu można korzystać, zanim cały projekt zostanie ukończony.",
+    },
+    {
+      q: "Do kogo należy kod aplikacji?",
+      a: "Do Ciebie. Po rozliczeniu przekazujemy repozytorium kodu, dokumentację i prawa autorskie. Aplikację może później rozwijać nasz lub dowolny inny zespół.",
+    },
+    {
+      q: "Czy robicie aplikacje mobilne na iOS i Android?",
+      a: "Tak. Budujemy aplikacje w React Native / Expo, które działają na iOS i Android z jednego kodu, zwykle razem z panelem webowym i wspólnym API – np. aplikacja dla kierowców połączona z panelem spedycji.",
+    },
+  ],
   "automatyzacja-procesow-biznesowych": [
     {
       q: "Od czego zacząć automatyzację w małej firmie?",

@@ -108,6 +108,7 @@ export const cases: CaseStudy[] = [
       "Nowe wzory dodajemy tym samym potokiem z Google Drive, a klient sam dokłada odzież do katalogu firmowego według instrukcji. Sklep ma poprawne strony prawne, baner cookies i cache, więc jest gotowy na skoki ruchu z kampanii i współprac z twórcami.",
     ],
     services: [
+      "aplikacje-dedykowane",
       "stronywww-aplikacje",
       "automatyzacja-procesow-biznesowych",
       "opieka-it-dla-firm",
@@ -206,6 +207,7 @@ export const cases: CaseStudy[] = [
       "Właścicielka obsługuje wysyłki z jednej listy: filtruje rezerwacje po dacie odbioru, oznacza wysłane i zwrócone, dodaje rezerwacje telefoniczne z rozmiarem. Stara platforma została jako punkt powrotu, poczta nie została naruszona.",
     ],
     services: [
+      "aplikacje-dedykowane",
       "stronywww-aplikacje",
       "integracje-systemow-it",
       "automatyzacja-procesow-biznesowych",
@@ -478,6 +480,7 @@ export const cases: CaseStudy[] = [
       "Strony i kategorie mają ustawione meta i obrazy do udostępniania; galerie produktów z wieloma zdjęciami działają poprawnie. Zalecenia dotyczące CDN i HTTP/2 przekazaliśmy klientowi do wdrożenia w panelu hostingu.",
     ],
     services: [
+      "aplikacje-dedykowane",
       "stronywww-aplikacje",
       "integracje-systemow-it",
       "seo-content-marketing",
@@ -525,7 +528,8 @@ export const cases: CaseStudy[] = [
       "Serwis działa na statycznych plikach – bez Joomli, bazy i panelu administracyjnego, więc znika główny wektor ataku. Stare linki prowadzą w te same miejsca, panel dostępności i harmonogramy działają jak wcześniej.",
       "Klient zaakceptował wersję na demie przed wdrożeniem; aktualizacja to build i wgranie plików, a główna strona przedsiębiorstwa na tym samym koncie pozostała nienaruszona.",
     ],
-    services: ["stronywww-aplikacje", "opieka-it-dla-firm"],
+    services: [
+      "aplikacje-dedykowane","stronywww-aplikacje", "opieka-it-dla-firm"],
     landings: ["aplikacje-webowe-react-nextjs", "strony-internetowe-wielun"],
   },
   {

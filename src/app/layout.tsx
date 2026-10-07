@@ -16,8 +16,8 @@ const noindex = process.env.NEXT_PUBLIC_NOINDEX === "1";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "OlekCodeTech – Strony WWW, Automatyzacje i Obsługa IT",
-  description: "Strony internetowe, sklepy WooCommerce, aplikacje, automatyzacje n8n i Make oraz opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
+  title: "OlekCodeTech – Strony WWW, aplikacje dedykowane i obsługa IT",
+  description: "Strony internetowe, sklepy WooCommerce, aplikacje dedykowane, automatyzacje i opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
   openGraph: {
     type: "website",
     locale: "pl_PL",
@@ -57,7 +57,7 @@ const orgJsonLd = {
     { "@type": "Country", name: "Polska" },
     ...["Wieluń", "Sieradz", "Wieruszów", "Zduńska Wola", "Łódź", "Wrocław", "Częstochowa"].map((name) => ({ "@type": "City", name })),
   ],
-  knowsAbout: ["Tworzenie stron internetowych", "Sklepy internetowe WooCommerce", "Aplikacje webowe React i Next.js", "Automatyzacja procesów n8n i Make", "Integracje Microsoft 365 i SharePoint", "SEO techniczne", "Opieka IT dla firm"],
+  knowsAbout: ["Tworzenie stron internetowych", "Sklepy internetowe WooCommerce", "Aplikacje dedykowane i oprogramowanie na zamówienie", "Systemy CRM na zamówienie", "Aplikacje mobilne React Native", "Aplikacje webowe React i Next.js", "Automatyzacja procesów n8n i Make", "Integracje Microsoft 365 i SharePoint", "SEO techniczne", "Opieka IT dla firm"],
   hasMap: site.address.mapsUrl,
 };
 

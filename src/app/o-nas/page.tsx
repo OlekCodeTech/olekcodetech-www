@@ -21,9 +21,9 @@ export const metadata: Metadata = pageMeta({
 });
 
 const pillars = [
-  { icon: "web", title: "Strony i aplikacje webowe", text: "Projektujemy nowoczesne strony internetowe, sklepy online i aplikacje webowe zoptymalizowane pod wydajność, SEO i konwersję użytkowników." },
-  { icon: "automation", title: "Automatyzacje procesów", text: "Wdrażamy automatyzacje procesów biznesowych, które eliminują ręczną pracę i porządkują działania sprzedażowe, operacyjne oraz obsługę klienta." },
-  { icon: "care", title: "Obsługa IT dla firm", text: "Zapewniamy kompleksową obsługę IT, helpdesk oraz rozwój systemów dla firm działających lokalnie i w całej Polsce." },
+  { icon: "web", title: "Strony i sklepy internetowe", text: "Projektujemy nowoczesne strony internetowe i sklepy online zoptymalizowane pod wydajność, SEO i konwersję użytkowników." },
+  { icon: "app", title: "Aplikacje dedykowane", text: "Budujemy oprogramowanie na zamówienie: CRM, panele klienta, systemy rezerwacji i aplikacje mobilne dopasowane do procesów firmy." },
+  { icon: "care", title: "Automatyzacje i obsługa IT", text: "Automatyzujemy powtarzalną pracę, integrujemy systemy i zapewniamy stałą opiekę IT oraz helpdesk dla firm w całej Polsce." },
 ] as const;
 
 const aboutStats = [

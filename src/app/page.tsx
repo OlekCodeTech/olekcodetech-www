@@ -14,8 +14,8 @@ import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = pageMeta({
   path: "/",
-  title: "OlekCodeTech – Strony WWW, Automatyzacje i Obsługa IT",
-  description: "Strony internetowe, sklepy WooCommerce, aplikacje, automatyzacje n8n i Make oraz opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
+  title: "OlekCodeTech – Strony WWW, aplikacje dedykowane i obsługa IT",
+  description: "Strony internetowe, sklepy WooCommerce, aplikacje dedykowane, automatyzacje i opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
 });
 
 const featuredTitles = [
@@ -45,7 +45,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Kompleksowe podejście do IT"
             title="Kompleksowe usługi IT dla firm"
-            lead="Od strony internetowej, przez automatyzacje i integracje, po stałą opiekę IT. Wybierz obszar, który chcesz uporządkować – albo oddaj nam całość."
+            lead="Od strony internetowej, przez aplikacje dedykowane, integracje i automatyzacje, po stałą opiekę IT. Wybierz obszar, który chcesz uporządkować – albo oddaj nam całość."
             align="center"
             className="mb-14"
           />

@@ -9,7 +9,7 @@ export type Service = {
   homeIntro: string;
   homeScopeLabel: string;
   homeScope: string[];
-  icon: "web" | "automation" | "seo" | "care" | "integration";
+  icon: "web" | "app" | "automation" | "seo" | "care" | "integration";
   image: string;
   seo: { title: string; description: string };
   hero: { title: string; lead: string[] };
@@ -22,11 +22,11 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "stronywww-aplikacje",
-    name: "Strony internetowe, sklepy i aplikacje",
+    name: "Strony internetowe i sklepy",
     eyebrow: "Projektowanie i development",
     short:
       "Projektujemy nowoczesne strony internetowe, sklepy online oraz aplikacje webowe dla firm. Dbamy o wydajność, SEO, bezpieczeństwo i konwersję użytkowników, tworząc rozwiązania dopasowane do realnych potrzeb biznesu.",
-    homeTitle: "Strony internetowe, sklepy i aplikacje webowe",
+    homeTitle: "Strony internetowe i sklepy online",
     homeIntro:
       "Projektujemy nowoczesne strony internetowe, sklepy online oraz aplikacje webowe dla firm, dbając o wydajność, SEO i konwersję użytkowników.",
     homeScopeLabel: "Zakres technologiczny",
@@ -34,19 +34,19 @@ export const services: Service[] = [
       "Strony firmowe i landing pages",
       "Sklepy internetowe (WooCommerce, custom e-commerce)",
       "WordPress / Elementor",
-      "React JS i nowoczesne aplikacje frontendowe",
-      "Systemy webowe dopasowane do procesów biznesowych",
+      "Autorskie motywy WordPress bez page buildera",
+      "Strony w React / Next.js tam, gdzie liczy się wydajność",
       "Optymalizacja techniczna, Core Web Vitals i SEO",
     ],
     icon: "web",
     image: "/images/services/Ulsugi-IT-WWW.webp",
     seo: {
-      title: "Strony WWW i aplikacje webowe dla firm – OlekCodeTech",
+      title: "Strony internetowe i sklepy dla firm – OlekCodeTech",
       description:
-        "Tworzymy strony WWW, sklepy internetowe i aplikacje webowe dla firm. Nowoczesny design, optymalizacja SEO i rozwiązania dopasowane do potrzeb biznesu.",
+        "Tworzymy strony internetowe i sklepy WooCommerce dla firm: autorski design, szybkie ładowanie, SEO od startu i wsparcie po wdrożeniu. Umów konsultację.",
     },
     hero: {
-      title: "Strony internetowe, sklepy i aplikacje",
+      title: "Strony internetowe i sklepy online dla firm",
       lead: [
         "Projektujemy i rozwijamy nowoczesne strony internetowe, sklepy online oraz aplikacje webowe dla firm, które chcą skutecznie rozwijać swoją obecność w internecie. Tworzymy rozwiązania dopasowane do realnych potrzeb biznesowych, skupiając się na wydajności, SEO, bezpieczeństwie oraz konwersji użytkowników.",
         "Każdy projekt realizujemy kompleksowo — od analizy potrzeb i architektury informacji, przez projekt graficzny i development, aż po optymalizację techniczną i dalszy rozwój systemu.",
@@ -77,14 +77,14 @@ export const services: Service[] = [
         ],
       },
       {
-        title: "Aplikacje webowe i systemy dedykowane",
-        text: "Tworzymy aplikacje webowe oraz systemy dopasowane do procesów biznesowych firm, które usprawniają codzienną pracę i automatyzują działania operacyjne. Projektujemy skalowalne rozwiązania, które rozwijają się razem z biznesem.",
-        intro: "W ramach realizacji oferujemy:",
+        title: "Strona jako część większego systemu",
+        text: "Coraz częściej strona to tylko front większej całości: panelu klienta, systemu rezerwacji, CRM czy integracji z magazynem. Projektujemy ją tak, żeby od początku dało się ją połączyć z aplikacją dedykowaną i rozwijać bez przepisywania od zera.",
+        intro: "Najczęściej łączymy stronę z:",
         bullets: [
-          "nowoczesne aplikacje frontendowe (React, Next.js)",
-          "systemy webowe dopasowane do potrzeb firmy",
-          "integracje API i synchronizację danych",
-          "bezpieczne i wydajne architektury aplikacji",
+          "panelem klienta i strefą logowania",
+          "systemem rezerwacji lub kalendarzem dostępności",
+          "CRM, ERP i systemem magazynowym przez API",
+          "aplikacją dedykowaną – zobacz usługę „Aplikacje dedykowane”",
         ],
       },
       {
@@ -105,6 +105,100 @@ export const services: Service[] = [
         "Współpracujemy z przedsiębiorstwami w całej Polsce, oferując indywidualne podejście, przejrzystą komunikację oraz wsparcie techniczne po wdrożeniu.",
     },
     cta: "Dowiedz się więcej",
+  },
+  {
+    slug: "aplikacje-dedykowane",
+    name: "Aplikacje dedykowane i oprogramowanie na zamówienie",
+    eyebrow: "Software szyty na miarę",
+    short:
+      "Projektujemy i budujemy aplikacje webowe i mobilne dopasowane do procesów firmy: systemy CRM, panele klienta, systemy rezerwacji, narzędzia dla zespołów i oprogramowanie dla transportu. Od warsztatu i prototypu, przez MVP, po rozwój i utrzymanie.",
+    homeTitle: "Aplikacje dedykowane i systemy dla firm",
+    homeIntro:
+      "Budujemy oprogramowanie na zamówienie: aplikacje webowe i mobilne, CRM, panele klienta i systemy rezerwacji – dopasowane do tego, jak naprawdę pracuje Twoja firma.",
+    homeScopeLabel: "Co budujemy najczęściej",
+    homeScope: [
+      "Systemy CRM i panele do obsługi klientów",
+      "Panele klienta, portale B2B i strefy logowania",
+      "Systemy rezerwacji i kalendarze dostępności",
+      "Aplikacje mobilne iOS i Android (React Native / Expo)",
+      "Oprogramowanie dla transportu i logistyki (TMS)",
+      "Aplikacje webowe w React, Next.js i TypeScript",
+    ],
+    icon: "app",
+    image: "/images/services/OlekCodeTech-Dasch-1.webp",
+    seo: {
+      title: "Aplikacje dedykowane i software na zamówienie – OlekCodeTech",
+      description:
+        "Aplikacje webowe i mobilne na zamówienie: CRM, panele klienta, systemy rezerwacji i TMS. Od prototypu i MVP po rozwój. Kod i prawa należą do Ciebie.",
+    },
+    hero: {
+      title: "Aplikacje dedykowane i oprogramowanie na zamówienie",
+      lead: [
+        "Gotowe programy rzadko pasują do firmy w stu procentach. Budujemy aplikacje dedykowane – webowe i mobilne – które odwzorowują Twoje procesy zamiast zmuszać zespół do obchodzenia ograniczeń: systemy CRM, panele klienta, systemy rezerwacji, narzędzia operacyjne i oprogramowanie dla transportu.",
+        "Pracujemy etapami: warsztat i analiza, makiety i klikany prototyp, MVP z najważniejszymi funkcjami, a potem rozwój na podstawie tego, jak system jest używany. Kod, dokumentacja i prawa do aplikacji należą do Ciebie.",
+      ],
+    },
+    sectionTitle: "Oprogramowanie, które pasuje do Twojej firmy",
+    blocks: [
+      {
+        title: "Kiedy aplikacja dedykowana ma sens",
+        text: "Aplikację na zamówienie warto zbudować wtedy, gdy gotowe narzędzia wymagają obejść, arkuszy pomocniczych i ręcznego przepisywania danych, albo gdy proces jest przewagą firmy i nie chcesz dopasowywać go do cudzego produktu.",
+        intro: "Typowe sygnały:",
+        bullets: [
+          "zespół pracuje na kilku arkuszach i narzędziach jednocześnie",
+          "gotowy SaaS nie obsługuje kluczowego etapu procesu",
+          "rosną koszty licencji per użytkownik",
+          "dane klientów i zleceń są rozproszone",
+          "potrzebujesz panelu dla klientów lub partnerów",
+        ],
+      },
+      {
+        title: "Co budujemy",
+        text: "Realizujemy zarówno wewnętrzne narzędzia dla zespołów, jak i aplikacje, z których korzystają klienci firmy. Każdy projekt zaczynamy od tego, co ma się realnie usprawnić, a nie od listy funkcji.",
+        intro: "Najczęściej są to:",
+        bullets: [
+          "systemy CRM i obsługi zleceń",
+          "panele klienta, portale B2B i strefy logowania",
+          "systemy rezerwacji terminowej i kalendarze dostępności",
+          "aplikacje mobilne dla zespołów terenowych i kierowców",
+          "panele raportowe i dashboardy sprzedaży",
+        ],
+      },
+      {
+        title: "Jak pracujemy: od prototypu do MVP",
+        text: "Zaczynamy od warsztatu i makiet, żeby przed napisaniem pierwszej linii kodu było jasne, jak aplikacja będzie działać. Potem dostarczamy MVP z najważniejszymi funkcjami i rozwijamy je w krótkich iteracjach na podstawie uwag użytkowników.",
+        intro: "Etapy projektu:",
+        bullets: [
+          "warsztat, analiza procesu i specyfikacja",
+          "makiety i klikany prototyp do akceptacji",
+          "MVP wdrożone na produkcję w etapach",
+          "testy z użytkownikami i poprawki",
+          "rozwój, utrzymanie i monitoring",
+        ],
+      },
+      {
+        title: "Technologie",
+        text: "Dobieramy stack do skali i tego, kto będzie rozwijał system. Stawiamy na popularne, dobrze udokumentowane technologie, żeby aplikacji nie trzeba było przepisywać przy zmianie zespołu.",
+        intro: "Pracujemy m.in. z:",
+        bullets: [
+          "React, Next.js i TypeScript",
+          "Node.js, tRPC, REST API",
+          "PostgreSQL i Prisma",
+          "React Native / Expo (iOS i Android)",
+          "integracje z Microsoft 365, Google Workspace, CRM i ERP",
+        ],
+      },
+    ],
+    why: {
+      text: "Łączymy programowanie z rozumieniem procesów biznesowych. Zanim zaproponujemy aplikację, sprawdzamy, czy problemu nie rozwiąże prostsza integracja albo automatyzacja – budujemy software tam, gdzie naprawdę się opłaca.",
+      bullets: [
+        "kod, dokumentacja i prawa autorskie przekazywane klientowi",
+        "praca etapami z widocznymi efektami co kilka tygodni",
+        "jedna osoba kontaktowa od analizy po utrzymanie",
+        "możliwość połączenia aplikacji ze stroną, sklepem i automatyzacjami",
+      ],
+    },
+    cta: "Porozmawiajmy o aplikacji",
   },
   {
     slug: "automatyzacja-procesow-biznesowych",

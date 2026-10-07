@@ -26,16 +26,16 @@ public/video/             showreel hero (hero-720.mp4, 2 MB) i animacja tła CTA
 public/.htaccess          przekierowania + cache dla hostingu Apache/LiteSpeed
 src/app/                  strony (App Router)
 src/components/           Header, Footer, Hero, sekcje, formularz, baner cookies
-src/data/                 site.ts (dane firmy, menu, liczby), services.ts (5 usług) + services-faq.ts, portfolio.ts (48 realizacji),
-                          landings-services.ts (14 podstron usług), landings-cities.ts (7 stron lokalnych), cases.ts (12 case studies), types.ts
+src/data/                 site.ts (dane firmy, menu, liczby), services.ts (6 usług) + services-faq.ts, portfolio.ts (45 realizacji),
+                          landings-apps.ts (6 podstron aplikacji dedykowanych), landings-services.ts (13 podstron usług), landings-cities.ts (7 stron lokalnych), cases.ts (12 case studies), types.ts
 src/lib/posts.ts          wczytywanie Markdown (gray-matter + marked)
 scripts/                  import wpisów z WP REST, optymalizacja obrazów (sharp), generowanie ikon
 ```
 
 ## Struktura SEO
 
-- `/<usluga>/` – 5 stron usług (FAQ + FAQPage schema, Service schema, sekcja „Zakres w szczegółach” z podstronami).
-- `/<podstrona>/` – 14 podstron usługowych (np. `/sklepy-internetowe-woocommerce/`) i 7 stron lokalnych (`/strony-internetowe-wielun/` …) z `src/data/landings-*.ts`; render `src/components/LandingView.tsx`, routing w `src/app/[slug]/page.tsx` (wspólny segment z wpisami bloga).
+- `/<usluga>/` – 6 stron usług (aplikacje dedykowane wyróżnione jako główny obszar) (FAQ + FAQPage schema, Service schema, sekcja „Zakres w szczegółach” z podstronami).
+- `/<podstrona>/` – 19 podstron usługowych (6 o aplikacjach) (np. `/sklepy-internetowe-woocommerce/`) i 7 stron lokalnych (`/strony-internetowe-wielun/` …) z `src/data/landings-*.ts`; render `src/components/LandingView.tsx`, routing w `src/app/[slug]/page.tsx` (wspólny segment z wpisami bloga).
 - `/portfolio/<slug>/` – case studies z `src/data/cases.ts` (`CaseView.tsx`); karty realizacji z case study linkują do niego zamiast na zewnątrz.
 - Dane strukturalne: Organization/LocalBusiness (layout), Person (O nas), Service, FAQPage, BreadcrumbList, BlogPosting, CreativeWork.
 - `sitemap.xml`, `robots.txt`, `llms.txt` generowane przy buildzie z danych.

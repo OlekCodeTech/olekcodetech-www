@@ -3,7 +3,7 @@ export const site = {
   legalName: "OlekCodeTech Sp. z o.o.",
   tagline: "Strony WWW, automatyzacje i obsługa IT dla firm",
   description:
-    "Tworzymy nowoczesne strony internetowe, sklepy online, automatyzacje procesów i zapewniamy kompleksową obsługę IT dla firm w całej Polsce.",
+    "Tworzymy strony internetowe, sklepy online i aplikacje dedykowane, wdrażamy automatyzacje i zapewniamy kompleksową obsługę IT dla firm w całej Polsce.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://olekcodetech.pl",
   phone: "+48 882 715 667",
   phoneHref: "tel:+48882715667",
@@ -35,7 +35,8 @@ export const nav: NavItem[] = [
     label: "Oferta",
     href: "/oferta/",
     children: [
-      { label: "Strony internetowe, sklepy i aplikacje", href: "/stronywww-aplikacje/", short: "WordPress, WooCommerce, React" },
+      { label: "Strony internetowe i sklepy", href: "/stronywww-aplikacje/", short: "WordPress, WooCommerce, autorskie motywy" },
+      { label: "Aplikacje dedykowane", href: "/aplikacje-dedykowane/", short: "CRM, panele klienta, rezerwacje, mobile" },
       { label: "Automatyzacja procesów biznesowych", href: "/automatyzacja-procesow-biznesowych/", short: "n8n, Make, CRM, formularze" },
       { label: "SEO i content marketing", href: "/seo-content-marketing/", short: "SEO techniczne, blog ekspercki" },
       { label: "Opieka IT dla firm", href: "/opieka-it-dla-firm/", short: "Helpdesk, aktualizacje, monitoring" },

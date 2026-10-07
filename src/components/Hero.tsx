@@ -18,7 +18,7 @@ export default function Hero() {
 
       <Container className="flex flex-col items-center pb-16 pt-16 text-center sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
         <p className="hero-in inline-flex items-center gap-2 rounded-pill border border-line/80 bg-ink-2/60 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan sm:text-xs">
-          Strony · Sklepy · Automatyzacje · IT
+          Strony · Sklepy · Aplikacje · IT
         </p>
 
         <h1 className="hero-in mt-7 max-w-5xl text-balance text-[2.75rem] font-semibold leading-[1.02] tracking-[-0.03em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]" style={{ animationDelay: "80ms" }}>
@@ -28,7 +28,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-in mt-7 max-w-2xl text-lg leading-relaxed text-body sm:text-xl" style={{ animationDelay: "160ms" }}>
-          Strony internetowe, sklepy i aplikacje, automatyzacje procesów oraz stała opieka IT. Jeden zespół, od analizy po wdrożenie – dla firm z całej Polski.
+          Strony internetowe i sklepy, aplikacje dedykowane szyte na miarę procesów, integracje i automatyzacje oraz stała opieka IT. Jeden zespół, od analizy po wdrożenie – dla firm z całej Polski.
         </p>
 
         <div className="hero-in mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-4" style={{ animationDelay: "240ms" }}>

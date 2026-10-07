@@ -17,9 +17,9 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = pageMeta({
   path: "/oferta/",
-  title: "Oferta IT dla firm – strony, automatyzacje, SEO | OlekCodeTech",
+  title: "Oferta IT dla firm – strony, aplikacje, SEO | OlekCodeTech",
   description:
-    "Kompleksowa oferta IT dla firm: strony WWW i sklepy, automatyzacja procesów, integracje systemów, SEO oraz stała obsługa IT. Sprawdź, jak możemy pomóc.",
+    "Oferta IT dla firm: strony WWW i sklepy, aplikacje dedykowane na zamówienie, integracje i automatyzacje, SEO oraz stała obsługa IT. Sprawdź, jak pomożemy.",
 });
 
 export default function OfferPage() {
@@ -31,7 +31,7 @@ export default function OfferPage() {
         crumbs={[{ label: "Oferta", href: "/oferta/" }]}
         wide
         lead={[
-          "Projektujemy nowoczesne strony internetowe, sklepy online oraz aplikacje webowe, a także zapewniamy profesjonalną obsługę IT dla firm. Wspieramy przedsiębiorstwa w rozwoju technologicznym, automatyzacji procesów i utrzymaniu stabilnych, bezpiecznych systemów IT.",
+          "Projektujemy strony internetowe i sklepy online, budujemy aplikacje dedykowane szyte na miarę procesów firmy, a także integrujemy systemy, automatyzujemy pracę i zapewniamy stałą obsługę IT. Najwięcej realizujemy oprogramowania na zamówienie: CRM, paneli klienta, systemów rezerwacji i aplikacji mobilnych.",
         ]}
       />
 

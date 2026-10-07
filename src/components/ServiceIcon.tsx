@@ -1,8 +1,9 @@
-import { Globe, Workflow, Search, ShieldCheck, Cable, type LucideProps } from "lucide-react";
+import { Globe, AppWindow, Workflow, Search, ShieldCheck, Cable, type LucideProps } from "lucide-react";
 import type { Service } from "@/data/services";
 
 const map = {
   web: Globe,
+  app: AppWindow,
   automation: Workflow,
   seo: Search,
   care: ShieldCheck,

@@ -17,7 +17,8 @@ import { CtaBand, RelatedServices, ValuesGrid } from "./sections";
 import { siteUrl } from "@/lib/utils";
 
 const featuredFor: Record<Service["icon"], string[]> = {
-  web: ["Marsol Developer", "Complex - Rafał Gajda", "Sweepio | Roboty sprzątające"],
+  web: ["Marsol Developer", "Complex - Rafał Gajda", "DS Paliwa"],
+  app: ["CRM E-Numerika Biuro Księgowe", "Wypożycz Sukienkę", "RAV - Sklep elektryczny"],
   automation: ["CRM E-Numerika Biuro Księgowe", "RAV - Sklep elektryczny", "WTA Perfekt"],
   seo: ["Apteki Burchaciński", "MSPM - BIOGAZ", "SilverClean | Profesjonalne środki czystości i maszyny sprzątające"],
   care: ["MG Recykling", "Komunalne Wieluń", "ATEST - Piotr Sosnowski"],

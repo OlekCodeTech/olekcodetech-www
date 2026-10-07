@@ -231,7 +231,7 @@ export const cityLandings: LandingPage[] = [
       "pozycjonowanie Sieradz",
       "obsługa informatyczna Sieradz",
     ],
-    portfolio: ["SimTrans - Pomoc Drogowa", "Esel Logistik", "BKP - Ubezpieczenia"],
+    portfolio: ["SimTrans - Pomoc Drogowa", "DS Paliwa", "BKP - Ubezpieczenia"],
   },
 
   // ---------------------------------------------------------------------------
@@ -460,7 +460,7 @@ export const cityLandings: LandingPage[] = [
       "pozycjonowanie Zduńska Wola",
       "automatyzacje dla firm Zduńska Wola",
     ],
-    portfolio: ["WTA Perfekt", "Esel Logistik", "WEKART | Opakowania z tektury falistej"],
+    portfolio: ["WTA Perfekt", "RAV - Sklep elektryczny", "WEKART | Opakowania z tektury falistej"],
   },
 
   // ---------------------------------------------------------------------------
