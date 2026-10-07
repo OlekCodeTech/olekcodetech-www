@@ -170,13 +170,15 @@ export function Process() {
     <section className="py-16 lg:py-24">
       <Container>
         <SectionHeading eyebrow="Jak pracujemy" title="Od analizy po stałą opiekę" lead="Prosty, przewidywalny proces – bez niespodzianek w trakcie i po wdrożeniu." className="mb-12" />
-        <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-5 md:grid-cols-2">
           {steps.map((s, i) => (
             <Reveal key={s.n} as="li" delay={i * 80}>
-              <Card className="h-full">
-                <span className="font-display text-4xl font-semibold text-cyan/80">{s.n}</span>
-                <h3 className="mt-4 text-xl">{s.title}</h3>
-                <p className="mt-3 text-body">{s.text}</p>
+              <Card className="flex h-full items-start gap-6 sm:gap-8">
+                <span className="w-16 shrink-0 font-display text-5xl font-semibold leading-none tabular-nums text-cyan/80">{s.n}</span>
+                <div>
+                  <h3 className="text-xl sm:text-2xl">{s.title}</h3>
+                  <p className="mt-3 text-body sm:text-lg">{s.text}</p>
+                </div>
               </Card>
             </Reveal>
           ))}

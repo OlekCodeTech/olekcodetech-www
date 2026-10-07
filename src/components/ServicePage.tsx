@@ -92,21 +92,23 @@ export default function ServicePage({ service }: { service: Service }) {
 
       <section className="border-y border-line/60 bg-ink-2/30 py-16 lg:py-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12">
-            <Reveal className="lg:col-span-5">
-              <SectionHeading title="Dlaczego OlekCodeTech?" />
-              <p className="mt-6 text-lg text-body">{service.why.text}</p>
-              {service.why.bullets && (
-                <>
-                  <p className="mt-6 font-semibold text-snow">Zapewniamy:</p>
-                  <CheckList items={service.why.bullets} className="mt-3" />
-                </>
-              )}
-              {service.why.outro && <p className="mt-6 text-body">{service.why.outro}</p>}
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-6">
+              <SectionHeading eyebrow="Dlaczego my" title="Dlaczego OlekCodeTech?" />
+              <p className="mt-6 text-lg leading-relaxed text-body">{service.why.text}</p>
+              {service.why.outro && <p className="mt-4 text-lg leading-relaxed text-body">{service.why.outro}</p>}
             </Reveal>
-            <div className="lg:col-span-7">
-              <ValuesGrid />
-            </div>
+            {service.why.bullets && (
+              <Reveal delay={80} className="lg:col-span-6">
+                <Card className="border-cyan/30">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan">Zapewniamy</p>
+                  <CheckList items={service.why.bullets} className="mt-5 [&_li]:text-base sm:[&_li]:text-lg" />
+                </Card>
+              </Reveal>
+            )}
+          </div>
+          <div className="mt-12 lg:mt-16">
+            <ValuesGrid />
           </div>
         </Container>
       </section>
