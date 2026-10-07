@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function Container({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8", className)}>{children}</div>;
+  // Własne max-w-* z className zastępuje domyślne max-w-7xl (dwie klasy max-w naraz = wygrywa ta później w CSS, nie ta podana).
+  const hasMaxW = /(^|\s)max-w-/.test(className ?? "");
+  return <div className={cn("mx-auto w-full px-4 sm:px-6 lg:px-8", !hasMaxW && "max-w-7xl", className)}>{children}</div>;
 }
 
 type ButtonProps = {

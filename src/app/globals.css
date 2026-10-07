@@ -123,7 +123,11 @@ html.js .reveal.is-visible {
 .prose-dark img { border-radius: 1rem; border: 1px solid var(--color-line); margin: 2em auto; max-width: 100%; height: auto; }
 .prose-dark blockquote { border-left: 3px solid var(--color-cyan); padding-left: 1.25rem; color: var(--color-snow); font-style: italic; }
 .prose-dark hr { border-color: var(--color-line); margin: 3em 0; }
-.prose-dark table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: block; overflow-x: auto; }
+.prose-dark table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: table; table-layout: auto; }
+@media (max-width: 640px) {
+  .prose-dark table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .prose-dark th, .prose-dark td { min-width: 9rem; }
+}
 .prose-dark th, .prose-dark td { border: 1px solid var(--color-line); padding: 0.6rem 0.8rem; text-align: left; vertical-align: top; }
 .prose-dark th { background: var(--color-ink-2); color: var(--color-snow); }
 .prose-dark code { background: var(--color-ink-2); border: 1px solid var(--color-line); border-radius: 0.35rem; padding: 0.1em 0.4em; font-size: 0.9em; }

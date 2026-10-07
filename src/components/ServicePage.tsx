@@ -13,7 +13,8 @@ import PortfolioGrid from "./PortfolioGrid";
 import Reveal from "./Reveal";
 import JsonLd from "./JsonLd";
 import { Button, Card, CheckList, Container, SectionHeading } from "./ui";
-import { CtaBand, RelatedServices, ValuesGrid } from "./sections";
+import { BlogTeaser, CtaBand, RelatedServices, ValuesGrid } from "./sections";
+import { postsForService } from "@/lib/posts";
 import { siteUrl } from "@/lib/utils";
 
 const featuredFor: Record<Service["icon"], string[]> = {
@@ -129,6 +130,8 @@ export default function ServicePage({ service }: { service: Service }) {
       )}
 
       <Faq items={servicesFaq[service.slug] ?? []} lead="Konkretne odpowiedzi na pytania, które słyszymy najczęściej przed rozpoczęciem współpracy." />
+
+      <BlogTeaser posts={postsForService(service.slug).slice(0, 3)} eyebrow="Z bloga" title="Poradniki w tym temacie" />
 
       <section className="pb-8">
         <Container>

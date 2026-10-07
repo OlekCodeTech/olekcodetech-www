@@ -15,11 +15,14 @@ export type Post = {
   /** meta description 140–160 znaków – gdy brak, używany jest excerpt */
   seoDescription: string;
   image: string;
+  /** Pytania i odpowiedzi pod wpisem (FAQPage schema) – frontmatter `faq: [{q, a}]` */
+  faq: { q: string; a: string }[];
   html: string;
   readingMinutes: number;
 };
 
 export const categories: { name: string; slug: string; description: string }[] = [
+  { name: "Aplikacje i oprogramowanie", slug: "aplikacje-i-oprogramowanie", description: "Aplikacje dedykowane, CRM, systemy dla firm." },
   { name: "Strony internetowe i UX", slug: "strony-internetowe-i-ux", description: "Projektowanie stron, UX i konwersja." },
   { name: "SEO i widoczność w Google", slug: "seo-i-widocznosc-w-google", description: "SEO techniczne, lokalne SEO i content." },
   { name: "Automatyzacje i integracje", slug: "automatyzacje-i-integracje", description: "n8n, Make, CRM i przepływ danych." },
@@ -27,6 +30,20 @@ export const categories: { name: string; slug: string; description: string }[] =
   { name: "Trendy i nowości IT", slug: "trendy-i-nowosci-it", description: "Co zmienia się w technologii dla biznesu." },
   { name: "WordPress i Elementor", slug: "wordpress-i-elementor", description: "Porady dla właścicieli stron na WordPressie." },
 ];
+
+/** Która usługa odpowiada kategorii bloga (boks „Potrzebujesz wsparcia?” i wpisy na stronach usług). */
+export const categoryService: Record<string, string> = {
+  "Aplikacje i oprogramowanie": "aplikacje-dedykowane",
+  "SEO i widoczność w Google": "seo-content-marketing",
+  "Automatyzacje i integracje": "automatyzacja-procesow-biznesowych",
+  "Strony internetowe i UX": "stronywww-aplikacje",
+  "WordPress i Elementor": "stronywww-aplikacje",
+  "AI w biznesie": "automatyzacja-procesow-biznesowych",
+  "Trendy i nowości IT": "opieka-it-dla-firm",
+};
+
+export const postsForService = (serviceSlug: string) =>
+  getAllPosts().filter((p) => p.categories.some((c) => categoryService[c] === serviceSlug));
 
 export const categorySlug = (name: string) =>
   categories.find((c) => c.name === name)?.slug ??
@@ -62,6 +79,7 @@ function loadPost(file: string): Post {
     seoTitle: data.seoTitle ?? data.title ?? slug,
     seoDescription: data.seoDescription ?? data.excerpt ?? "",
     image: data.image ?? "",
+    faq: Array.isArray(data.faq) ? data.faq.filter((f: { q?: string; a?: string }) => f?.q && f?.a).map((f: { q: string; a: string }) => ({ q: String(f.q), a: String(f.a) })) : [],
     html,
     readingMinutes: Math.max(1, Math.round(words / 200)),
   };

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, CalendarDays, RefreshCw } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
+import Faq from "@/components/Faq";
 import LandingView from "@/components/LandingView";
 import PostCard from "@/components/PostCard";
 import Reveal from "@/components/Reveal";
@@ -12,7 +13,7 @@ import { Button, Container } from "@/components/ui";
 import { site } from "@/data/site";
 import { getLanding, landings } from "@/data/landings";
 import { services } from "@/data/services";
-import { categorySlug, formatDate, getAllPosts, getPost } from "@/lib/posts";
+import { categoryService, categorySlug, formatDate, getAllPosts, getPost } from "@/lib/posts";
 import { siteUrl } from "@/lib/utils";
 import { pageMeta } from "@/lib/seo";
 
@@ -45,15 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 /** Dobiera usługę do wpisu na podstawie kategorii – do boksu „powiązana usługa”. */
 function serviceForPost(categories: string[]) {
-  const map: Record<string, string> = {
-    "SEO i widoczność w Google": "seo-content-marketing",
-    "Automatyzacje i integracje": "automatyzacja-procesow-biznesowych",
-    "Strony internetowe i UX": "stronywww-aplikacje",
-    "WordPress i Elementor": "stronywww-aplikacje",
-    "AI w biznesie": "automatyzacja-procesow-biznesowych",
-    "Trendy i nowości IT": "opieka-it-dla-firm",
-  };
-  const slug = categories.map((c) => map[c]).find(Boolean);
+  const slug = categories.map((c) => categoryService[c]).find(Boolean);
   return services.find((s) => s.slug === slug);
 }
 
@@ -136,6 +129,8 @@ export default async function SlugPage({ params }: { params: Promise<Params> }) 
           </div>
         </Container>
       </article>
+
+      {post.faq.length > 0 && <Faq items={post.faq} title="Najczęstsze pytania" eyebrow="FAQ" lead="Krótkie odpowiedzi na pytania, które padają najczęściej w tym temacie." />}
 
       {related.length > 0 && (
         <section className="border-t border-line/60 py-16 lg:py-24">

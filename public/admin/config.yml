@@ -76,6 +76,7 @@ collections:
         multiple: true
         min: 1
         options:
+          - Aplikacje i oprogramowanie
           - Strony internetowe i UX
           - SEO i widoczność w Google
           - Automatyzacje i integracje
@@ -100,6 +101,16 @@ collections:
         widget: text
         required: false
         hint: "140–160 znaków, zachęta do kliknięcia. Puste = zajawka."
+      - name: faq
+        label: FAQ pod wpisem
+        label_singular: Pytanie
+        widget: list
+        required: false
+        summary: "{{fields.q}}"
+        hint: "3–6 pytań, które ludzie wpisują w Google. Pokażą się pod wpisem i trafią do danych strukturalnych (FAQPage)."
+        fields:
+          - { name: q, label: Pytanie, widget: string }
+          - { name: a, label: Odpowiedź, widget: text }
       - name: body
         label: Treść
         widget: markdown
