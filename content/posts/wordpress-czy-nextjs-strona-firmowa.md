@@ -4,8 +4,8 @@ date: "2026-10-14"
 updated: "2026-10-14"
 categories: ["Strony internetowe i UX", "WordPress i Elementor"]
 excerpt: "Przenieśliśmy olekcodetech.pl z WordPressa i Elementora na Next.js. Pokazujemy, dlaczego, co zyskaliśmy, czego się baliśmy – i kiedy WordPress wciąż jest lepszym wyborem dla firmy."
-seoTitle: "WordPress czy Next.js? Wybór technologii strony"
-seoDescription: "WordPress czy Next.js dla strony firmowej? Nasza przeprowadzka olekcodetech.pl w liczbach: wydajność, SEO, edycja treści i koszty. Kiedy wybrać którą technologię."
+seoTitle: "WordPress czy Next.js? Wybór technologii"
+seoDescription: "WordPress czy Next.js dla strony firmowej? Nasza przeprowadzka olekcodetech.pl w liczbach: wydajność, SEO i edycja treści. Kiedy wybrać którą technologię?"
 image: "/images/blog/wordpress-czy-nextjs-strona-firmowa.webp"
 faq:
   - q: "Czy strona w Next.js jest lepsza dla SEO niż WordPress?"
