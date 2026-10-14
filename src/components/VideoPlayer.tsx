@@ -35,6 +35,7 @@ export default function VideoPlayer({ mp4, webm, poster, className, controls = t
 
     const io = new IntersectionObserver(
       ([e]) => {
+        // Wideo pobiera się i startuje dopiero na ekranie (preload="none"), poza nim – pauza.
         if (e.isIntersecting) v.play().catch(() => {});
         else v.pause();
       },
@@ -65,8 +66,7 @@ export default function VideoPlayer({ mp4, webm, poster, className, controls = t
         muted
         loop
         playsInline
-        autoPlay={!reduced}
-        preload="metadata"
+        preload="none"
         poster={poster ? withBase(poster) : undefined}
         aria-label={label}
         onPlay={() => setPlaying(true)}
