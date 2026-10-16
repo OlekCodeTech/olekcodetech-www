@@ -44,6 +44,6 @@ Wpisy w wiarygodnych katalogach firm, lokalnych portalach czy współpraca z inn
 
 ## Podsumowanie
 
-Lokalne SEO to maraton, nie sprint – ale jego efekty są trwałe i tanie w utrzymaniu w porównaniu z płatnymi reklamami. Zacznij od wizytówki Google i optymalizacji strony, a potem systematycznie zbieraj opinie i lokalne linki.
+Lokalne SEO to maraton, nie sprint – ale jego efekty są trwałe i tanie w utrzymaniu w porównaniu z płatnymi reklamami. Zacznij od wizytówki Google i optymalizacji strony, a potem systematycznie zbieraj opinie i lokalne linki. Jeśli działasz w Wieluniu, Sieradzu, Zduńskiej Woli lub Wieruszowie, zobacz, jak prowadzimy [pozycjonowanie stron w regionie](/pozycjonowanie-stron-wielun-sieradz-zdunska-wola/).
 
 **Potrzebujesz strony, która realnie sprzedaje i jest gotowa pod lokalne SEO?** [Skontaktuj się z OlekCodeTech](/kontakt/) – pomożemy Ci wyprzedzić konkurencję w Google.

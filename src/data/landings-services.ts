@@ -863,6 +863,109 @@ export const serviceLandings: LandingPage[] = [
     portfolio: ["ATEST - Piotr Sosnowski", "MG Recykling", "ARTMAR - Usługi budowlane"],
   },
 
+  // 9a. Pozycjonowanie lokalne – Wieluń, Sieradz, Zduńska Wola, Wieruszów
+  {
+    slug: "pozycjonowanie-stron-wielun-sieradz-zdunska-wola",
+    kind: "service",
+    parent: "seo-content-marketing",
+    title: "Pozycjonowanie stron Wieluń, Sieradz, Zduńska Wola i Wieruszów",
+    metaTitle: "Pozycjonowanie stron Wieluń, Sieradz, Zduńska Wola",
+    metaDescription:
+      "Pozycjonowanie stron i wizytówek Google dla firm z Wielunia, Sieradza, Zduńskiej Woli i Wieruszowa. Bezpłatna konsultacja i plan działań na dane z GSC.",
+    eyebrow: "Pozycjonowanie lokalne",
+    lead: [
+      "Prowadzimy pozycjonowanie stron i wizytówek Google dla firm z Wielunia, Sieradza, Zduńskiej Woli, Wieruszowa i okolicznych powiatów. Zaczynamy od sprawdzenia, na jakie frazy szukają Twoi klienci, gdzie dziś jesteś w Google i co blokuje wzrost – na danych z Google Search Console, a nie na przeczuciach.",
+      "Nie sprzedajemy pakietów fraz. Ustalamy kilka usług, które mają przynosić telefony, i budujemy pod nie widoczność: w mapie Google, w zwykłych wynikach i w treściach, które odpowiadają na pytania klientów. Co miesiąc pokazujemy, co się zmieniło i co robimy dalej.",
+    ],
+    sections: [
+      {
+        title: "Mapa Google i wizytówka – tam trafia większość kliknięć",
+        text: "Przy wyszukiwaniach z nazwą miasta, takich jak „mechanik Sieradz” czy „hurtownia Wieluń”, nad zwykłymi wynikami Google pokazuje mapę z trzema firmami. Bez zadbanej wizytówki nawet strona na czwartej pozycji dostaje niewiele kliknięć. Dlatego pozycjonowanie lokalne zawsze prowadzimy razem z Profilem Firmy w Google.",
+        bullets: [
+          "dobór kategorii głównej i dodatkowych oraz obszaru działania",
+          "opis firmy i lista usług z nazwami miast",
+          "zdjęcia realizacji i regularne wpisy w wizytówce",
+          "prosty sposób zbierania opinii i odpowiadanie na nie",
+          "spójne dane firmy (nazwa, adres, telefon) na stronie i w katalogach",
+        ],
+      },
+      {
+        title: "Strona pod frazy z miastem",
+        text: "Google musi wiedzieć, jaką usługę i w jakim mieście oferujesz. Porządkujemy strukturę podstron tak, żeby każda usługa miała swoją stronę, a frazy z miastem nie były rozrzucone po kilku podobnych tekstach, które konkurują ze sobą. Poprawiamy tytuły, nagłówki, opisy i dane strukturalne, a tam, gdzie to potrzebne, dopisujemy treści.",
+        bullets: [
+          "analiza fraz, na które strona już się wyświetla i na które powinna",
+          "osobne podstrony usług zamiast jednej strony „o wszystkim”",
+          "usuwanie kanibalizacji – kilku podstron walczących o tę samą frazę",
+          "tytuły i opisy, które zachęcają do kliknięcia, a nie tylko wymieniają miasta",
+          "dane strukturalne LocalBusiness, Service i FAQ",
+          "linkowanie wewnętrzne do stron, które mają sprzedawać",
+        ],
+      },
+      {
+        title: "Technika, która nie przeszkadza w pozycjach",
+        text: "Wolna strona, błędy indeksowania albo zgubione przekierowania po przebudowie potrafią zatrzymać każdą pracę nad treściami. Sprawdzamy stronę w Search Console i PageSpeed Insights, poprawiamy to, co blokuje indeksowanie i szybkość, a przy przebudowie pilnujemy, żeby stare adresy przekierowywały na nowe.",
+        bullets: [
+          "Core Web Vitals i szybkość na telefonach",
+          "indeksacja, mapa strony, przekierowania 301",
+          "kontrola po migracji i zmianach na stronie",
+          "monitoring błędów w Search Console",
+        ],
+      },
+      {
+        title: "Wieluń, Sieradz, Zduńska Wola, Wieruszów – każdy rynek jest inny",
+        text: "W Wieluniu i Wieruszowie konkurencja w wynikach lokalnych jest mniejsza, więc dobrze przygotowana wizytówka i strona potrafią w kilka miesięcy wejść do pierwszej trójki mapy. Sieradz jest największym i najbardziej konkurencyjnym rynkiem w regionie – tu liczą się opinie, mocne podstrony usług i treści. W Zduńskiej Woli wiele firm to handel i produkcja, więc często pozycjonujemy kategorie produktów i sklepy, a nie tylko stronę główną.",
+        bullets: [
+          "Wieluń i powiat wieluński – nasz rynek bazowy, spotkania na miejscu",
+          "Sieradz – frazy usługowe z dużą konkurencją, nacisk na opinie i treści",
+          "Zduńska Wola – handel, produkcja, meble, pozycjonowanie sklepów i katalogów",
+          "Wieruszów – szybkie efekty w mapie przy zadbanej wizytówce",
+        ],
+      },
+      {
+        title: "Raport co miesiąc – na danych z Search Console",
+        text: "Co miesiąc dostajesz krótki raport: kliknięcia i wyświetlenia z Google, pozycje fraz, które ustaliliśmy na starcie, porównanie z poprzednim miesiącem i plan na kolejny. Gdy coś spada, sprawdzamy, czy to sezon, zmiana w Google czy problem na stronie – i mówimy o tym wprost.",
+        bullets: [
+          "kliknięcia, wyświetlenia, CTR i pozycje z Google Search Console",
+          "frazy tuż za pierwszą stroną, które warto podciągnąć",
+          "efekty wprowadzonych zmian po 2, 4 i 8 tygodniach",
+          "lista zadań na kolejny miesiąc",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Ile trwa pozycjonowanie, zanim zobaczę efekty?",
+        a: "Pierwsze zmiany w pozycjach widać zwykle po 4–8 tygodniach od wdrożenia poprawek. Przy frazach lokalnych w mniejszych miastach, takich jak Wieluń czy Wieruszów, efekty przychodzą szybciej niż przy frazach ogólnopolskich. Sieradz jest bardziej konkurencyjny i wymaga więcej czasu.",
+      },
+      {
+        q: "Czy muszę mieć nową stronę, żeby zacząć pozycjonowanie?",
+        a: "Nie. Zaczynamy od analizy obecnej strony i wizytówki. Jeśli da się je poprawić, pracujemy na nich. Nową stronę proponujemy tylko wtedy, gdy obecna technicznie blokuje wzrost albo nie da się w niej sensownie zmienić struktury.",
+      },
+      {
+        q: "Czym różni się pozycjonowanie od Google Ads?",
+        a: "Google Ads daje ruch od razu, ale tylko tak długo, jak płacisz za kliknięcia. Pozycjonowanie buduje widoczność, która zostaje. Często łączymy oba: kampanię na start, żeby telefon dzwonił od pierwszego tygodnia, i SEO, które z czasem zmniejsza zależność od reklam.",
+      },
+      {
+        q: "Czy zajmujecie się też wizytówką Google?",
+        a: "Tak. Przy firmach lokalnych wizytówka jest równie ważna jak strona, bo to ona pojawia się w mapie nad wynikami. Konfigurujemy ją, uzupełniamy usługi i zdjęcia, prowadzimy wpisy i pomagamy zbierać opinie.",
+      },
+      {
+        q: "Ile kosztuje pozycjonowanie strony lokalnej firmy?",
+        a: "Zależy od liczby usług i miast, konkurencji oraz stanu strony. Po bezpłatnej konsultacji i wstępnej analizie dostajesz stałą miesięczną cenę z opisanym zakresem prac, bez ukrytych opłat i bez długich umów na start.",
+      },
+    ],
+    related: ["audyt-seo", "seo-techniczne", "strony-internetowe-wielun", "strony-internetowe-sieradz", "strony-internetowe-zdunska-wola"],
+    keywords: [
+      "pozycjonowanie stron Wieluń",
+      "pozycjonowanie Sieradz",
+      "pozycjonowanie stron Zduńska Wola",
+      "pozycjonowanie Wieruszów",
+      "pozycjonowanie lokalne",
+      "SEO Wieluń",
+    ],
+    portfolio: ["Restauracja Incognito", "Hurtownia Budowlana Panek", "DS Paliwa"],
+  },
+
   // 10. Content marketing B2B
   {
     slug: "content-marketing-b2b",

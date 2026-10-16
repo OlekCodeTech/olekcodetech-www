@@ -14,7 +14,7 @@ export const cityLandings: LandingPage[] = [
     kind: "city",
     parent: "stronywww-aplikacje",
     title: "Strony internetowe Wieluń – projektowanie stron i sklepów dla firm z Wielunia",
-    metaTitle: "Strony internetowe Wieluń – OlekCodeTech",
+    metaTitle: "Strony internetowe Wieluń – lokalna firma IT | OlekCodeTech",
     metaDescription:
       "Strony WWW, sklepy WooCommerce i automatyzacje dla firm z Wielunia. Siedziba przy ul. Liliowej 3, spotkania na miejscu. Umów bezpłatną 30-min konsultację.",
     eyebrow: "Lokalnie · Wieluń i okolice",
@@ -105,6 +105,7 @@ export const cityLandings: LandingPage[] = [
       },
     ],
     related: [
+      "pozycjonowanie-stron-wielun-sieradz-zdunska-wola",
       "strony-internetowe-wieruszow",
       "strony-internetowe-sieradz",
       "strony-internetowe-dla-firm",
@@ -129,7 +130,7 @@ export const cityLandings: LandingPage[] = [
     kind: "city",
     parent: "stronywww-aplikacje",
     title: "Strony internetowe Sieradz – strony, sklepy i obsługa IT dla firm z Sieradza",
-    metaTitle: "Strony internetowe Sieradz – OlekCodeTech",
+    metaTitle: "Strony internetowe Sieradz – projektowanie | OlekCodeTech",
     metaDescription:
       "Strony WWW, sklepy WooCommerce i automatyzacje dla firm z Sieradza. Dojeżdżamy z Wielunia (ok. 45 km) lub pracujemy zdalnie. Bezpłatna 30-minutowa konsultacja.",
     eyebrow: "Lokalnie · Sieradz i powiat sieradzki",
@@ -219,6 +220,7 @@ export const cityLandings: LandingPage[] = [
       },
     ],
     related: [
+      "pozycjonowanie-stron-wielun-sieradz-zdunska-wola",
       "strony-internetowe-wielun",
       "strony-internetowe-zdunska-wola",
       "strony-internetowe-dla-firm",
@@ -242,7 +244,7 @@ export const cityLandings: LandingPage[] = [
     kind: "city",
     parent: "stronywww-aplikacje",
     title: "Strony internetowe Wieruszów – strony i sklepy dla firm z Wieruszowa i okolic",
-    metaTitle: "Strony internetowe Wieruszów – OlekCodeTech",
+    metaTitle: "Tworzenie stron www Wieruszów – OlekCodeTech",
     metaDescription:
       "Strony WWW, sklepy internetowe i opieka IT dla firm z Wieruszowa. Z Wielunia to ok. 35 km – spotkanie u Was lub zdalnie. Umów bezpłatną 30-min konsultację.",
     eyebrow: "Lokalnie · Wieruszów i powiat wieruszowski",
@@ -332,6 +334,7 @@ export const cityLandings: LandingPage[] = [
       },
     ],
     related: [
+      "pozycjonowanie-stron-wielun-sieradz-zdunska-wola",
       "strony-internetowe-wielun",
       "strony-internetowe-sieradz",
       "sklepy-internetowe-woocommerce",
@@ -358,7 +361,7 @@ export const cityLandings: LandingPage[] = [
     kind: "city",
     parent: "stronywww-aplikacje",
     title: "Strony internetowe Zduńska Wola – strony, sklepy i IT dla firm ze Zduńskiej Woli",
-    metaTitle: "Strony internetowe Zduńska Wola – OlekCodeTech",
+    metaTitle: "Tworzenie stron internetowych Zduńska Wola | OlekCodeTech",
     metaDescription:
       "Strony WWW, sklepy WooCommerce i automatyzacje dla firm ze Zduńskiej Woli i powiatu. Praca zdalna, dojazd z Wielunia na spotkania. Bezpłatna 30-min konsultacja.",
     eyebrow: "Lokalnie · Zduńska Wola i okolice",
@@ -448,6 +451,7 @@ export const cityLandings: LandingPage[] = [
       },
     ],
     related: [
+      "pozycjonowanie-stron-wielun-sieradz-zdunska-wola",
       "strony-internetowe-sieradz",
       "strony-internetowe-lodz",
       "sklepy-internetowe-woocommerce",

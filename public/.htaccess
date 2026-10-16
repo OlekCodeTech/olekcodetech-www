@@ -12,6 +12,8 @@ RedirectMatch 301 ^/services/?$ /oferta/
 RedirectMatch 301 ^/typography/?$ /
 RedirectMatch 301 ^/404-page/?$ /
 RedirectMatch 301 ^/feed/?$ /aktualnosci/
+# Stary wpis o Wieluniu skonsolidowany ze stroną lokalną (kanibalizacja fraz „strony internetowe Wieluń”)
+RedirectMatch 301 ^/tworzenie-stron-internetowych-i-aplikacji-it-w-wieluniu-olekcodetech/?$ /strony-internetowe-wielun/
 # Stare mapy strony Rank Math -> nowa mapa
 RedirectMatch 301 ^/sitemap_index\.xml$ /sitemap.xml
 RedirectMatch 301 ^/(post|page|category|cpt_layouts|metform-form)-sitemap\.xml$ /sitemap.xml
