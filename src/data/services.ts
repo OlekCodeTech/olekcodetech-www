@@ -470,14 +470,15 @@ export const services: Service[] = [
     icon: "integration",
     image: "/images/services/INTEGRACJE-SYSTEMOW-IT.webp",
     seo: {
-      title: "Integracje systemów IT – OlekCodeTech",
+      title: "Integracja systemów IT – API, CRM, ERP | OlekCodeTech",
       description:
-        "Integrujemy systemy IT, API i narzędzia biznesowe. Automatyczny przepływ danych między CRM, ERP, Google Workspace i Microsoft 365.",
+        "Integracja systemów IT w firmie: łączymy sklep, CRM, ERP, magazyn, Microsoft 365 i Google Workspace przez API, żeby dane nie były przepisywane ręcznie.",
     },
     hero: {
       title: "Integracje systemów IT",
       lead: [
         "Integrujemy systemy IT i narzędzia wykorzystywane w firmach, tworząc spójny i automatyczny przepływ danych między aplikacjami. Dzięki integracjom eliminujemy ręczne przenoszenie informacji, ograniczamy błędy i usprawniamy codzienną pracę zespołów.",
+        "Integracja systemów IT to dla nas konkretne połączenia, a nie slajdy: sklep pobiera produkty i stany z API hurtowni, zlecenia przewozowe z PDF same trafiają do systemu transportowego, a zapytanie z formularza w kilka sekund jest w CRM i u handlowca. Zaczynamy od mapy systemów i przepływów danych, a kończymy na monitoringu, który ostrzega, gdy coś przestaje działać.",
       ],
     },
     sectionTitle: "Łączymy systemy w jeden ekosystem",
@@ -492,6 +493,30 @@ export const services: Service[] = [
           "formularze i systemy leadowe",
           "narzędzia do zarządzania projektami i zadaniami",
           "systemy raportowe i analityczne",
+        ],
+      },
+      {
+        title: "Przykłady integracji z naszych wdrożeń",
+        text: "Integracje projektujemy pod konkretny problem w firmie. Kilka przykładów z realizacji – od sklepu po system dla branży transportowej.",
+        intro: "Co już połączyliśmy:",
+        bullets: [
+          "sklep elektryczny RAV ↔ API magazynu hurtowni TIM: ok. 6000 produktów ze zdjęciami i stanami synchronizowanych automatycznie",
+          "system TMS dla firmy przewozowej: zlecenia z PDF odczytywane przez AI, statusy z aplikacji kierowcy potwierdzane GPS i widoczne od razu w panelu dyspozytora",
+          "formularz na stronie → CRM → powiadomienie dla handlowca i automatyczna odpowiedź do klienta",
+          "sklep WooCommerce ↔ program do faktur i płatności online, bez ręcznego przepisywania zamówień",
+          "Microsoft 365 i SharePoint: dokumenty, uprawnienia i obieg akceptacji w jednym miejscu",
+        ],
+      },
+      {
+        title: "Jak przebiega integracja systemów IT",
+        text: "Każdą integrację prowadzimy etapami, żeby firma mogła pracować normalnie w trakcie wdrożenia, a każdy przepływ danych był sprawdzony na prawdziwych danych przed uruchomieniem.",
+        intro: "Etapy wdrożenia:",
+        bullets: [
+          "mapa systemów: co z czym ma się łączyć, skąd i dokąd płyną dane",
+          "analiza API i dostępów każdego systemu, wybór metody (API, webhooki, n8n/Make, wymiana plików)",
+          "integracja testowa na kopii danych i weryfikacja z zespołem",
+          "uruchomienie produkcyjne etapami, jeden przepływ po drugim",
+          "monitoring, alerty o błędach i dokumentacja dla firmy",
         ],
       },
       {

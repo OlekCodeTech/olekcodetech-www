@@ -175,12 +175,13 @@ export const cityLandings: LandingPage[] = [
         ],
       },
       {
-        title: "Obsługa IT i automatyzacje dla firm z Sieradza",
-        text: "Firmy z Sieradza, które nie mają własnego działu IT, obsługujemy zdalnie, a gdy trzeba – dojeżdżamy. Konfigurujemy Microsoft 365 lub Google Workspace, porządkujemy pocztę i dokumenty, zabezpieczamy konta. Automatyzujemy w n8n/Make to, co dziś robi się ręcznie: zapytania ze strony trafiają do CRM, zamówienia generują dokumenty, a klient dostaje potwierdzenie bez udziału pracownika. Utrzymujemy też strony i sklepy: aktualizacje, kopie, monitoring.",
+        title: "Automatyzacje procesów i obsługa IT dla firm z Sieradza",
+        text: "Automatyzacje procesów wdrażamy w Sieradzu najczęściej w firmach transportowych, handlowych i usługowych – tam, gdzie zlecenia, zamówienia i dokumenty krążą między mailem, arkuszem i telefonem. W n8n lub Make łączymy formularz, CRM, program do faktur i magazyn, a gdy proces jest nietypowy, budujemy aplikację dedykowaną. Firmy z Sieradza, które nie mają własnego działu IT, obsługujemy zdalnie, a gdy trzeba – dojeżdżamy. Konfigurujemy Microsoft 365 lub Google Workspace, porządkujemy pocztę i dokumenty, zabezpieczamy konta. Automatyzujemy w n8n/Make to, co dziś robi się ręcznie: zapytania ze strony trafiają do CRM, zamówienia generują dokumenty, a klient dostaje potwierdzenie bez udziału pracownika. Utrzymujemy też strony i sklepy: aktualizacje, kopie, monitoring.",
         bullets: [
           "Opieka nad stroną i sklepem: aktualizacje, backupy, monitoring",
           "Microsoft 365 / Google Workspace dla małych zespołów",
           "Automatyzacje n8n/Make: formularze, zamówienia, powiadomienia",
+          "Odczyt zleceń i faktur z PDF przez AI, statusy zamówień wysyłane automatycznie",
           "Integracje strony z CRM, arkuszami i programami księgowymi",
           "Wsparcie zdalne z szybkim czasem reakcji, dojazd w razie potrzeby",
         ],
@@ -215,6 +216,10 @@ export const cityLandings: LandingPage[] = [
         a: "Zaczynamy od audytu: sprawdzamy szybkość, strukturę, frazy, na które strona jest widoczna, i stan wizytówki Google. Często wystarczy przebudowa treści pod frazy lokalne, naprawa błędów technicznych i uporządkowanie wizytówki. Jeśli strona jest na przestarzałym silniku, proponujemy przeniesienie na nową z zachowaniem adresów.",
       },
       {
+        q: "Czy wdrażacie automatyzacje procesów dla firm z Sieradza?",
+        a: "Tak. Dla firm z Sieradza automatyzujemy obsługę zapytań i zamówień, wystawianie dokumentów, powiadomienia dla klientów i raporty – najczęściej w n8n lub Make, a przy nietypowych procesach w aplikacji dedykowanej. Zaczynamy od krótkiej analizy, które czynności zabierają najwięcej czasu, i od jednego procesu, który zwraca się najszybciej.",
+      },
+      {
         q: "Czy obsługujecie firmy transportowe i logistyczne?",
         a: "Tak – mamy realizacje dla firm z branży transportu, spedycji i pomocy drogowej. Dla takich firm ważne są: czytelny zakres usług, obszar działania, szybki kontakt z telefonu i formularz wyceny, który natychmiast trafia do dyspozytora. To uwzględniamy od pierwszego szkicu.",
       },
@@ -224,7 +229,7 @@ export const cityLandings: LandingPage[] = [
       "strony-internetowe-wielun",
       "strony-internetowe-zdunska-wola",
       "strony-internetowe-dla-firm",
-      "seo-techniczne",
+      "automatyzacja-n8n-make",
     ],
     keywords: [
       "strony internetowe Sieradz",
@@ -232,6 +237,7 @@ export const cityLandings: LandingPage[] = [
       "sklep internetowy Sieradz",
       "pozycjonowanie Sieradz",
       "obsługa informatyczna Sieradz",
+      "automatyzacje procesów Sieradz",
     ],
     portfolio: ["SimTrans - Pomoc Drogowa", "DS Paliwa", "BKP - Ubezpieczenia"],
   },

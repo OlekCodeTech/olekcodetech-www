@@ -14,8 +14,8 @@ import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = pageMeta({
   path: "/",
-  title: "OlekCodeTech – Strony WWW, aplikacje dedykowane i obsługa IT",
-  description: "Strony internetowe, sklepy WooCommerce, aplikacje dedykowane, automatyzacje i opieka IT dla firm. OlekCodeTech z Wielunia – działamy w całej Polsce.",
+  title: "OlekCodeTech Wieluń – strony internetowe, aplikacje i IT",
+  description: "Strony internetowe, sklepy, aplikacje dedykowane, automatyzacje AI i obsługa IT dla firm. Software house z Wielunia, ponad 50 realizacji. Bezpłatna konsultacja.",
 });
 
 const featuredTitles = [

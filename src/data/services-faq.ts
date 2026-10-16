@@ -114,6 +114,14 @@ export const servicesFaq: Record<string, Faq[]> = {
   ],
   "integracje-systemow-it": [
     {
+      q: "Ile kosztuje integracja systemów IT?",
+      a: "Zależy od liczby systemów, jakości ich API i tego, ile danych trzeba synchronizować. Połączenie formularza z CRM w n8n lub Make to niewielki koszt jednorazowy, a dwukierunkowa synchronizacja sklepu, magazynu i ERP to projekt wyceniany etapami. Po krótkiej analizie dostajesz wycenę z rozpisanymi przepływami danych.",
+    },
+    {
+      q: "Czym różni się integracja przez API od automatyzacji w n8n lub Make?",
+      a: "n8n i Make to gotowe platformy, w których szybko łączy się popularne systemy – świetne do prostszych przepływów. Integrację pisaną w kodzie wybieramy, gdy systemów nie ma w tych narzędziach, danych jest dużo albo liczy się pełna kontrola nad logiką i bezpieczeństwem. Często łączymy oba podejścia.",
+    },
+    {
       q: "Jakie systemy można ze sobą zintegrować?",
       a: "Praktycznie każde, które udostępniają API lub eksport danych: CRM, ERP, sklepy internetowe, systemy magazynowe, formularze, Microsoft 365, Google Workspace, narzędzia projektowe i księgowe. Gdy API nie ma, projektujemy wymianę plikami lub przez bazę danych.",
     },
