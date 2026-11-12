@@ -119,7 +119,7 @@ export const cityLandings: LandingPage[] = [
       "obsługa IT Wieluń",
       "agencja interaktywna Wieluń",
     ],
-    portfolio: ["Komunalne Wieluń", "DS Paliwa", "Hurtownia Budowlana Panek"],
+    portfolio: ["PROMYK – okna i drzwi", "Komunalne Wieluń", "DS Paliwa"],
   },
 
   // ---------------------------------------------------------------------------

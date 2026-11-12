@@ -7,6 +7,55 @@ import type { CaseStudy } from "./types";
  */
 export const cases: CaseStudy[] = [
   {
+    slug: "promyk-okna-drzwi-strona-z-konfiguratorem",
+    client: "PROMYK – okna i drzwi",
+    title:
+      "Strona firmy okiennej z konfiguratorem okien online – PROMYK Wieluń",
+    metaTitle: "PROMYK Wieluń – strona z konfiguratorem okien | Case study",
+    metaDescription:
+      "Nowa strona PROMYK z Wielunia: katalog okien, drzwi, bram i osłon, konfigurator okien z dekorami VEKA i przenosiny z WordPressa bez utraty adresów.",
+    portfolioTitle: "PROMYK – okna i drzwi",
+    url: "https://promyk.wielun.pl/",
+    type: "strona",
+    industry: "Okna, drzwi, bramy garażowe i osłony",
+    location: "Wieluń",
+    year: "2026",
+    summary:
+      "PROMYK to rodzinna firma z Wielunia, która od 1997 roku sprzedaje i montuje okna, drzwi, bramy garażowe, rolety, pergole i moskitiery. Zaprojektowaliśmy i zbudowaliśmy dla niej nową stronę: katalog całej oferty z osobną podstroną dla każdej grupy produktów, konfigurator okien online, galerię realizacji i formularz zapytania o wycenę. Serwis zastąpił starą stronę na WordPressie pod tym samym adresem.",
+    challenge: [
+      "Oferta firmy jest szeroka: okna PCV i aluminiowe, drzwi zewnętrzne i wewnętrzne, parapety, bramy segmentowe i rolowane, rolety, markizy, pergole, osłony wewnętrzne i zewnętrzne, żaluzje fasadowe, moskitiery. Każda grupa ma innych producentów, inne parametry i inne pytania klientów, a wszystko miało zmieścić się w jednym, czytelnym serwisie, po którym da się poruszać z telefonu.",
+      "Klient chciał też, żeby kupujący mógł zobaczyć swoje okno, zanim przyjdzie do salonu: wybrać konstrukcję, sposób otwierania, wymiary i kolor, a potem wysłać gotową listę pozycji do wyceny. Stara strona działała na WordPressie i miała adresy obecne w Google, więc przenosiny nie mogły zostawić po sobie martwych linków.",
+    ],
+    scope: [
+      "Projekt graficzny w Figmie (17 ekranów) i wdrożenie 1:1, z kolorystyką opartą na graficie z logo firmy.",
+      "Strona statyczna generowana skryptem w Pythonie: cała treść trzymana w jednym miejscu, bez bazy danych i panelu logowania, który trzeba by aktualizować i zabezpieczać.",
+      "Osobne podstrony dla każdej grupy produktów w jednym układzie: opis systemów, parametry, kolory, pytania i odpowiedzi, inspiracje.",
+      "Konfigurator okien: okno jedno- i dwuskrzydłowe oraz przesuwne HST, sposób otwierania, wymiary, kolory z zewnątrz i od środka, podgląd na elewacji i we wnętrzu, lista pozycji z ilościami wysyłana jako zapytanie o wycenę.",
+      "Tryb konfiguratora z dekorami VEKA: podgląd okna w wybranej okleinie na podstawie materiałów producenta.",
+      "Animacje pokazujące działanie produktów: otwieranie okna i drzwi przesuwnych, rolety, markizy, moskitiery plisowanej, bramy segmentowej, obrót piór żaluzji.",
+      "Galeria realizacji z podziałem na kategorie oferty i powiększaniem zdjęć oraz podstrona dla inwestorów z opisem współpracy krok po kroku.",
+      "Formularz kontaktowy z zabezpieczeniem przed spamem (pole-pułapka, kontrola czasu wypełnienia, Google reCAPTCHA v3).",
+      "Baner zgody na cookies, mapa Google ładowana dopiero po zgodzie, czcionki serwowane z własnego serwera.",
+      "Przenosiny z WordPressa: przekierowania 301 ze starych adresów, proste adresy podstron, mapa strony, dane strukturalne firmy lokalnej, zgłoszenie serwisu w Google Search Console.",
+      "Wersja testowa na GitHub Pages do akceptacji kolejnych rund poprawek, a po akceptacji wdrożenie na hosting klienta.",
+    ],
+    stack: [
+      "HTML, CSS, JavaScript",
+      "Python (generator strony)",
+      "Figma",
+      "SVG",
+      "PHP (formularz)",
+      "Google reCAPTCHA v3",
+      "GitHub Pages",
+    ],
+    results: [
+      "Serwis działa pod adresem promyk.wielun.pl od 26 października 2026 roku. Cała oferta jest opisana w jednym układzie, więc klient szybko porównuje systemy i producentów, a z konfiguratora wysyła zapytanie z konkretnymi wymiarami i kolorami zamiast ogólnego „proszę o ofertę na okna”.",
+      "Strona składa się ze statycznych plików, dlatego ładuje się szybko i nie wymaga aktualizacji wtyczek. Stare adresy z WordPressa prowadzą do odpowiednich nowych podstron, a poprawki treści wprowadzamy w jednym pliku i publikujemy jednym wdrożeniem.",
+    ],
+    services: ["stronywww-aplikacje", "seo-content-marketing"],
+    landings: ["strony-internetowe-dla-firm", "strony-internetowe-wielun"],
+  },
+  {
     slug: "wta-perfekt-sklep-internetowy",
     client: "WTA Perfekt Sp. z o.o.",
     title:

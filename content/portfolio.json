@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "title": "PROMYK – okna i drzwi",
+      "type": "strona",
+      "tags": "Strona Internetowa · konfigurator okien online · katalog oferty · projekt z Figmy",
+      "url": "https://promyk.wielun.pl/",
+      "image": "/images/portfolio/Promyk.webp"
+    },
+    {
       "title": "Plonio.pl",
       "type": "strona",
       "tags": "Strona Internetowa · własny motyw WordPress · katalog sprzedawców · 3 formularze",
