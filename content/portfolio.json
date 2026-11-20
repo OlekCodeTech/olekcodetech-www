@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "title": "BIFOR",
+      "type": "strona",
+      "tags": "Strona Internetowa · strona sprzedażowa systemu · ekrany programu · logo i księga znaku · formularz prezentacji",
+      "url": "https://bifor.pl/",
+      "image": "/images/portfolio/Bifor.webp"
+    },
+    {
       "title": "Restauracja Avocado",
       "type": "strona",
       "tags": "Strona Internetowa · Next.js · galeria par i filmy · planer przyjęcia · rezerwacja domków online",

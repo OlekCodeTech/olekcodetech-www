@@ -7,6 +7,57 @@ import type { CaseStudy } from "./types";
  */
 export const cases: CaseStudy[] = [
   {
+    slug: "bifor-strona-sprzedazowa-systemu-do-przyjec",
+    client: "BIFOR",
+    title:
+      "Strona sprzedażowa systemu do zarządzania przyjęciami – BIFOR",
+    metaTitle: "BIFOR – strona sprzedażowa systemu dla sal | Case study",
+    metaDescription:
+      "Strona sprzedażowa BIFOR, systemu dla sal weselnych i restauracji: prawdziwe ekrany programu, role w zakładkach, formularz prezentacji, logo i księga znaku.",
+    portfolioTitle: "BIFOR",
+    image: "/images/portfolio/Bifor-case.webp",
+    url: "https://bifor.pl/",
+    type: "strona",
+    industry: "Oprogramowanie dla sal weselnych, restauracji i hoteli",
+    location: "Sieradz",
+    year: "2026",
+    summary:
+      "BIFOR to system do zarządzania przyjęciami dla sal weselnych, restauracji, hoteli i obiektów eventowych. Sala, zamawiający i goście pracują w nim na jednej aktualnej wersji ustaleń – od rezerwacji terminu do dnia przyjęcia. Program tworzą ludzie, którzy sami od lat prowadzą restaurację i organizują wesela. Zaprojektowaliśmy dla niego znak i księgę znaku, a potem zbudowaliśmy stronę sprzedażową z jednym celem: umówić prezentację programu.",
+    challenge: [
+      "System obejmuje dużo: kalendarz, ankietę, listę gości i plan stołów, menu z wyceną, finanse, dokumenty, grafik zespołu i dostęp dla zamawiającego w telefonie. Strona nie mogła jednak tłumaczyć programu od A do Z – to zadanie rozmowy z handlowcem. Miała w kilka sekund pokazać, czym BIFOR jest i dla kogo, a potem prowadzić do formularza.",
+      "Klientowi zależało na prostocie: ekrany czytelne od pierwszego spojrzenia, bez przeładowanych makiet i bez opisów pisanych językiem informatyków. Największą przewagą produktu są ludzie i ich doświadczenie w organizacji przyjęć, więc zespół musiał dostać na stronie własne miejsce. Marka potrzebowała też uporządkowanego znaku i jasnych zasad jego użycia.",
+    ],
+    scope: [
+      "Logo „bifor_” z miętowym kursorem odrysowane na krzywe, warianty logotypu i sygnetu oraz księga znaku z kolorami i zasadami użycia.",
+      "Układ w stylu redakcyjnym: biel, cienkie linie, spokojna typografia i jeden kolor akcentu, żeby uwagę skupiały ekrany programu.",
+      "Prawdziwe ekrany programu zamiast ilustracji: widok na komputerze z powiększeniem po kliknięciu i widok zamawiającego w ramce telefonu.",
+      "Sekcja „Jak działa” w pięciu krokach, osiem funkcji w siatce i trzy widoki pokazane szerzej: menu i wycena, finanse, grafik zespołu.",
+      "Role w zakładkach – sala, zamawiający, goście, zespół sali i usługodawcy – każda z własnym ekranem programu.",
+      "Prosty przelicznik: zmiana liczby gości pokazuje, jak jedna informacja przelicza wycenę, rozsadzenie i dokumenty dla zespołu.",
+      "Sekcja doświadczenia: liczby, zdjęcie zespołu, sylwetki trzech osób stojących za programem i opinie gości przyjęć, które organizowali.",
+      "Formularz „Umów prezentację” z zabezpieczeniem przed spamem (pole-pułapka, kontrola czasu wypełnienia, limit zgłoszeń) i wysyłką na skrzynkę firmy.",
+      "Regulamin i polityka prywatności generowane skryptem z dokumentów klienta, bez ręcznego przepisywania treści.",
+      "Baner zgody na cookies reklamowe – piksel Meta ładuje się dopiero po zgodzie, a decyzję można zmienić w stopce.",
+      "SEO od startu: dane strukturalne organizacji, programu i pytań z FAQ, mapa strony, przekierowania na jedną wersję adresu z https, zgłoszenie w Google Search Console i IndexNow.",
+      "Wersja testowa do akceptacji kolejnych rund poprawek i wdrożenie na hosting klienta prosto z repozytorium Git.",
+    ],
+    stack: [
+      "HTML, CSS, JavaScript",
+      "Python (skrypty budujące)",
+      "PHP (formularz)",
+      "Geist (czcionki z własnego serwera)",
+      "Meta Pixel (po zgodzie)",
+      "GitHub Pages",
+      "OVH",
+    ],
+    results: [
+      "Strona działa pod adresem bifor.pl od 17 listopada 2026 roku. Odwiedzający od razu widzi, czym jest program i dla kogo powstał, ogląda prawdziwe ekrany zamiast obietnic, a każda sekcja prowadzi do tego samego kroku – umówienia prezentacji.",
+      "Serwis składa się ze statycznych plików, więc ładuje się szybko i nie wymaga aktualizacji wtyczek. Poprawki od zespołu – nowe zdjęcia, zmienione opisy, kolejne ekrany programu – wprowadzamy w repozytorium i publikujemy jednym wdrożeniem.",
+    ],
+    services: ["stronywww-aplikacje", "seo-content-marketing"],
+    landings: ["landing-page", "strony-internetowe-dla-firm", "strony-internetowe-sieradz"],
+  },
+  {
     slug: "restauracja-avocado-strona-wesela-przyjecia",
     client: "Restauracja Avocado",
     title:
