@@ -1,6 +1,13 @@
 {
   "items": [
     {
+      "title": "Restauracja Avocado",
+      "type": "strona",
+      "tags": "Strona Internetowa · Next.js · galeria par i filmy · planer przyjęcia · rezerwacja domków online",
+      "url": "https://www.restauracjaavocado.pl/",
+      "image": "/images/portfolio/Avocado.webp"
+    },
+    {
       "title": "PROMYK – okna i drzwi",
       "type": "strona",
       "tags": "Strona Internetowa · konfigurator okien online · katalog oferty · projekt z Figmy",

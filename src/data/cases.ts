@@ -7,6 +7,55 @@ import type { CaseStudy } from "./types";
  */
 export const cases: CaseStudy[] = [
   {
+    slug: "restauracja-avocado-strona-wesela-przyjecia",
+    client: "Restauracja Avocado",
+    title:
+      "Strona restauracji weselnej z galerią par i filmami – Avocado Sieradz",
+    metaTitle: "Restauracja Avocado – strona weselna w Next.js | Case study",
+    metaDescription:
+      "Nowa strona Restauracji Avocado z Kuśni koło Sieradza: galeria par, filmy z sal, planer przyjęcia, rezerwacja domków online i przenosiny z Webflow bez utraty adresów.",
+    portfolioTitle: "Restauracja Avocado",
+    url: "https://www.restauracjaavocado.pl/",
+    type: "strona",
+    industry: "Restauracja, wesela, przyjęcia i catering",
+    location: "Kuśnie k. Sieradza",
+    year: "2026",
+    summary:
+      "Restauracja Avocado z Kuśni koło Sieradza organizuje wesela, chrzciny, komunie, urodziny i imprezy firmowe w dwóch salach – bankietowej i plenerowej – a gościom spoza okolicy oferuje noclegi w domkach na miejscu. Z właścicielami współpracowaliśmy już wcześniej przy dotychczasowej stronie na Webflow. Tym razem zaprojektowaliśmy i zbudowaliśmy od nowa cały serwis, w którym zdjęcia i atmosfera miejsca grają główną rolę, a droga od obejrzenia sali do wysłania zapytania jest jak najkrótsza.",
+    challenge: [
+      "Restauracja ma bardzo dużo materiału: setki zdjęć z wesel i przyjęć od kilku fotografów, filmy z sal i kolacji degustacyjnych, a do tego kilka różnych grup klientów – pary młode, rodziny planujące chrzciny czy komunię, firmy i gości szukających noclegu. Strona miała pokazać to wszystko estetycznie i przejrzyście, a przy tym prowadzić każdego gościa prosto do zapytania o termin.",
+      "Dotychczasowa strona działała na Webflow, a zespół potrzebował serwisu, w którym zmiany i nowe realizacje pojawiają się szybko i bez walki z kreatorem. Nowy serwis musiał przejąć jej adresy obecne w Google i w kampaniach na Facebooku, piksel Meta oraz popup z ofertą świąteczną – tym razem z poprawnie działającą zgodą na cookies.",
+    ],
+    scope: [
+      "Projekt i wdrożenie nowej strony w jasnej, ciepłej kolorystyce, z dużymi zdjęciami i dopracowaną typografią – dopracowana z właścicielką w kilku rundach poprawek.",
+      "Galeria realizacji z osobną podstroną dla każdej pary młodej: duży baner, reportaż ze zdjęciami poziomymi na całą szerokość i pionowymi w parach, podpisani fotografowie.",
+      "Sekcja „Avocado w ruchu” – karuzela krótkich filmów z sal, wesel i kolacji, przekodowanych do lekkich plików, z dźwiękiem włączanym kliknięciem.",
+      "Podstrony wesel, przyjęć (z rozwijanymi galeriami dla każdej okazji), sal, wydarzeń i zespołu, a na stronie głównej wybór okazji prowadzący prosto do właściwej oferty.",
+      "Kilkuetapowy planer przyjęcia: rodzaj okazji, termin (rok i miesiące), liczba gości, nocleg i dane kontaktowe – zapytanie trafia mailem do koordynatora, z zabezpieczeniem przed spamem i limitem zgłoszeń.",
+      "Avocado Domki: opis noclegów i wyszukiwarka wolnych terminów IdoBooking otwierana w oknie na całym ekranie, bez wychodzenia ze strony.",
+      "Mapa dojazdu z czasami przejazdu z Łodzi, Kalisza i Wielunia oraz zapis na powiadomienia o wydarzeniach.",
+      "Baner zgody na cookies i polityka prywatności – piksel Meta ładuje się dopiero po zgodzie, a popup z ofertą świąteczną pojawia się po decyzji o cookies i znika sam po terminie akcji.",
+      "Przenosiny z Webflow na hosting OVH: przekierowania 301 ze starych adresów, wymuszone https z jedną wersją adresu, certyfikat SSL, mapa strony, zgłoszenie serwisu w Google Search Console i zmiany DNS bez przerwy w działaniu poczty.",
+      "Wersja testowa do akceptacji kolejnych rund poprawek, a po akceptacji wdrożenie produkcyjne skryptem, który wysyła na serwer tylko zmienione pliki.",
+    ],
+    stack: [
+      "Next.js (static export)",
+      "React",
+      "TypeScript",
+      "Motion",
+      "PHP (formularze)",
+      "IdoBooking",
+      "Leaflet + OpenStreetMap",
+      "OVH",
+    ],
+    results: [
+      "Nowa strona działa pod adresem restauracjaavocado.pl od 20 listopada 2026 roku. Zdjęcia, galerie par i filmy pokazują salę tak, jak widzą ją goście, a każda podstrona kończy się drogą do zapytania o termin – telefonem albo planerem, który od razu zbiera najważniejsze informacje o przyjęciu.",
+      "Serwis składa się ze statycznych plików, więc ładuje się szybko i nie wymaga aktualizacji wtyczek. Stare adresy z Webflow prowadzą do odpowiednich nowych podstron, a kolejne realizacje i wydarzenia dodajemy na bieżąco, gdy restauracja przesyła nowe zdjęcia.",
+    ],
+    services: ["stronywww-aplikacje", "seo-content-marketing"],
+    landings: ["strony-internetowe-dla-firm", "strony-internetowe-sieradz", "aplikacje-webowe-react-nextjs"],
+  },
+  {
     slug: "promyk-okna-drzwi-strona-z-konfiguratorem",
     client: "PROMYK – okna i drzwi",
     title:

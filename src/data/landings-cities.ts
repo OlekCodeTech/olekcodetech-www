@@ -239,7 +239,7 @@ export const cityLandings: LandingPage[] = [
       "obsługa informatyczna Sieradz",
       "automatyzacje procesów Sieradz",
     ],
-    portfolio: ["SimTrans - Pomoc Drogowa", "DS Paliwa", "BKP - Ubezpieczenia"],
+    portfolio: ["Restauracja Avocado", "SimTrans - Pomoc Drogowa", "BKP - Ubezpieczenia"],
   },
 
   // ---------------------------------------------------------------------------
