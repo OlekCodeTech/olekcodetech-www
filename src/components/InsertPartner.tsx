@@ -40,6 +40,23 @@ export default function InsertPartner() {
               <p className="mt-5 text-base leading-relaxed text-body sm:text-lg">
                 Jesteśmy Partnerem InsERT. Sprzedajemy i wdrażamy programy z linii nexo, łączymy je ze sklepem internetowym i innymi systemami, a biurom rachunkowym zapewniamy wsparcie informatyczne – od instalacji i kopii zapasowych po KSeF.
               </p>
+              <ul className="mt-7 grid grid-cols-2 gap-3">
+                {programs.map((p) => (
+                  <li key={p.name} className="rounded-2xl border border-line bg-ink/60 px-4 py-3">
+                    <span className="block font-display text-sm font-semibold text-snow">{p.name}</span>
+                    <span className="block text-sm text-muted">{p.desc}</span>
+                  </li>
+                ))}
+              </ul>
+              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                {insertLandings.slice(1).map((l) => (
+                  <li key={l.slug}>
+                    <Link href={`/${l.slug}/`} className="text-body underline-offset-4 transition hover:text-cyan hover:underline">
+                      {l.navLabel ?? l.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button href="/programy-insert-nexo/" size="lg">
                   Programy InsERT nexo
@@ -65,23 +82,20 @@ export default function InsertPartner() {
                   </p>
                 )}
               </div>
-              <ul className="mt-4 grid grid-cols-2 gap-3">
-                {programs.map((p) => (
-                  <li key={p.name} className="rounded-2xl border border-line bg-ink/60 px-4 py-3">
-                    <span className="block font-display text-sm font-semibold text-snow">{p.name}</span>
-                    <span className="block text-sm text-muted">{p.desc}</span>
-                  </li>
-                ))}
-              </ul>
-              <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-                {insertLandings.slice(1).map((l) => (
-                  <li key={l.slug}>
-                    <Link href={`/${l.slug}/`} className="text-body underline-offset-4 transition hover:text-cyan hover:underline">
-                      {l.navLabel ?? l.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {/* Oficjalny baner InsERT – moduł producenta, osadzony bez zmian (wymóg sieci partnerskiej). */}
+              <div className="mt-4 flex justify-center overflow-hidden rounded-3xl border border-line bg-ink/60 p-3">
+                <iframe
+                  id="insert_aktualna_promocja_rectangle"
+                  name="insert_aktualna_promocja_rectangle"
+                  title="InsERT – aktualna promocja"
+                  src="https://bannery.insert.com.pl/aktualna_promocja_rectangle"
+                  width={300}
+                  height={250}
+                  loading="lazy"
+                  scrolling="no"
+                  style={{ border: 0, maxWidth: "100%" }}
+                />
+              </div>
             </div>
           </div>
         </Reveal>

@@ -45,7 +45,20 @@ export default function Hero() {
           </Link>
         </div>
 
-        <div className="hero-in relative mt-16 w-full max-w-6xl sm:mt-20" style={{ animationDelay: "360ms" }}>
+        {/* Logo InsERT widoczne od razu po otwarciu strony głównej (wymóg sieci partnerskiej InsERT). */}
+        <Link
+          href="/programy-insert-nexo/"
+          className="hero-in mt-8 inline-flex items-center gap-3 rounded-pill border border-line/80 bg-ink-2/60 py-1.5 pl-4 pr-1.5 text-sm text-body transition hover:border-cyan/60 hover:text-snow"
+          style={{ animationDelay: "300ms" }}
+        >
+          Partner handlowy
+          <span className="inline-flex items-center rounded-pill bg-snow px-3 py-1">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/partners/insert-partner.svg`} alt="InsERT" width={72} height={24} className="h-6 w-auto" />
+          </span>
+        </Link>
+
+        <div className="hero-in relative mt-12 w-full max-w-6xl sm:mt-14" style={{ animationDelay: "360ms" }}>
           <div aria-hidden className="absolute -inset-6 -z-10 rounded-[3rem] bg-cyan/15 blur-3xl sm:-inset-10" />
           <VideoPlayer
             mp4="/video/hero-720.mp4"

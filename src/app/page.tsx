@@ -38,6 +38,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ClientsMarquee />
+      <InsertPartner />
       <Statement />
       <ShowcaseTile />
       <FeatureTiles />
@@ -54,8 +55,6 @@ export default function HomePage() {
           <ServicesGrid />
         </Container>
       </section>
-
-      <InsertPartner />
 
       <KeywordMarquee />
       <StatsBand />
