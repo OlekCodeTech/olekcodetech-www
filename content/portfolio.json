@@ -1,6 +1,20 @@
 {
   "items": [
     {
+      "title": "Kancelaria Adwokacka SZK",
+      "type": "strona",
+      "tags": "Strona Internetowa · własny motyw WordPress · logo i księga znaku · papier firmowy i wizytówki",
+      "url": "https://kancelariaszk.pl/",
+      "image": "/images/portfolio/KancelariaSZK.webp"
+    },
+    {
+      "title": "szkolnictwowyzsze.pl",
+      "type": "strona",
+      "tags": "Strona Internetowa · nowa marka · własny motyw WordPress · panel aktualności dla zespołu",
+      "url": "https://szkolnictwowyzsze.pl/",
+      "image": "/images/portfolio/Szkolnictwowyzsze.webp"
+    },
+    {
       "title": "BIFOR",
       "type": "strona",
       "tags": "Strona Internetowa · strona sprzedażowa systemu · ekrany programu · logo i księga znaku · formularz prezentacji",

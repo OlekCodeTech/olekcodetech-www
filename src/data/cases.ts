@@ -7,6 +7,103 @@ import type { CaseStudy } from "./types";
  */
 export const cases: CaseStudy[] = [
   {
+    slug: "kancelaria-adwokacka-szk-strona-i-identyfikacja",
+    client: "Kancelaria Adwokacka SZK",
+    title:
+      "Identyfikacja i strona WordPress dla Kancelarii Adwokackiej SZK",
+    metaTitle: "Kancelaria Adwokacka SZK – logo i strona WP | Case study",
+    metaDescription:
+      "Logo, księga znaku, papier firmowy, wizytówki i strona na własnym motywie WordPress dla Kancelarii Adwokackiej Julity Szataniak-Kulińskiej z Piaseczna i Wielunia.",
+    portfolioTitle: "Kancelaria Adwokacka SZK",
+    image: "/images/portfolio/KancelariaSZK-case.webp",
+    url: "https://kancelariaszk.pl/",
+    type: "strona",
+    industry: "Kancelaria adwokacka",
+    location: "Piaseczno i Wieluń",
+    year: "2026",
+    summary:
+      "Kancelaria Adwokacka Julity Szataniak-Kulińskiej prowadzi sprawy przedsiębiorców, instytucji i klientów indywidualnych w biurach w Piasecznie i Wieluniu, a także zdalnie. Przygotowaliśmy dla niej całą identyfikację – od znaku przez księgę znaku, papier firmowy i wizytówki dla zespołu – a następnie stronę internetową na własnym motywie WordPress, uruchomioną pod adresem kancelariaszk.pl.",
+    challenge: [
+      "Kancelaria adwokacka komunikuje się inaczej niż zwykła firma: zasady etyki zawodowej wykluczają reklamę opartą na obietnicach, porównaniach czy cenach. Strona i materiały miały więc budować zaufanie spokojem, porządkiem i rzetelną informacją o zakresie pomocy prawnej, a nie hasłami sprzedażowymi.",
+      "Klientka chciała, żeby marka nawiązywała do wnętrz biura – kolory dobraliśmy z wzornika ścian kancelarii. Strona miała pomieścić dwanaście specjalizacji, zespół, pomoc prawną online i dwa adresy biur, a przy tym pozostać prosta, klasyczna i czytelna także na telefonie. Ważne było też, żeby przeniesienie domeny na nowy hosting nie przerwało działania istniejącej poczty kancelarii.",
+    ],
+    scope: [
+      "Logo „szk” w bordowym kole z imieniem i nazwiskiem mecenas – kilka rund propozycji, ostatecznie wariant oparty na szkicu klientki, odrysowany na krzywe w wersjach poziomej, pionowej i sygnetu.",
+      "Kolorystyka z wzornika NCS ścian biura i jeden krój pisma (Source Serif 4) we wszystkich materiałach – opisane w księdze znaku.",
+      "Papier firmowy w PDF i edytowalnym szablonie Word z osadzonym krojem pisma, z danymi obu biur i numerem wpisu na listę adwokatów.",
+      "Wizytówki dla zespołu przygotowane do druku: pliki CMYK ze spadami, wycena i zamówienie w lokalnej drukarni.",
+      "Prototyp strony do akceptacji z kolejnymi rundami uwag, a po akceptacji własny motyw WordPress bez kreatora stron – szybki i prosty w utrzymaniu.",
+      "Dwanaście podstron specjalizacji, strony O kancelarii, Zespół, Pomoc prawna online i Kontakt – treści klientki ułożone w czytelne sekcje, z pełnymi wyrazami bez dzielenia.",
+      "Formularz kontaktowy bez dodatkowych wtyczek, z kopią wiadomości w panelu WordPress.",
+      "Polityka prywatności z dokumentu kancelarii oraz baner zgody na cookies z Google Consent Mode v2 – narzędzia analityczne ładują się dopiero po zgodzie.",
+      "Wdrożenie na hostingu z certyfikatem SSL i jedną wersją adresu; w DNS zmienione tylko rekordy strony, poczta Google Workspace działa bez przerwy.",
+      "SEO od startu: tytuły i opisy stron, dane strukturalne, mapa strony, weryfikacja i zgłoszenie mapy w Google Search Console.",
+    ],
+    stack: [
+      "WordPress (własny motyw)",
+      "PHP",
+      "Python (generatory materiałów i motywu)",
+      "Source Serif 4",
+      "Google Consent Mode v2",
+      "Google Search Console",
+      "Hostinger",
+    ],
+    results: [
+      "Kancelaria ma spójną identyfikację – ten sam znak, kolory i krój pisma na stronie, w korespondencji i na wizytówkach. Strona działa pod adresem kancelariaszk.pl od 25 listopada 2026 roku, a poczta kancelarii pracuje bez zmian.",
+      "Treści specjalizacji i zespołu kancelaria może rozwijać w panelu WordPress, a zmiany wyglądu wprowadzamy w motywie, bez ryzyka związanego z aktualizacjami kreatorów stron i dodatkowych wtyczek.",
+    ],
+    services: ["stronywww-aplikacje", "seo-content-marketing"],
+    landings: ["strony-wordpress-autorski-motyw", "strony-internetowe-dla-firm", "strony-internetowe-wielun"],
+  },
+  {
+    slug: "szkolnictwowyzsze-pl-marka-i-strona-dla-doradztwa-uczelni",
+    client: "szkolnictwowyzsze.pl",
+    title:
+      "Nowa marka i strona WordPress dla doradztwa prawnego uczelni – szkolnictwowyzsze.pl",
+    metaTitle: "szkolnictwowyzsze.pl – marka i strona WP | Case study",
+    metaDescription:
+      "Nowa marka szkolnictwowyzsze.pl: logo, księga znaku, wizytówki, papier firmowy i strona na własnym motywie WordPress z aktualnościami prowadzonymi przez zespół.",
+    portfolioTitle: "szkolnictwowyzsze.pl",
+    image: "/images/portfolio/Szkolnictwowyzsze-case.webp",
+    url: "https://szkolnictwowyzsze.pl/",
+    type: "strona",
+    industry: "Obsługa prawna i doradztwo dla uczelni",
+    location: "Warszawa",
+    year: "2026",
+    summary:
+      "szkolnictwowyzsze.pl to marka zespołu, który zajmuje się obsługą prawną i doradztwem dla uczelni – ocenami programowymi PKA, tworzeniem kierunków studiów, zapewnianiem jakości kształcenia i bieżącymi sprawami prawnymi. Marka zastąpiła wcześniejszą nazwę, więc przygotowaliśmy ją od zera: logo, księgę znaku, papier firmowy i wizytówki, a potem stronę na własnym motywie WordPress, na której zespół sam publikuje aktualności.",
+    challenge: [
+      "Uczelnie zwykle nie ujawniają, że korzystają z zewnętrznego wsparcia prawnego. Strona nie mogła więc opierać się na logotypach klientów, liczbach ani opiniach – wiarygodność musiała wynikać z jasnego opisu usług, doświadczenia zespołu i konkretnej wiedzy publikowanej w aktualnościach.",
+      "Zespół chciał regularnie informować o zmianach w przepisach i wydarzeniach środowiska akademickiego, bez angażowania wykonawcy przy każdym wpisie. Potrzebny był prosty panel dla redaktorów i instrukcja, a jednocześnie ochrona przed przypadkową zmianą wyglądu czy stron usługowych.",
+    ],
+    scope: [
+      "Pięć kierunków logo do wyboru i rozwinięcie wybranego monogramu „sw.” w zieleni i złocie – wersje znaku, logotyp z wyróżnionym „.pl” i hasło „Doradztwo dla uczelni”.",
+      "Księga znaku z kolorami, typografią i zasadami użycia oraz paczka plików logo w SVG i PNG.",
+      "Wizytówki dla czterech osób przygotowane do druku w CMYK ze spadami, wycena i zamówienie w drukarni, a także papier firmowy w PDF i Word.",
+      "Prototyp strony z kolejnymi wersjami do akceptacji: zakładki usług, sekcja „Dla kogo pracujemy”, zespół ekspertów z kontaktem i akcent na poufność współpracy.",
+      "Własny motyw WordPress: strony usług i szkoleń zapisane w motywie, a aktualności jako wpisy z kategoriami-filtrami, spisem treści i danymi strukturalnymi artykułu.",
+      "Konta redaktorów z ograniczonymi uprawnieniami i ilustrowana instrukcja dodawania aktualności dla zespołu.",
+      "Formularz kontaktowy bez dodatkowych wtyczek, z kopią wiadomości w panelu.",
+      "Polityka prywatności dopasowana do serwisu i baner zgody na cookies z Google Consent Mode v2.",
+      "Wdrożenie na hostingu z SSL; w DNS zmienione tylko rekordy strony, poczta Google Workspace bez przerwy. Weryfikacja w Google Search Console i zgłoszenie mapy strony.",
+    ],
+    stack: [
+      "WordPress (własny motyw)",
+      "PHP",
+      "Python (generatory materiałów i motywu)",
+      "Montserrat",
+      "Google Consent Mode v2",
+      "Google Search Console",
+      "Hostinger",
+    ],
+    results: [
+      "Nowa marka działa w komplecie – strona szkolnictwowyzsze.pl jest dostępna od 24 listopada 2026 roku, a znak, kolory i dane zespołu są spójne na stronie, wizytówkach i w korespondencji.",
+      "Zespół publikuje aktualności samodzielnie, korzystając z instrukcji i kont redaktorów. Strona buduje wiarygodność treścią merytoryczną, bez ujawniania, z którymi uczelniami współpracuje.",
+    ],
+    services: ["stronywww-aplikacje", "seo-content-marketing"],
+    landings: ["strony-wordpress-autorski-motyw", "strony-internetowe-dla-firm", "content-marketing-b2b"],
+  },
+  {
     slug: "bifor-strona-sprzedazowa-systemu-do-przyjec",
     client: "BIFOR",
     title:
