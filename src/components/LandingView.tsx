@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, MapPin, Phone } from "lucide-react";
 import type { LandingPage } from "@/data/types";
 import { getService, services } from "@/data/services";
-import { landings, landingLabel } from "@/data/landings";
+import { landings, landingLabel, insertLandings } from "@/data/landings";
 import { portfolio } from "@/data/portfolio";
 import { cases } from "@/data/cases";
 import { site } from "@/data/site";
@@ -193,7 +193,7 @@ export default function LandingView({ page }: { page: LandingPage }) {
       <section className="pb-8 pt-8">
         <Container>
           <SectionHeading eyebrow="Pełna oferta" title="Pozostałe obszary" className="mb-8" />
-          <RelatedServices current={page.parent} />
+          <RelatedServices current={page.parent} withoutInsert={insertLandings.some((l) => l.slug === page.slug)} />
         </Container>
       </section>
 

@@ -10,6 +10,7 @@ import { FeatureTiles, ShowcaseTile, Statement } from "@/components/home";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { portfolio } from "@/data/portfolio";
 import RoiCalculator from "@/components/RoiCalculator";
+import InsertPartner from "@/components/InsertPartner";
 import { site } from "@/data/site";
 import { getAllPosts } from "@/lib/posts";
 
@@ -53,6 +54,8 @@ export default function HomePage() {
           <ServicesGrid />
         </Container>
       </section>
+
+      <InsertPartner />
 
       <KeywordMarquee />
       <StatsBand />

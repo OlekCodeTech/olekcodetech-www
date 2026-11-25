@@ -298,16 +298,28 @@ export function ContactInfo() {
 }
 
 /* ---------- Powiązane usługi ---------- */
-export function RelatedServices({ current }: { current?: Service["slug"] }) {
-  const list = services.filter((s) => s.slug !== current);
+/**
+ * Kafle „Pozostałe usługi”: zawsze 6 równych kafli w siatce 3×2.
+ * Pięć usług (bez bieżącej) + programy InsERT; na stronach InsERT – komplet sześciu usług.
+ */
+export function RelatedServices({ current, withoutInsert }: { current?: Service["slug"]; withoutInsert?: boolean }) {
+  const list = (withoutInsert ? services : services.filter((s) => s.slug !== current)).map((s) => ({
+    href: `/${s.slug}/`,
+    name: s.name,
+    short: s.eyebrow,
+    icon: <ServiceIcon icon={s.icon} className="h-5 w-5 text-cyan" />,
+  }));
+  if (!withoutInsert) {
+    list.push({ href: "/programy-insert-nexo/", name: "Programy InsERT nexo", short: "Partner InsERT · Subiekt, Rewizor, Gratyfikant", icon: <Building2 className="h-5 w-5 text-cyan" /> });
+  }
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {list.map((s) => (
-        <Link key={s.slug} href={`/${s.slug}/`} className="group flex items-start justify-between gap-3 rounded-3xl border border-line bg-ink-2/60 p-5 transition hover:border-cyan/50">
+        <Link key={s.href} href={s.href} className="group flex h-full items-start justify-between gap-3 rounded-3xl border border-line bg-ink-2/60 p-5 transition hover:border-cyan/50">
           <span>
-            <ServiceIcon icon={s.icon} className="h-5 w-5 text-cyan" />
+            {s.icon}
             <span className="mt-3 block font-display font-semibold text-snow">{s.name}</span>
-            <span className="mt-1 block text-sm text-muted">{s.eyebrow}</span>
+            <span className="mt-1 block text-sm text-muted">{s.short}</span>
           </span>
           <ArrowUpRight className="h-4 w-4 shrink-0 text-muted transition group-hover:text-cyan" />
         </Link>
