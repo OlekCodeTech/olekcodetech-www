@@ -39,6 +39,7 @@ function loadGtag() {
 /** Prosty baner cookies: statystyki (Google tag) ładują się dopiero po zgodzie. */
 export default function CookieBanner() {
   const [show, setShow] = useState(false);
+  const [decided, setDecided] = useState(false);
 
   useEffect(() => {
     let v: string | null = null;
@@ -48,7 +49,8 @@ export default function CookieBanner() {
       /* brak dostępu do localStorage */
     }
     if (v === "all") loadGtag();
-    else if (!v) setShow(true);
+    if (v) setDecided(true);
+    else setShow(true);
   }, []);
 
   const decide = (choice: "all" | "necessary") => {
@@ -58,10 +60,27 @@ export default function CookieBanner() {
       /* ignoruj */
     }
     if (choice === "all") loadGtag();
+    // Wycofanie zgody po wcześniejszej akceptacji: tag już jest na stronie, więc wyłączamy mu zapis.
+    else if (window.gtag) window.gtag("consent", "update", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "denied" });
     setShow(false);
+    setDecided(true);
   };
 
-  if (!show) return null;
+  // Po decyzji zostaje mała ikonka w rogu – pozwala w każdej chwili wrócić do ustawień cookies.
+  if (!show) {
+    if (!decided) return null;
+    return (
+      <button
+        type="button"
+        onClick={() => setShow(true)}
+        aria-label="Ustawienia plików cookies"
+        title="Ustawienia cookies"
+        className="fixed bottom-4 left-4 z-40 inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-ink-2/95 text-cyan shadow-2xl backdrop-blur transition hover:border-cyan hover:bg-cyan hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan sm:bottom-6 sm:left-6"
+      >
+        <Cookie className="h-5 w-5" />
+      </button>
+    );
+  }
 
   return (
     <div
