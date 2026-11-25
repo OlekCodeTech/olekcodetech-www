@@ -43,6 +43,20 @@ export type LandingPage = {
   navLabel?: string;
   /** Pokaż kalkulator opłacalności automatyzacji pod treścią */
   calculator?: boolean;
+  /**
+   * Podstrona produktu InsERT (wymagania sieci partnerskiej): H1 = "Nazwa - przeznaczenie",
+   * <title> = "H1 | OlekCodeTech", każdy nagłówek h2 zawiera nazwę produktu, adres = sam slug produktu.
+   */
+  product?: {
+    /** Dokładna nazwa produktu, np. "Subiekt nexo PRO" */
+    name: string;
+    /** Linia: nexo, nexo PRO, GT albo usługa online */
+    line: "nexo" | "nexo PRO" | "GT" | "online";
+    /** Grafika produktu w public/, np. "/images/insert/subiekt-nexo.webp" */
+    image?: string;
+    /** Strona produktu u producenta */
+    producerUrl: string;
+  };
   /** Frazy kluczowe (pomocniczo, do keywords w meta) */
   keywords: string[];
   /** Tytuły realizacji z src/data/portfolio.ts do pokazania na stronie (3) */

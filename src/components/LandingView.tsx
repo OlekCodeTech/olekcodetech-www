@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowUpRight, ChevronDown, MapPin, Phone } from "lucide-react";
 import type { LandingPage } from "@/data/types";
 import { getService, services } from "@/data/services";
-import { landings, landingLabel, insertLandings } from "@/data/landings";
+import { landings, landingLabel, insertLandings, insertProducts } from "@/data/landings";
 import { portfolio } from "@/data/portfolio";
 import { cases } from "@/data/cases";
 import { site } from "@/data/site";
@@ -44,21 +45,31 @@ export default function LandingView({ page }: { page: LandingPage }) {
   const topicOf = (l: LandingPage) => l.topic ?? "www";
   const toLink = (l: LandingPage) => ({ href: `/${l.slug}/`, label: landingLabel(l), short: l.eyebrow });
   // Strony lokalne: ta sama usługa w innych miastach + druga usługa w tym samym mieście.
-  const siblings = !isCity
-    ? landings.filter((l) => l.parent === page.parent && l.kind === "service" && l.slug !== page.slug)
+  const product = page.product;
+  const isInsertHub = page.slug === "programy-insert-nexo";
+  const siblings = product
+    ? insertProducts.filter((l) => l.slug !== page.slug)
+    : !isCity
+    ? landings.filter((l) => l.parent === page.parent && l.kind === "service" && l.slug !== page.slug && !l.product)
     : landings.filter((l) => l.kind === "city" && l.slug !== page.slug && topicOf(l) === topicOf(page));
   const sameCity = isCity ? landings.filter((l) => l.kind === "city" && l.city === page.city && l.slug !== page.slug) : [];
   const seeAlso = [...sameCity.map(toLink), ...related, ...siblings.map(toLink)]
     .filter((x, i, arr) => arr.findIndex((y) => y.href === x.href) === i)
     .slice(0, 6);
-  const ctaTitle = !isCity ? "Masz pytania dotyczące tej usługi?" : isDev ? `Szukasz programisty ${page.cityLocative}?` : `Szukasz firmy od stron internetowych ${page.cityLocative}?`;
+  const ctaTitle = product ? `Chcesz kupić lub wdrożyć ${product.name}?` : !isCity ? "Masz pytania dotyczące tej usługi?" : isDev ? `Szukasz programisty ${page.cityLocative}?` : `Szukasz firmy od stron internetowych ${page.cityLocative}?`;
   const faqLead = !isCity
     ? "Jeśli nie znajdziesz odpowiedzi, napisz – odpowiadamy w ciągu jednego dnia roboczego."
     : isDev
       ? `Odpowiedzi na pytania firm ${page.cityLocative ?? ""}, które myślą o programie na zamówienie, automatyzacji albo integracji systemów.`
       : `Odpowiedzi na pytania firm ${page.cityLocative ?? ""}, które planują stronę lub sklep.`;
 
-  const crumbs = parent
+  const crumbs = product
+    ? [
+        { label: "Oferta", href: "/oferta/" },
+        { label: "Programy InsERT", href: "/programy-insert-nexo/" },
+        { label: product.name, href: `/${page.slug}/` },
+      ]
+    : parent
     ? [
         { label: "Oferta", href: "/oferta/" },
         { label: parent.name, href: `/${parent.slug}/` },
@@ -85,6 +96,25 @@ export default function LandingView({ page }: { page: LandingPage }) {
         <Container className="grid items-start gap-12 lg:grid-cols-12">
           <aside className="lg:col-span-4">
             <div className="space-y-5 lg:sticky lg:top-28">
+              {product && (
+                <Card>
+                  <div className="flex items-center justify-center rounded-2xl bg-snow p-5">
+                    <Image
+                      src={product.image ?? "/images/partners/insert-partner.svg"}
+                      alt={`${product.name} – program InsERT`}
+                      width={430}
+                      height={435}
+                      className="h-44 w-auto object-contain"
+                      unoptimized
+                    />
+                  </div>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted">Producent: InsERT · linia {product.line}</p>
+                  <a href={product.producerUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-1 font-display text-sm font-semibold text-cyan">
+                    Strona produktu u producenta
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </Card>
+              )}
               <Card>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">W skrócie</p>
                 <ol className="mt-4 space-y-2.5">
@@ -179,12 +209,33 @@ export default function LandingView({ page }: { page: LandingPage }) {
 
       {(isDev || page.calculator) && <IntegrationsStrip />}
 
-      <Faq items={page.faq} lead={faqLead} />
+      {isInsertHub && (
+        <section className="border-t border-line/60 py-16 lg:py-24">
+          <Container>
+            <SectionHeading eyebrow="Oferta" title="Programy InsERT w naszej ofercie" lead="Każdy program ma u nas osobny opis: dla kogo jest, co potrafi i jak wygląda wdrożenie." className="mb-10" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {insertProducts.map((l) => (
+                <Link key={l.slug} href={`/${l.slug}/`} className="group flex items-center gap-4 rounded-3xl border border-line bg-ink-2/60 p-4 transition hover:border-cyan/50">
+                  <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-snow p-1.5">
+                    <Image src={l.product?.image ?? "/images/partners/insert-partner.svg"} alt="" width={64} height={64} className="h-full w-full object-contain" unoptimized />
+                  </span>
+                  <span>
+                    <span className="block font-display font-semibold text-snow">{l.product?.name}</span>
+                    <span className="mt-0.5 block text-sm text-muted">{l.title.split(" - ").slice(1).join(" - ")}</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      <Faq items={page.faq} lead={faqLead} title={product ? `${product.name} – najczęstsze pytania` : undefined} />
 
       {(seeAlso.length > 0) && (
         <section className="pb-8">
           <Container>
-            <SectionHeading eyebrow="Zobacz także" title={isCity ? "Powiązane usługi i lokalizacje" : "Powiązane usługi"} className="mb-8" />
+            <SectionHeading eyebrow="Zobacz także" title={product ? `${product.name} i powiązane programy InsERT` : isCity ? "Powiązane usługi i lokalizacje" : "Powiązane usługi"} className="mb-8" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {seeAlso.map((r) => (
                   <Link key={r.href} href={r.href} className="group flex items-start justify-between gap-3 rounded-3xl border border-line bg-ink-2/60 p-5 transition hover:border-cyan/50">
@@ -200,12 +251,15 @@ export default function LandingView({ page }: { page: LandingPage }) {
         </section>
       )}
 
-      <section className="pb-8 pt-8">
-        <Container>
-          <SectionHeading eyebrow="Pełna oferta" title="Pozostałe obszary" className="mb-8" />
-          <RelatedServices current={page.parent} withoutInsert={insertLandings.some((l) => l.slug === page.slug)} />
-        </Container>
-      </section>
+      {/* Na podstronach produktów InsERT każdy h2 musi zawierać nazwę produktu – tej sekcji tam nie ma. */}
+      {!product && (
+        <section className="pb-8 pt-8">
+          <Container>
+            <SectionHeading eyebrow="Pełna oferta" title="Pozostałe obszary" className="mb-8" />
+            <RelatedServices current={page.parent} withoutInsert={insertLandings.some((l) => l.slug === page.slug)} />
+          </Container>
+        </section>
+      )}
 
       <CtaBand title={ctaTitle} />
 

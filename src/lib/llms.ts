@@ -1,5 +1,5 @@
 import { services } from "@/data/services";
-import { landings, landingLabel, insertLandings } from "@/data/landings";
+import { landings, landingLabel, insertLandings, insertProducts } from "@/data/landings";
 import { cases } from "@/data/cases";
 import { servicesFaq } from "@/data/services-faq";
 import { site } from "@/data/site";
@@ -10,7 +10,7 @@ import type { LandingPage } from "@/data/types";
 /** Miasta z własnymi podstronami – jedna lista dla llms.txt i opisu obszaru działania. */
 const cities = () => [...new Set(landings.filter((l) => l.kind === "city" && l.city).map((l) => l.city as string))];
 
-const insertSlugs = new Set(insertLandings.map((l) => l.slug));
+const insertSlugs = new Set([...insertLandings, ...insertProducts].map((l) => l.slug));
 
 const link = (label: string, path: string, desc?: string) => `- [${label}](${siteUrl}${path})${desc ? `: ${desc}` : ""}`;
 const landingLink = (l: LandingPage) => link(l.kind === "city" ? landingLabel(l) : l.title, `/${l.slug}/`, l.metaDescription);
@@ -56,6 +56,9 @@ export function buildLlmsTxt() {
     "",
     "## Programy InsERT nexo i wsparcie dla księgowości",
     ...insertLandings.map(landingLink),
+    "",
+    "## Programy InsERT – opisy produktów",
+    ...insertProducts.map(landingLink),
     "",
     "## Podstrony usługowe",
     ...landings.filter((l) => l.kind === "service" && !insertSlugs.has(l.slug)).map(landingLink),
@@ -113,6 +116,9 @@ export function buildLlmsFullTxt() {
     "## Programy InsERT nexo i wsparcie dla księgowości",
     "",
     ...insertLandings.flatMap(landingBlock),
+    "## Programy InsERT – opisy produktów",
+    "",
+    ...insertProducts.flatMap(landingBlock),
     "## Podstrony usługowe",
     "",
     ...landings.filter((l) => l.kind === "service" && !insertSlugs.has(l.slug)).flatMap(landingBlock),
