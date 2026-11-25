@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, MapPin, Phone } from "lucide-react";
 import type { LandingPage } from "@/data/types";
 import { getService, services } from "@/data/services";
-import { landings } from "@/data/landings";
+import { landings, landingLabel } from "@/data/landings";
 import { portfolio } from "@/data/portfolio";
 import { cases } from "@/data/cases";
 import { site } from "@/data/site";
@@ -13,6 +13,8 @@ import Reveal from "./Reveal";
 import JsonLd from "./JsonLd";
 import { Button, Card, CheckList, Container, SectionHeading } from "./ui";
 import { CtaBand, RelatedServices } from "./sections";
+import RoiCalculator from "./RoiCalculator";
+import IntegrationsStrip from "./IntegrationsStrip";
 import { siteUrl } from "@/lib/utils";
 
 const slugify = (s: string) =>
@@ -29,7 +31,7 @@ export default function LandingView({ page }: { page: LandingPage }) {
   const related = (page.related ?? [])
     .map((slug) => {
       const l = landings.find((x) => x.slug === slug);
-      if (l) return { href: `/${l.slug}/`, label: l.title, short: l.eyebrow };
+      if (l) return { href: `/${l.slug}/`, label: l.kind === "city" ? landingLabel(l) : l.title, short: l.eyebrow };
       const s = services.find((x) => x.slug === slug);
       if (s) return { href: `/${s.slug}/`, label: s.name, short: s.eyebrow };
       return null;
@@ -37,13 +39,30 @@ export default function LandingView({ page }: { page: LandingPage }) {
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
   const featured = (page.portfolio ?? []).map((t) => portfolio.find((p) => p.title === t)).filter((p): p is NonNullable<typeof p> => Boolean(p));
   const caseSlugs = Object.fromEntries(cases.map((c) => [c.portfolioTitle, c.slug]));
-  const siblings = page.kind === "service" ? landings.filter((l) => l.parent === page.parent && l.kind === "service" && l.slug !== page.slug) : landings.filter((l) => l.kind === "city" && l.slug !== page.slug);
+  const isCity = page.kind === "city";
+  const isDev = page.topic === "dev";
+  const topicOf = (l: LandingPage) => l.topic ?? "www";
+  const toLink = (l: LandingPage) => ({ href: `/${l.slug}/`, label: landingLabel(l), short: l.eyebrow });
+  // Strony lokalne: ta sama usługa w innych miastach + druga usługa w tym samym mieście.
+  const siblings = !isCity
+    ? landings.filter((l) => l.parent === page.parent && l.kind === "service" && l.slug !== page.slug)
+    : landings.filter((l) => l.kind === "city" && l.slug !== page.slug && topicOf(l) === topicOf(page));
+  const sameCity = isCity ? landings.filter((l) => l.kind === "city" && l.city === page.city && l.slug !== page.slug) : [];
+  const seeAlso = [...sameCity.map(toLink), ...related, ...siblings.map(toLink)]
+    .filter((x, i, arr) => arr.findIndex((y) => y.href === x.href) === i)
+    .slice(0, isCity ? 9 : 6);
+  const ctaTitle = !isCity ? "Masz pytania dotyczące tej usługi?" : isDev ? `Szukasz programisty ${page.cityLocative}?` : `Szukasz firmy od stron internetowych ${page.cityLocative}?`;
+  const faqLead = !isCity
+    ? "Jeśli nie znajdziesz odpowiedzi, napisz – odpowiadamy w ciągu jednego dnia roboczego."
+    : isDev
+      ? `Odpowiedzi na pytania firm ${page.cityLocative ?? ""}, które myślą o programie na zamówienie, automatyzacji albo integracji systemów.`
+      : `Odpowiedzi na pytania firm ${page.cityLocative ?? ""}, które planują stronę lub sklep.`;
 
   const crumbs = parent
     ? [
         { label: "Oferta", href: "/oferta/" },
         { label: parent.name, href: `/${parent.slug}/` },
-        { label: page.kind === "city" ? `Strony internetowe ${page.city}` : page.title, href: `/${page.slug}/` },
+        { label: landingLabel(page), href: `/${page.slug}/` },
       ]
     : [{ label: page.title, href: `/${page.slug}/` }];
 
@@ -134,17 +153,30 @@ export default function LandingView({ page }: { page: LandingPage }) {
         </section>
       )}
 
-      <Faq items={page.faq} lead={page.kind === "city" ? `Odpowiedzi na pytania firm ${page.cityLocative ?? ""}, które planują stronę lub sklep.` : "Jeśli nie znajdziesz odpowiedzi, napisz – odpowiadamy w ciągu jednego dnia roboczego."} />
+      {page.calculator && (
+        <section className="border-t border-line/60 py-16 lg:py-24">
+          <Container>
+            <SectionHeading
+              eyebrow="Czy to się opłaca"
+              title="Policz, ile kosztuje ręczna praca"
+              lead="Ustaw trzy suwaki dla jednej powtarzalnej czynności w firmie. Zobaczysz, ile godzin i pieniędzy pochłania w skali roku – to punkt wyjścia do decyzji, czy warto ją oddać programowi."
+              className="mb-10"
+            />
+            <RoiCalculator />
+          </Container>
+        </section>
+      )}
 
-      {(related.length > 0 || siblings.length > 0) && (
+      {(isDev || page.calculator) && <IntegrationsStrip />}
+
+      <Faq items={page.faq} lead={faqLead} />
+
+      {(seeAlso.length > 0) && (
         <section className="pb-8">
           <Container>
-            <SectionHeading eyebrow="Zobacz także" title={page.kind === "city" ? "Pozostałe lokalizacje" : "Powiązane usługi"} className="mb-8" />
+            <SectionHeading eyebrow="Zobacz także" title={isCity ? "Powiązane usługi i lokalizacje" : "Powiązane usługi"} className="mb-8" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {[...related, ...siblings.map((l) => ({ href: `/${l.slug}/`, label: page.kind === "city" ? `Strony internetowe ${l.city}` : l.title, short: l.eyebrow }))]
-                .filter((x, i, arr) => arr.findIndex((y) => y.href === x.href) === i)
-                .slice(0, 6)
-                .map((r) => (
+              {seeAlso.map((r) => (
                   <Link key={r.href} href={r.href} className="group flex items-start justify-between gap-3 rounded-3xl border border-line bg-ink-2/60 p-5 transition hover:border-cyan/50">
                     <span>
                       <span className="block font-display font-semibold text-snow">{r.label}</span>
@@ -165,7 +197,7 @@ export default function LandingView({ page }: { page: LandingPage }) {
         </Container>
       </section>
 
-      <CtaBand title={page.kind === "city" ? `Szukasz firmy od stron internetowych ${page.cityLocative}?` : "Masz pytania dotyczące tej usługi?"} />
+      <CtaBand title={ctaTitle} />
 
       <JsonLd
         data={{

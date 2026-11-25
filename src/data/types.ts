@@ -34,6 +34,15 @@ export type LandingPage = {
   city?: string;
   /** Miasto w miejscowniku ("w Wieluniu"), tylko dla kind="city" */
   cityLocative?: string;
+  /**
+   * Temat strony lokalnej: "www" (strony internetowe + miasto, domyślnie)
+   * albo "dev" (programista / oprogramowanie na zamówienie + miasto).
+   */
+  topic?: "www" | "dev";
+  /** Krótka etykieta do nawigacji, okruszków i stopki, np. "Programista Wieluń" */
+  navLabel?: string;
+  /** Pokaż kalkulator opłacalności automatyzacji pod treścią */
+  calculator?: boolean;
   /** Frazy kluczowe (pomocniczo, do keywords w meta) */
   keywords: string[];
   /** Tytuły realizacji z src/data/portfolio.ts do pokazania na stronie (3) */

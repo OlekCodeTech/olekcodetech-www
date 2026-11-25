@@ -55,9 +55,9 @@ const orgJsonLd = {
   foundingDate: "2019",
   areaServed: [
     { "@type": "Country", name: "Polska" },
-    ...["Wieluń", "Sieradz", "Wieruszów", "Zduńska Wola", "Łódź", "Wrocław", "Częstochowa"].map((name) => ({ "@type": "City", name })),
+    ...["Wieluń", "Sieradz", "Wieruszów", "Kępno", "Kluczbork", "Zduńska Wola", "Łódź", "Częstochowa", "Wrocław", "Oleśnica", "Oława", "Trzebnica", "Środa Śląska"].map((name) => ({ "@type": "City", name })),
   ],
-  knowsAbout: ["Tworzenie stron internetowych", "Sklepy internetowe WooCommerce", "Aplikacje dedykowane i oprogramowanie na zamówienie", "Systemy CRM na zamówienie", "Aplikacje mobilne React Native", "Aplikacje webowe React i Next.js", "Automatyzacja procesów n8n i Make", "Integracje Microsoft 365 i SharePoint", "SEO techniczne", "Opieka IT dla firm"],
+  knowsAbout: ["Tworzenie stron internetowych", "Sklepy internetowe WooCommerce", "Aplikacje dedykowane i oprogramowanie na zamówienie", "Systemy CRM na zamówienie", "Aplikacje mobilne React Native", "Aplikacje webowe React i Next.js", "Automatyzacja procesów n8n i Make", "Automatyzacja pracy biurowej i raportów", "Sprzedaż i wdrożenia programów InsERT nexo (Subiekt, Rewizor, Rachmistrz, Gratyfikant)", "Wsparcie IT dla biur rachunkowych", "Integracje sklepów internetowych z magazynem, kurierami i Allegro", "Integracje Microsoft 365 i SharePoint", "SEO techniczne", "Opieka IT dla firm"],
   hasMap: site.address.mapsUrl,
 };
 

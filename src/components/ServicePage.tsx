@@ -6,6 +6,8 @@ import { cases } from "@/data/cases";
 import { landingsByParent } from "@/data/landings";
 import { servicesFaq } from "@/data/services-faq";
 import Faq from "./Faq";
+import RoiCalculator from "./RoiCalculator";
+import IntegrationsStrip from "./IntegrationsStrip";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import PageHero from "./PageHero";
@@ -128,6 +130,22 @@ export default function ServicePage({ service }: { service: Service }) {
           </Container>
         </section>
       )}
+
+      {service.slug === "automatyzacja-procesow-biznesowych" && (
+      <section className="border-t border-line/60 py-16 lg:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="Czy to się opłaca"
+            title="Policz, ile kosztuje ręczna praca"
+            lead="Ustaw trzy suwaki dla jednej powtarzalnej czynności w firmie. Zobaczysz, ile godzin i pieniędzy pochłania w skali roku – to punkt wyjścia do decyzji, czy warto ją oddać programowi."
+            className="mb-10"
+          />
+          <RoiCalculator />
+        </Container>
+      </section>
+      )}
+
+      {["automatyzacja-procesow-biznesowych", "integracje-systemow-it", "aplikacje-dedykowane"].includes(service.slug) && <IntegrationsStrip />}
 
       <Faq items={servicesFaq[service.slug] ?? []} lead="Konkretne odpowiedzi na pytania, które słyszymy najczęściej przed rozpoczęciem współpracy." />
 

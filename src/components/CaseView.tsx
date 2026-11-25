@@ -5,7 +5,7 @@ import type { CaseStudy } from "@/data/types";
 import { cases } from "@/data/cases";
 import { portfolio, portfolioTypes } from "@/data/portfolio";
 import { services } from "@/data/services";
-import { landings } from "@/data/landings";
+import { landings, landingLabel } from "@/data/landings";
 import PageHero from "./PageHero";
 import PortfolioGrid from "./PortfolioGrid";
 import Reveal from "./Reveal";
@@ -131,7 +131,7 @@ export default function CaseView({ item }: { item: CaseStudy }) {
                     <li key={l.slug}>
                       <Link href={`/${l.slug}/`} className="inline-flex items-center gap-2 text-body hover:text-cyan">
                         <ArrowRight className="h-4 w-4 text-cyan/70" />
-                        {l.kind === "city" ? `Strony internetowe ${l.city}` : l.title}
+                        {landingLabel(l)}
                       </Link>
                     </li>
                   ))}

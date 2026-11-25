@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { FacebookIcon, InstagramIcon } from "./SocialIcons";
 import { nav, site } from "@/data/site";
 import { services } from "@/data/services";
-import { cityLandings } from "@/data/landings";
+import { cityLandings, devCityLandings, insertLandings } from "@/data/landings";
 import { Container } from "./ui";
 import Newsletter from "./Newsletter";
 
@@ -106,7 +106,33 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-line/60 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <nav aria-label="Programista lokalnie" className="mt-12 border-t border-line/60 pt-8">
+          <h3 className="text-lg">Oprogramowanie na zamówienie lokalnie</h3>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5">
+            {devCityLandings.map((l) => (
+              <li key={l.slug}>
+                <Link href={`/${l.slug}/`} className="text-body transition hover:text-cyan">
+                  {l.navLabel}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Programy InsERT" className="mt-8">
+          <h3 className="text-lg">Partner InsERT – programy nexo i wsparcie dla księgowości</h3>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5">
+            {insertLandings.map((l) => (
+              <li key={l.slug}>
+                <Link href={`/${l.slug}/`} className="text-body transition hover:text-cyan">
+                  {l.navLabel ?? l.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="mt-10 flex flex-col gap-3 border-t border-line/60 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} OlekCodeTech. Wszelkie prawa zastrzeżone.</p>
           <div className="flex gap-5">
             <Link href="/privacy-policy/" className="hover:text-cyan">

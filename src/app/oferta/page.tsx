@@ -10,7 +10,7 @@ import { CooperationModels, Industries, OfferCatalogJsonLd, TechStack, offerFaq 
 import Faq from "@/components/Faq";
 import { Button, CheckList, Container, Eyebrow, SectionHeading } from "@/components/ui";
 import { services } from "@/data/services";
-import { landingsByParent, cityLandings } from "@/data/landings";
+import { landingsByParent, cityLandings, devCityLandings } from "@/data/landings";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -100,6 +100,17 @@ export default function OfferPage() {
               <li key={l.slug}>
                 <Link href={`/${l.slug}/`} className="inline-flex items-center gap-1 rounded-pill border border-line/80 px-4 py-2 font-display text-sm font-semibold text-body transition hover:border-cyan hover:text-cyan">
                   {l.city}
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <h3 className="mt-10 text-xl sm:text-2xl">Programista i oprogramowanie na zamówienie w Twoim mieście</h3>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {devCityLandings.map((l) => (
+              <li key={l.slug}>
+                <Link href={`/${l.slug}/`} className="inline-flex items-center gap-1 rounded-pill border border-line/80 px-4 py-2 font-display text-sm font-semibold text-body transition hover:border-cyan hover:text-cyan">
+                  {l.navLabel}
                   <ChevronRight className="h-3.5 w-3.5" />
                 </Link>
               </li>
