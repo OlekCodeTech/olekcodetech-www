@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Mail, MapPin, Phone, Building2 } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, Mail, MapPin, Phone, Building2 } from "lucide-react";
 import { services, type Service } from "@/data/services";
 import { site, stats as defaultStats, values } from "@/data/site";
 import { Button, Card, CheckList, Container, Eyebrow, SectionHeading } from "./ui";
@@ -50,7 +50,17 @@ export function ServicesGrid({ compact }: { compact?: boolean }) {
             {!compact && (
               <>
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-muted">{s.homeScopeLabel}</p>
-                <CheckList items={s.homeScope} className="mt-3" />
+                <CheckList items={s.homeScope.slice(0, 3)} className="mt-3" />
+                {s.homeScope.length > 3 && (
+                  <details className="group mt-2.5">
+                    <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-semibold text-muted transition hover:text-cyan [&::-webkit-details-marker]:hidden">
+                      <span className="group-open:hidden">Rozwiń pełny zakres (+{s.homeScope.length - 3})</span>
+                      <span className="hidden group-open:inline">Zwiń</span>
+                      <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                    </summary>
+                    <CheckList items={s.homeScope.slice(3)} className="mt-2.5" />
+                  </details>
+                )}
               </>
             )}
             <Link href={`/${s.slug}/`} className="mt-auto inline-flex items-center gap-2 pt-6 font-display font-semibold text-cyan hover:text-cyan-2">

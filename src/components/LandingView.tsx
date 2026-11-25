@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, MapPin, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, MapPin, Phone } from "lucide-react";
 import type { LandingPage } from "@/data/types";
 import { getService, services } from "@/data/services";
 import { landings, landingLabel, insertLandings } from "@/data/landings";
@@ -50,7 +50,7 @@ export default function LandingView({ page }: { page: LandingPage }) {
   const sameCity = isCity ? landings.filter((l) => l.kind === "city" && l.city === page.city && l.slug !== page.slug) : [];
   const seeAlso = [...sameCity.map(toLink), ...related, ...siblings.map(toLink)]
     .filter((x, i, arr) => arr.findIndex((y) => y.href === x.href) === i)
-    .slice(0, isCity ? 9 : 6);
+    .slice(0, 6);
   const ctaTitle = !isCity ? "Masz pytania dotyczące tej usługi?" : isDev ? `Szukasz programisty ${page.cityLocative}?` : `Szukasz firmy od stron internetowych ${page.cityLocative}?`;
   const faqLead = !isCity
     ? "Jeśli nie znajdziesz odpowiedzi, napisz – odpowiadamy w ciągu jednego dnia roboczego."
@@ -130,7 +130,17 @@ export default function LandingView({ page }: { page: LandingPage }) {
                   <div id={slugify(s.title)} className="scroll-mt-28" />
                   <h2 className="text-2xl sm:text-3xl">{s.title}</h2>
                   <p className="mt-4 text-body sm:text-lg">{s.text}</p>
-                  {s.bullets && <CheckList items={s.bullets} className="mt-5" />}
+                  {s.bullets && <CheckList items={s.bullets.slice(0, 3)} className="mt-5" />}
+                  {s.bullets && s.bullets.length > 3 && (
+                    <details className="group mt-2.5">
+                      <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-sm font-semibold text-muted transition hover:text-cyan [&::-webkit-details-marker]:hidden">
+                        <span className="group-open:hidden">Rozwiń szczegóły (+{s.bullets.length - 3})</span>
+                        <span className="hidden group-open:inline">Zwiń</span>
+                        <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                      </summary>
+                      <CheckList items={s.bullets.slice(3)} className="mt-2.5" />
+                    </details>
+                  )}
                 </Card>
               </Reveal>
             ))}
