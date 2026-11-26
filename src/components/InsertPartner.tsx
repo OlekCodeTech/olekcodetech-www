@@ -34,7 +34,7 @@ export default function InsertPartner() {
       <Container>
         <Reveal>
           <div className="grid items-center gap-10 rounded-[2rem] border border-line/70 bg-ink-2/70 p-6 sm:p-10 lg:grid-cols-12 lg:gap-14 lg:p-14">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-8">
               <Eyebrow className="mb-4">Partner InsERT</Eyebrow>
               <h2 className="text-balance text-3xl sm:text-4xl lg:text-5xl">Programy InsERT nexo z wdrożeniem i integracją</h2>
               <p className="mt-5 text-base leading-relaxed text-body sm:text-lg">
@@ -68,22 +68,17 @@ export default function InsertPartner() {
               </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="flex min-h-28 flex-col items-center justify-center rounded-3xl border border-line bg-snow p-6">
-                {logo ? (
-                  <>
-                    <Image src={logo} alt="InsERT – logo producenta programów nexo" width={300} height={100} className="h-24 w-auto" unoptimized />
-                    <p className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-ink/70">Partner InsERT</p>
-                  </>
-                ) : (
-                  <p className="text-center font-display text-2xl font-semibold tracking-tight text-ink">
-                    Partner InsERT
-                    <span className="mt-1 block text-sm font-medium tracking-normal text-ink/60">sprzedaż · wdrożenia · integracje</span>
-                  </p>
-                )}
-              </div>
-              {/* Oficjalny baner InsERT – moduł producenta, osadzony bez zmian (wymóg sieci partnerskiej). */}
-              <div className="mt-4 flex justify-center overflow-hidden rounded-3xl border border-line bg-ink/60 p-3">
+            {/* Jedna karta partnera: logo InsERT i pod nim oficjalny baner producenta (moduł osadzony bez zmian – wymóg sieci partnerskiej). */}
+            <div className="lg:col-span-4 lg:justify-self-end">
+              <div className="mx-auto w-[300px] max-w-full overflow-hidden rounded-3xl border border-line bg-snow shadow-[0_30px_80px_-40px_rgba(8,251,250,0.35)]">
+                <div className="flex flex-col items-center px-6 pb-4 pt-5">
+                  {logo ? (
+                    <Image src={logo} alt="InsERT – logo producenta programów nexo" width={300} height={100} className="h-16 w-auto" unoptimized />
+                  ) : (
+                    <p className="font-display text-2xl font-semibold tracking-tight text-ink">InsERT</p>
+                  )}
+                  <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-ink/70">Partner InsERT</p>
+                </div>
                 <iframe
                   id="insert_aktualna_promocja_rectangle"
                   name="insert_aktualna_promocja_rectangle"
@@ -93,9 +88,10 @@ export default function InsertPartner() {
                   height={250}
                   loading="lazy"
                   scrolling="no"
-                  style={{ border: 0, maxWidth: "100%" }}
+                  style={{ border: 0, display: "block", maxWidth: "100%" }}
                 />
               </div>
+              <p className="mx-auto mt-3 w-[300px] max-w-full text-center text-xs text-muted">Aktualna promocja producenta. Zakup i wdrożenie zrealizujesz u nas.</p>
             </div>
           </div>
         </Reveal>
