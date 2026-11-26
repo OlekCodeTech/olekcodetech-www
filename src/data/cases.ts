@@ -7,6 +7,54 @@ import type { CaseStudy } from "./types";
  */
 export const cases: CaseStudy[] = [
   {
+    slug: "drobud-strona-nextjs-i-wizytowka-google-firmy-wykonczeniowej",
+    client: "DroBud",
+    title: "Strona w Next.js, SEO lokalne i wizytówka Google dla firmy wykończeniowej DroBud",
+    metaTitle: "DroBud – strona Next.js i SEO lokalne | Case study",
+    metaDescription:
+      "Strona w Next.js dla firmy wykończeniowej DroBud z Wielunia: filmy z realizacji, wycena z plikami, rezerwacja osuszaczy i sprzątania, landingi 11 miast, wizytówka Google i materiały firmowe.",
+    portfolioTitle: "DroBud – kompleksowe wykończenia",
+    image: "/images/portfolio/DroBud-case.webp",
+    url: "https://drobudwielun.pl/",
+    type: "strona",
+    industry: "Wykończenia wnętrz",
+    location: "Wieluń",
+    year: "2026",
+    summary:
+      "DroBud to firma z Wielunia, która wykańcza domy i mieszkania pod klucz – od sufitów i gładzi po łazienki, gres i panele – a do tego wynajmuje osuszacze i sprząta po zakończeniu prac. Firma miała dużą społeczność na Facebooku i TikToku, ale w wyszukiwarce zamiast strony pokazywał się profil na Facebooku. Zbudowaliśmy stronę w Next.js z filmami z realizacji, formularzem wyceny i rezerwacją online, rozbudowane treści pod frazy lokalne, a następnie uporządkowaliśmy wizytówkę Google i przygotowaliśmy materiały firmowe.",
+    challenge: [
+      "Klienci DroBud trafiają z Wielunia i miejscowości w promieniu około 50 km, więc strona musiała odpowiadać na wyszukiwania „wykończenia wnętrz + miasto” bez tworzenia podstron, które konkurują ze sobą w Google. Właściciel chciał też pokazać jak najwięcej filmów z budów, przyjmować projekty do wyceny z plikami i dać klientom możliwość wstępnej rezerwacji osuszaczy i sprzątania.",
+      "Dochodziły zasady komunikacji firmy: bez słowa „remont” (firma mówi o kompleksowych wykończeniach), bez usług, których nie oferuje, i bez zdjęć z podpisami. Wizytówka Google miała tylko kilka zdjęć, stary opis i Facebooka zamiast strony.",
+    ],
+    scope: [
+      "Strona w Next.js (statyczny eksport) w kolorach logo: hero z filmem, 10 usług z ikonami klienta, realizacje (najpierw filmy, potem zdjęcia), zespół, opinie przeniesione z Facebooka, wyróżnienie Mistrzowie Budownictwa 2026 i artykuł prasowy.",
+      "Formularz wyceny z przesyłaniem projektów i zdjęć, formularz kontaktowy oraz kalendarz wstępnej rezerwacji wykończenia, osuszaczy i sprzątania – wysyłka przez PHP na hostingu, z ochroną przed spamem.",
+      "Oferty pracy z formularzem i CV oraz danymi strukturalnymi JobPosting, popup z sezonową ofertą sprzątania przed świętami.",
+      "SEO lokalne: rozbudowane opisy usług z FAQ, 11 landingów miast z unikalnymi tekstami i rozdzielonymi frazami (strona główna, Wieluń, pozostałe miasta i usługi celują w inne zapytania), blog z poradnikami, dane strukturalne firmy, usług i FAQ.",
+      "Filmy z realizacji skompresowane i ładowane dopiero po kliknięciu, baner Open Graph do udostępnień, favicon z sygnetu firmy.",
+      "Baner zgody na cookies z zapisem wyboru – mapa Google ładuje się dopiero po zgodzie – oraz pełna polityka prywatności.",
+      "Wdrożenie na Hostingerze: domena główna i dwie domeny dodatkowe z przekierowaniem 301, SSL, skrzynka firmowa i rekord SPF dla formularzy, weryfikacja i mapa strony w Google Search Console.",
+      "Wizytówka Google: nowy opis, strona zamiast Facebooka, obszar działania, dodatkowe kategorie i usługi, nowe logo, zdjęcia i filmy z realizacji, grafiki do wpisów oraz link i karta z kodem QR do zbierania opinii.",
+      "Materiały firmowe: papier firmowy (DOCX i PDF), szablon wyceny w Excelu z cennikiem i wyliczeniem VAT, kody QR do strony.",
+    ],
+    stack: [
+      "Next.js 16 (statyczny eksport)",
+      "React",
+      "Tailwind CSS 4",
+      "PHP (formularze)",
+      "Python (grafiki i materiały)",
+      "Google Business Profile",
+      "Google Search Console",
+      "Hostinger",
+    ],
+    results: [
+      "Strona działa pod adresem drobudwielun.pl od 25 listopada 2026 roku i jest zgłoszona do indeksowania w Google. Wyceny, rezerwacje i zgłoszenia do pracy trafiają na firmową skrzynkę, a wizytówka Google prowadzi już do nowej strony.",
+      "Treści, realizacje i ogłoszenia rozwijamy w kodzie strony, a kolejne wpisy w wizytówce Google publikujemy według przygotowanego planu – z naciskiem na zbieranie opinii od klientów.",
+    ],
+    services: ["stronywww-aplikacje", "seo-content-marketing"],
+    landings: ["strony-internetowe-wielun", "strony-internetowe-dla-firm", "aplikacje-webowe-react-nextjs"],
+  },
+  {
     slug: "kancelaria-adwokacka-szk-strona-i-identyfikacja",
     client: "Kancelaria Adwokacka SZK",
     title:
