@@ -51,10 +51,10 @@ export default function Hero() {
           className="hero-in mt-8 inline-flex items-center gap-3 rounded-pill border border-line/80 bg-ink-2/60 py-1.5 pl-4 pr-1.5 text-sm text-body transition hover:border-cyan/60 hover:text-snow"
           style={{ animationDelay: "300ms" }}
         >
-          Partner handlowy
+          Partner
           <span className="inline-flex items-center rounded-pill bg-snow px-3 py-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/partners/insert-partner.svg`} alt="InsERT" width={72} height={24} className="h-6 w-auto" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/images/partners/insert-partner.svg`} alt="Partner InsERT" width={72} height={24} className="h-6 w-auto" />
           </span>
         </Link>
 
