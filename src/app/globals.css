@@ -137,3 +137,56 @@ html.js .reveal.is-visible {
 
 /* reCAPTCHA v3: plakietka ukryta – w formularzu jest wymagana przez Google informacja tekstowa */
 .grecaptcha-badge { visibility: hidden !important; }
+
+/* ---------- Suwaki kalkulatora ---------- */
+.oct-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 1.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+.oct-range::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-cyan) var(--fill, 0%), var(--color-line) var(--fill, 0%));
+}
+.oct-range::-moz-range-track {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-line);
+}
+.oct-range::-moz-range-progress {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-cyan);
+}
+.oct-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: -0.5rem;
+  border-radius: 999px;
+  background: var(--color-snow);
+  border: 3px solid var(--color-cyan);
+  box-shadow: 0 0 0 4px rgba(8, 251, 250, 0.15);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.oct-range::-moz-range-thumb {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 999px;
+  background: var(--color-snow);
+  border: 3px solid var(--color-cyan);
+  box-shadow: 0 0 0 4px rgba(8, 251, 250, 0.15);
+}
+.oct-range:hover::-webkit-slider-thumb,
+.oct-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 7px rgba(8, 251, 250, 0.22);
+  transform: scale(1.05);
+}
+.oct-range:focus-visible {
+  outline: none;
+}

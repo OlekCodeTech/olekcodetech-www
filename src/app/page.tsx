@@ -9,7 +9,6 @@ import { AboutTeaser, BlogTeaser, CtaBand, KeywordMarquee, Process, ServicesGrid
 import { FeatureTiles, ShowcaseTile, Statement } from "@/components/home";
 import { Button, Container, SectionHeading } from "@/components/ui";
 import { portfolio } from "@/data/portfolio";
-import RoiCalculator from "@/components/RoiCalculator";
 import InsertPartner from "@/components/InsertPartner";
 import { site } from "@/data/site";
 import { getAllPosts } from "@/lib/posts";
@@ -72,17 +71,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16 lg:py-24">
-        <Container>
-          <SectionHeading
-            eyebrow="Czy to się opłaca"
-            title="Policz, ile kosztuje ręczna praca"
-            lead="Ustaw trzy suwaki dla jednej powtarzalnej czynności w firmie. Zobaczysz, ile godzin i pieniędzy pochłania w skali roku – to punkt wyjścia do decyzji, czy warto ją oddać programowi."
-            className="mb-10"
-          />
-          <RoiCalculator />
-        </Container>
-      </section>
 
       <AboutTeaser />
       <Process />
