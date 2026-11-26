@@ -68,7 +68,7 @@ export default function InsertPartner() {
               </div>
             </div>
 
-            {/* Jedna karta partnera: logo InsERT i pod nim oficjalny baner producenta (moduł osadzony bez zmian – wymóg sieci partnerskiej). */}
+            {/* Jedna karta partnera: logo InsERT i pod nim oficjalny baner producenta (wymóg sieci partnerskiej). */}
             <div className="lg:col-span-4 lg:justify-self-end">
               <div className="mx-auto w-[300px] max-w-full overflow-hidden rounded-3xl border border-line bg-snow shadow-[0_30px_80px_-40px_rgba(8,251,250,0.35)]">
                 <div className="flex flex-col items-center px-6 pb-4 pt-5">
@@ -79,19 +79,12 @@ export default function InsertPartner() {
                   )}
                   <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-ink/70">Partner InsERT</p>
                 </div>
-                <iframe
-                  id="insert_aktualna_promocja_rectangle"
-                  name="insert_aktualna_promocja_rectangle"
-                  title="InsERT – aktualna promocja"
-                  src="https://bannery.insert.com.pl/aktualna_promocja_rectangle"
-                  width={300}
-                  height={250}
-                  loading="lazy"
-                  scrolling="no"
-                  style={{ border: 0, display: "block", maxWidth: "100%" }}
-                />
+                {/* Oficjalna grafika InsERT trzymana u nas (moduł z serwera reklamowego wycinają blokery reklam); odnośnik producenta zachowany. */}
+                <a href="https://pobierz.insert.com.pl" target="_blank" rel="noopener" className="block">
+                  <Image src="/images/partners/insert-demo.png" alt="InsERT – wersja demo programów dla firm, 45 dni za darmo, obsługa KSeF" width={300} height={250} className="block h-auto w-full" unoptimized />
+                </a>
               </div>
-              <p className="mx-auto mt-3 w-[300px] max-w-full text-center text-xs text-muted">Aktualna promocja producenta. Zakup i wdrożenie zrealizujesz u nas.</p>
+              <p className="mx-auto mt-3 w-[300px] max-w-full text-center text-xs text-muted">Wypróbuj programy InsERT za darmo. Zakup i wdrożenie zrealizujesz u nas.</p>
             </div>
           </div>
         </Reveal>
